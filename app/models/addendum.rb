@@ -1,0 +1,2 @@
+class Addendum < ApplicationRecord
+end

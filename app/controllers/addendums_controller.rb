@@ -1,0 +1,2 @@
+class AddendumsController < ApplicationController
+end

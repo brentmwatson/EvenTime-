@@ -1,3 +1,39 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+*{
+    box-sizing: border-box;
+    // border: 1px dashed gray;
+}
+body, img {
+    width: 100%;
+}
+
+.singleItemNavBar {
+    list-style-type: none;
+    // margin: 0 0 20px 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    li {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+    }
+    li:hover {
+    background-color: rgb(140, 41, 116);
+    }
+    li img{
+        width:400px;
+        height: 80px;
+    }
+    .navtitle {
+
+    }
+    .cart {
+        float: right;
+    }
+}

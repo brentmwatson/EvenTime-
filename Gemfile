@@ -37,8 +37,12 @@ gem 'sinatra', github: 'sinatra/sinatra'
 gem "refile", require: "refile/rails", github: 'refile/refile'
 gem "refile-mini_magick"
 gem 'refile-postgres', '~> 1.4'
+gem "refile-s3"
+
 gem 'devise'
+# for launch to Heroku STILL STEP DOWN RAILS
 gem 'rails_12factor', group: :production
+gem 'cancancan', '~> 1.15'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module EvenTime
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
+    config.active_record.schema_format = :sql
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   end

@@ -65,6 +65,7 @@ ALTER SEQUENCE addendums_id_seq OWNED BY addendums.id;
 
 
 --
+<<<<<<< HEAD
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -99,6 +100,8 @@ ALTER SEQUENCE addresses_id_seq OWNED BY addresses.id;
 
 
 --
+=======
+>>>>>>> 3b6ff5bf87d20f87d6fcb71420a93d5eeef9d161
 -- Name: agreements; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -236,6 +239,7 @@ ALTER TABLE ONLY addendums ALTER COLUMN id SET DEFAULT nextval('addendums_id_seq
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+<<<<<<< HEAD
 ALTER TABLE ONLY addresses ALTER COLUMN id SET DEFAULT nextval('addresses_id_seq'::regclass);
 
 
@@ -243,6 +247,8 @@ ALTER TABLE ONLY addresses ALTER COLUMN id SET DEFAULT nextval('addresses_id_seq
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+=======
+>>>>>>> 3b6ff5bf87d20f87d6fcb71420a93d5eeef9d161
 ALTER TABLE ONLY agreements ALTER COLUMN id SET DEFAULT nextval('agreements_id_seq'::regclass);
 
 
@@ -269,6 +275,7 @@ ALTER TABLE ONLY addendums
 
 
 --
+<<<<<<< HEAD
 -- Name: addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -277,6 +284,8 @@ ALTER TABLE ONLY addresses
 
 
 --
+=======
+>>>>>>> 3b6ff5bf87d20f87d6fcb71420a93d5eeef9d161
 -- Name: agreements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -357,6 +366,10 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 SET search_path TO "$user", public;
 
+<<<<<<< HEAD
 INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547');
+=======
+INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732');
+>>>>>>> 3b6ff5bf87d20f87d6fcb71420a93d5eeef9d161
 
 

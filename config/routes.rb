@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   resources :addresses
   resources :agreements
   resources :addendums
+
+  # UNCOMMENT
+  # devise_for :users, controllers: {
+  #   sessions: 'users/sessions'
+  # }
+  #***********
+
   # root to: "home#index"
   # devise_for :users
   # static routes for React

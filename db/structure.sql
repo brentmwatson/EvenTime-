@@ -65,7 +65,6 @@ ALTER SEQUENCE addendums_id_seq OWNED BY addendums.id;
 
 
 --
-<<<<<<< HEAD
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -100,8 +99,6 @@ ALTER SEQUENCE addresses_id_seq OWNED BY addresses.id;
 
 
 --
-=======
->>>>>>> 3b6ff5bf87d20f87d6fcb71420a93d5eeef9d161
 -- Name: agreements; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -145,6 +142,40 @@ CREATE TABLE ar_internal_metadata (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
+
+
+--
+-- Name: contacts; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE contacts (
+    id integer NOT NULL,
+    f_name character varying,
+    l_name character varying,
+    phone_num character varying,
+    role character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE contacts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE contacts_id_seq OWNED BY contacts.id;
 
 
 --
@@ -239,7 +270,6 @@ ALTER TABLE ONLY addendums ALTER COLUMN id SET DEFAULT nextval('addendums_id_seq
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-<<<<<<< HEAD
 ALTER TABLE ONLY addresses ALTER COLUMN id SET DEFAULT nextval('addresses_id_seq'::regclass);
 
 
@@ -247,9 +277,14 @@ ALTER TABLE ONLY addresses ALTER COLUMN id SET DEFAULT nextval('addresses_id_seq
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-=======
->>>>>>> 3b6ff5bf87d20f87d6fcb71420a93d5eeef9d161
 ALTER TABLE ONLY agreements ALTER COLUMN id SET DEFAULT nextval('agreements_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq'::regclass);
 
 
 --
@@ -275,7 +310,6 @@ ALTER TABLE ONLY addendums
 
 
 --
-<<<<<<< HEAD
 -- Name: addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -284,8 +318,6 @@ ALTER TABLE ONLY addresses
 
 
 --
-=======
->>>>>>> 3b6ff5bf87d20f87d6fcb71420a93d5eeef9d161
 -- Name: agreements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -299,6 +331,14 @@ ALTER TABLE ONLY agreements
 
 ALTER TABLE ONLY ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY contacts
+    ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
 
 
 --
@@ -366,10 +406,6 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 SET search_path TO "$user", public;
 
-<<<<<<< HEAD
-INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547');
-=======
-INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732');
->>>>>>> 3b6ff5bf87d20f87d6fcb71420a93d5eeef9d161
+INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341');
 
 

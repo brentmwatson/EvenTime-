@@ -179,6 +179,38 @@ ALTER SEQUENCE contacts_id_seq OWNED BY contacts.id;
 
 
 --
+-- Name: events; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE events (
+    id integer NOT NULL,
+    theme character varying,
+    attendance integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: events_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE events_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE events_id_seq OWNED BY events.id;
+
+
+--
 -- Name: refile_attachments; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -291,6 +323,13 @@ ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY events ALTER COLUMN id SET DEFAULT nextval('events_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY refile_attachments ALTER COLUMN id SET DEFAULT nextval('refile_attachments_id_seq'::regclass);
 
 
@@ -339,6 +378,14 @@ ALTER TABLE ONLY ar_internal_metadata
 
 ALTER TABLE ONLY contacts
     ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: events_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT events_pkey PRIMARY KEY (id);
 
 
 --
@@ -406,6 +453,6 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341');
+INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650');
 
 

@@ -331,11 +331,11 @@ CREATE TABLE vendors (
     id integer NOT NULL,
     service character varying,
     agreement_id integer,
-    milestone_id integer,
     contact_id integer,
     address_id integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    milestone_id integer
 );
 
 
@@ -356,6 +356,39 @@ CREATE SEQUENCE vendors_id_seq
 --
 
 ALTER SEQUENCE vendors_id_seq OWNED BY vendors.id;
+
+
+--
+-- Name: venues; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE venues (
+    id integer NOT NULL,
+    address_id integer,
+    agreement_id integer,
+    vendor_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: venues_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE venues_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: venues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE venues_id_seq OWNED BY venues.id;
 
 
 --
@@ -419,6 +452,13 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 --
 
 ALTER TABLE ONLY vendors ALTER COLUMN id SET DEFAULT nextval('vendors_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY venues ALTER COLUMN id SET DEFAULT nextval('venues_id_seq'::regclass);
 
 
 --
@@ -510,6 +550,14 @@ ALTER TABLE ONLY vendors
 
 
 --
+-- Name: venues_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY venues
+    ADD CONSTRAINT venues_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: index_refile_attachments_on_namespace; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -573,6 +621,27 @@ CREATE INDEX index_vendors_on_milestone_id ON vendors USING btree (milestone_id)
 
 
 --
+-- Name: index_venues_on_address_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_venues_on_address_id ON venues USING btree (address_id);
+
+
+--
+-- Name: index_venues_on_agreement_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_venues_on_agreement_id ON venues USING btree (agreement_id);
+
+
+--
+-- Name: index_venues_on_vendor_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_venues_on_vendor_id ON venues USING btree (vendor_id);
+
+
+--
 -- Name: fk_rails_21da0462b1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -610,4 +679,6 @@ ALTER TABLE ONLY vendors
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423');
+INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423'), ('20161130202406'), ('20161130213031');
+
+

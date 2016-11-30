@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :milestones
+=======
+  resources :vendors
+>>>>>>> f7273427a0259fb00d2771bb825800ade1a75527
   resources :events
   resources :contacts
   resources :addresses

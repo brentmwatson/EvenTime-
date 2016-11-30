@@ -324,6 +324,41 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
+-- Name: vendors; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE vendors (
+    id integer NOT NULL,
+    service character varying,
+    agreement_id integer,
+    milestone_id integer,
+    contact_id integer,
+    address_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: vendors_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE vendors_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: vendors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE vendors_id_seq OWNED BY vendors.id;
+
+
+--
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -377,6 +412,13 @@ ALTER TABLE ONLY refile_attachments ALTER COLUMN id SET DEFAULT nextval('refile_
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY vendors ALTER COLUMN id SET DEFAULT nextval('vendors_id_seq'::regclass);
 
 
 --
@@ -460,6 +502,14 @@ ALTER TABLE ONLY users
 
 
 --
+-- Name: vendors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY vendors
+    ADD CONSTRAINT vendors_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: index_refile_attachments_on_namespace; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -495,11 +545,75 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 
 --
+-- Name: index_vendors_on_address_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_vendors_on_address_id ON vendors USING btree (address_id);
+
+
+--
+-- Name: index_vendors_on_agreement_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_vendors_on_agreement_id ON vendors USING btree (agreement_id);
+
+
+--
+-- Name: index_vendors_on_contact_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_vendors_on_contact_id ON vendors USING btree (contact_id);
+
+
+--
+-- Name: index_vendors_on_milestone_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_vendors_on_milestone_id ON vendors USING btree (milestone_id);
+
+
+--
+-- Name: fk_rails_21da0462b1; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY vendors
+    ADD CONSTRAINT fk_rails_21da0462b1 FOREIGN KEY (milestone_id) REFERENCES milestones(id);
+
+
+--
+-- Name: fk_rails_b5ec0f31eb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY vendors
+    ADD CONSTRAINT fk_rails_b5ec0f31eb FOREIGN KEY (agreement_id) REFERENCES agreements(id);
+
+
+--
+-- Name: fk_rails_bc4c7a340a; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY vendors
+    ADD CONSTRAINT fk_rails_bc4c7a340a FOREIGN KEY (contact_id) REFERENCES contacts(id);
+
+
+--
+-- Name: fk_rails_ec5c065c00; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY vendors
+    ADD CONSTRAINT fk_rails_ec5c065c00 FOREIGN KEY (address_id) REFERENCES addresses(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
+<<<<<<< HEAD
 INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334');
+=======
+INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423');
+>>>>>>> f7273427a0259fb00d2771bb825800ade1a75527
 
 

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vendor</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <nav>
+    <div class="container-fluid mainNav">
+      <div class="row">
+        <div class="col-sm-6 text-left">
+          <ul class="list-unstyled list-inline">
+            <li>EvenTime</li>
+            <li>Checklist</li>
+            <li>Agreement</li>
+            <li>Vendor Info</li>
+            <li>Timeline</li>
+            <li>Budget</li>
+          </ul>
+        </div>
+        <div class="col-sm-6 text-right">
+          <ul class="list-unstyled list-inline pull-right">
+            <li><div class="form-group"> <button class="btn btn-default">Log Out</button>
+            </div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="leftSummary">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h1>Summary</h1>
+                    <hr />
+                    <h4>180 days left</h4>
+                    <h4> progress bar....</h4>
+                    <h4>3 out of 100 tasks done</h4>
+                    <h4>Completed Todos</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- left summary panel-->
+        <div class="col-sm-9">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <h1>Vendor List</h1>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-6 text-right">
+                  <h3>Spring Hall</h3>
+                </div>
+                <div class="col-sm-6 text-left">
+                  <h3>Venue</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 text-right">
+                  <h5>678-313-7098</h5>
+                </div>
+                <div class="col-sm-2 text-left">
+                  <h5>Atlanta </h5>
+                </div>
+                <div class="col-sm-1 text-left">
+                  <h5>GA </h5>
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <h5>springhallgf@gmail.com</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 text-right">
+                  <h5>Contact: </h5>
+                </div>
+                <div class="col-sm-3 text-left">
+                  <h5>Jack Barber</h5>
+                </div>
+                <div class="col-sm-3">
+                  <div class="form-group"> <button class="btn btn-default pull-right">delete</button>
+                  </div>
+                </div>
+
+              </div>
+              <hr />
+<!-- start of collapsed field -->
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Add a Business
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-sm-6 text-left">
+                              <div class="form-group">
+                                <label for="username">Business Name</label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter Business Name" required>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 text-left">
+                              <div class="form-group">
+                                <label for="vendorCat">Category</label>
+                                <select class="form-control" name="vendorCat" id="vendorCat">
+                                  <option>Venue</option>
+                                  <option>Ceremony</option>
+                                  <option>Caterer</option>
+                                  <option>Cake</option>
+                                  <option>DJ</option>
+                                  <option>Band</option>
+                                  <option>Decorator</option>
+                                  <option>Florist</option>
+                                  <option>Event Planner</option>
+                                  <option>Photographer</option>
+                                  <option>Videographer</option>
+                                  <option>Other</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6 text-left">
+                              <div class="form-group">
+                                <label for="username">Phone Number</label>
+                                <input type="text" class="form-control" id="username" placeholder="(xxx)-(xxx)-(xxxx)" maxLength="10" required>
+                              </div>
+                            </div>
+                            <div class="col-sm-3 text-left">
+                              <div class="form-group">
+                                <label for="username"> City</label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter city" required>
+                              </div>
+                            </div>
+                            <div class="col-sm-3 text-left">
+                              <div class="form-group">
+                                <label for="username"> State </label>
+                                <input type="text" class="form-control" id="username" placeholder="IN" maxlength="2" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-12 text-left">
+                              <div class="form-group">
+                                <label for="username"> Email</label>
+                                <input type="email" class="form-control" id="username" placeholder="Enter email" >
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6 text-left">
+                              <div class="form-group">
+                                <label for="username"> Contact Name</label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter Contact Name" required>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group"> <button class="btn btn-default pull-right">Add Business</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- container end row -->
+    </div>   <!-- container end div -->
+  </main>
+
+  <footer>
+    <div class="container-fluid footer-container">
+      <div class="row">
+        <div class="col-sm-6">
+
+          <a href="https://www.facebook.com/ironandglory/"><i class="fa fa-facebook-official fa-2x footerIcons" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/ironandglory"><i class="fa fa-twitter-square fa-2x footerIcons" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/ironandglory/"><i class="fa fa-instagram fa-2x footerIcons" aria-hidden="true"></i></a>
+          <a href="https://www.pinterest.com/ironandglorynyc/?etslf=1612&eq=iron%20glory"><i class="fa fa-pinterest-square fa-2x footerIcons" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/user/Ironpatches"><i class="fa fa-youtube-square fa-2x footerIcons" aria-hidden="true"></i></a>
+        </div>
+        <div class="col-sm-2">
+          <h4>About</h4>
+          <Link to="/About"><h6>About</h6></Link>
+        </div>
+        <div class="col-sm-2">
+          <h4>Contact</h4>
+          <Link to="/Contact"><h6>Contact</h6></Link>
+        </div>
+        <div class="col-sm-2">
+          <h4>Legal</h4>
+          <Link to="/Legal"><h6>Privacy & Security</h6></Link>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- Scripts go here. -->
+
+  <!-- <script type="text/javascript" src="js/global.js"></script> -->
+</body>
+</html>

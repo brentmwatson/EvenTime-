@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :milestones
   resources :vendors
   resources :events
   resources :contacts

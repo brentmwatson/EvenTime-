@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   resources :addresses
-=======
   resources :agreements
->>>>>>> 3b6ff5bf87d20f87d6fcb71420a93d5eeef9d161
   resources :addendums
   # root to: "home#index"
   # devise_for :users

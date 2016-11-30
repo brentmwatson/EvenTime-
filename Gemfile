@@ -44,8 +44,10 @@ gem "refile-s3"
 gem 'pry', '~> 0.10.4'
 # For users use devise
 gem 'devise'
+gem 'simple_token_authentication', '~> 1.0' # see semver.org
 # for launch to Heroku STILL STEP DOWN RAILS
 gem 'rails_12factor', group: :production
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -25,18 +25,27 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'sass-rails', '>= 3.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 gem 'webpack-rails'
+
 gem 'sinatra', github: 'sinatra/sinatra'
 gem "refile", require: "refile/rails", github: 'refile/refile'
 gem "refile-mini_magick"
 gem 'refile-postgres', '~> 1.4'
+gem "refile-s3"
+
+#for debugging
+gem 'pry', '~> 0.10.4'
+# For users use devise
 gem 'devise'
+# for launch to Heroku STILL STEP DOWN RAILS
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  acts_as_token_authenticatable
-
   # Note: you can include any module you want. If available,
   # token authentication will be performed before any other
   # Devise authentication method.
@@ -13,5 +11,5 @@ class User < ActiveRecord::Base
 
   ## Token Authenticatable
   acts_as_token_authenticatable
-  field :authentication_token
+  :authentication_token
 end

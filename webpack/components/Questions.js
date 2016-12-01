@@ -4,7 +4,7 @@ import Nav from './Nav'
 import Footer from './Footer'
 import Leftbar from './Leftbar'
 
-class Home extends React.Component {
+class Questions extends React.Component {
     constructor(props){
         super(props)
     }
@@ -22,7 +22,7 @@ class Home extends React.Component {
                       <div className="panel-body">
                         <div className="row">
                           <div className="col-sm-12">
-                            <h1>Home Page</h1>
+                            <h1>Questions</h1>
                             <hr />
                             <h4>How to use the feature blurb......</h4>
                             <p>
@@ -48,4 +48,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home
+export default Questions

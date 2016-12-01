@@ -615,6 +615,13 @@ CREATE INDEX index_vendors_on_contact_id ON vendors USING btree (contact_id);
 
 
 --
+-- Name: index_vendors_on_milestone_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_vendors_on_milestone_id ON vendors USING btree (milestone_id);
+
+
+--
 -- Name: index_venues_on_address_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -633,6 +640,14 @@ CREATE INDEX index_venues_on_agreement_id ON venues USING btree (agreement_id);
 --
 
 CREATE INDEX index_venues_on_vendor_id ON venues USING btree (vendor_id);
+
+
+--
+-- Name: vendors fk_rails_21da0462b1; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY vendors
+    ADD CONSTRAINT fk_rails_21da0462b1 FOREIGN KEY (milestone_id) REFERENCES milestones(id);
 
 
 --

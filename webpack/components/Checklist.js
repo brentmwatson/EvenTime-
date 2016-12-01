@@ -44,13 +44,13 @@ class Checklist extends React.Component {
                                                                     <div className="row">
                                                                         <div className="col-sm-9">
                                                                             <div className="form-group">
-                                                                                <label for="notes">Notes:</label>
+                                                                                <label htmlFor="notes">Notes:</label>
                                                                                 <textarea className="form-control" rows="3" id="notes"></textarea>
                                                                             </div>
                                                                         </div>
                                                                         <div className="col-sm-3">
                                                                             <div className="form-group">
-                                                                                <label for="businessName"> Business Name</label>
+                                                                                <label htmlFor="businessName"> Business Name</label>
                                                                                 <input type="text" className="form-control" id="businessName" placeholder="Enter Business Name" required/>
                                                                             </div>
                                                                         </div>
@@ -68,13 +68,14 @@ class Checklist extends React.Component {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <hr />
-                                                        <div className="panel-body">
-                                                            <div className="row">
-                                                                <div className="col-sm-12">
-                                                                    <h4>Add New Todo</h4>
                                                                 </div>
                                                             </div>
+                                                            <div className="panel panel-default">
+                                                            <div className="panel-body">
+                                                                <div className="row">
+                                                                    <div className="col-sm-12">
+                                                                        <h4>Add New Todo</h4>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>

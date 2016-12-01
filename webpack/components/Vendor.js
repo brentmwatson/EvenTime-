@@ -82,13 +82,13 @@ class Vendor extends React.Component {
                                     <div className="row">
                                       <div className="col-sm-6 text-left">
                                         <div className="form-group">
-                                          <label for="username">Business Name</label>
+                                          <label htmlFor="username">Business Name</label>
                                           <input type="text" className="form-control" id="username" placeholder="Enter Business Name" required/>
                                         </div>
                                       </div>
                                       <div className="col-sm-6 text-left">
                                         <div className="form-group">
-                                          <label for="vendorCat">Category</label>
+                                          <label htmlFor="vendorCat">Category</label>
                                           <select className="form-control" name="vendorCat" id="vendorCat">
                                             <option>Venue</option>
                                             <option>Ceremony</option>
@@ -109,27 +109,27 @@ class Vendor extends React.Component {
                                     <div className="row">
                                       <div className="col-sm-6 text-left">
                                         <div className="form-group">
-                                          <label for="username">Phone Number</label>
+                                          <label htmlFor="username">Phone Number</label>
                                           <input type="text" className="form-control" id="username" placeholder="(xxx)-(xxx)-(xxxx)" maxLength="10" required/>
                                         </div>
                                       </div>
                                       <div className="col-sm-3 text-left">
                                         <div className="form-group">
-                                          <label for="username"> City</label>
+                                          <label htmlFor="username"> City</label>
                                           <input type="text" className="form-control" id="username" placeholder="Enter city" required/>
                                         </div>
                                       </div>
                                       <div className="col-sm-3 text-left">
                                         <div className="form-group">
-                                          <label for="username"> State </label>
-                                          <input type="text" className="form-control" id="username" placeholder="IN" maxlength="2" required/>
+                                          <label htmlFor="username"> State </label>
+                                          <input type="text" className="form-control" id="username" placeholder="IN" maxLength="2" required/>
                                         </div>
                                       </div>
                                     </div>
                                     <div className="row">
                                       <div className="col-sm-12 text-left">
                                         <div className="form-group">
-                                          <label for="username"> Email</label>
+                                          <label htmlFor="username"> Email</label>
                                           <input type="email" className="form-control" id="username" placeholder="Enter email" />
                                         </div>
                                       </div>
@@ -137,7 +137,7 @@ class Vendor extends React.Component {
                                     <div className="row">
                                       <div className="col-sm-6 text-left">
                                         <div className="form-group">
-                                          <label for="username"> Contact Name</label>
+                                          <label htmlFor="username"> Contact Name</label>
                                           <input type="text" className="form-control" id="username" placeholder="Enter Contact Name" required/>
                                         </div>
                                       </div>

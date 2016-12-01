@@ -42,7 +42,8 @@ CREATE TABLE addendums (
     id integer NOT NULL,
     notes character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    agreement_id integer
 );
 
 
@@ -220,7 +221,10 @@ CREATE TABLE milestones (
     date character varying,
     note character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    event_id integer,
+    venue_id integer,
+    vendor_id integer
 );
 
 
@@ -559,6 +563,34 @@ ALTER TABLE ONLY venues
 
 
 --
+-- Name: index_addendums_on_agreement_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_addendums_on_agreement_id ON addendums USING btree (agreement_id);
+
+
+--
+-- Name: index_milestones_on_event_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_milestones_on_event_id ON milestones USING btree (event_id);
+
+
+--
+-- Name: index_milestones_on_vendor_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_milestones_on_vendor_id ON milestones USING btree (vendor_id);
+
+
+--
+-- Name: index_milestones_on_venue_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_milestones_on_venue_id ON milestones USING btree (venue_id);
+
+
+--
 -- Name: index_refile_attachments_on_namespace; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -651,6 +683,22 @@ ALTER TABLE ONLY vendors
 
 
 --
+-- Name: milestones fk_rails_309f980052; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY milestones
+    ADD CONSTRAINT fk_rails_309f980052 FOREIGN KEY (venue_id) REFERENCES venues(id);
+
+
+--
+-- Name: milestones fk_rails_51b0896111; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY milestones
+    ADD CONSTRAINT fk_rails_51b0896111 FOREIGN KEY (vendor_id) REFERENCES vendors(id);
+
+
+--
 -- Name: vendors fk_rails_b5ec0f31eb; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -667,6 +715,14 @@ ALTER TABLE ONLY vendors
 
 
 --
+-- Name: addendums fk_rails_cdd7608198; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY addendums
+    ADD CONSTRAINT fk_rails_cdd7608198 FOREIGN KEY (agreement_id) REFERENCES agreements(id);
+
+
+--
 -- Name: vendors fk_rails_ec5c065c00; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -675,11 +731,19 @@ ALTER TABLE ONLY vendors
 
 
 --
+-- Name: milestones fk_rails_f82bbe8cc2; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY milestones
+    ADD CONSTRAINT fk_rails_f82bbe8cc2 FOREIGN KEY (event_id) REFERENCES events(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423'), ('20161130202406'), ('20161130213031');
+INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423'), ('20161130202406'), ('20161130213031'), ('20161130222450'), ('20161130224243');
 
 

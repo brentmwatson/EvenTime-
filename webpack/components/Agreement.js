@@ -36,11 +36,11 @@ class Agreement extends React.Component {
                             <div className="form-group">
                               <div className="row">
                                 <div className="col-sm-6">
-                                  <label for="photo">Add PDF files</label>
+                                  <label htmlFor="photo">Add PDF files</label>
                                   <input type="file" id="fileUploader" value="" name="fileUploader" className="form-control"/>
                                 </div>
                                 <div className="col-sm-6">
-                                  <label for="agreementCat">Category</label>
+                                  <label htmlFor="agreementCat">Category</label>
                                   <select className="form-control" name="agreementCat" id="agreementCat">
                                     <option>Venue</option>
                                     <option>Ceremony</option>

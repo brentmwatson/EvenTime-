@@ -6,7 +6,7 @@ class Footer extends React.Component {
         super(props)
     }
     render(){
-        return (
+        return (<div>
             <div className="container-fluid footer-container">
               <div className="row">
                 <div className="col-sm-6">
@@ -30,6 +30,7 @@ class Footer extends React.Component {
                 <Link to="/Legal"><h6>Privacy & Security</h6></Link>
                 </div>
               </div>
+            </div>
             </div>
         )
     }

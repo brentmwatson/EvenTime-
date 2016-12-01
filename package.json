@@ -1,16 +1,15 @@
 {
   "name": "webpack-rails-example",
   "version": "0.0.1",
-  "license": "MIT",
+  "license": "ISC",
   "description": "React App",
   "main": "/js/global.js",
   "repository": "https://github.com/brentmwatson/EvenTime-.git",
   "scripts": {
-      "start": "webpack-dev-server",
-      "build": "webpack"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "TIY",
-  "license": "ISC",
   "devDependencies": {
     "stats-webpack-plugin": "^0.2.1",
     "webpack": "^1.9.11",
@@ -37,6 +36,7 @@
   },
   "dependencies": {
     "moment": "^2.15.2",
-    "momentjs": "^2.0.0"
+    "momentjs": "^2.0.0",
+    "react-datepicker": "^0.34.0"
   }
 }

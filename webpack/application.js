@@ -6,6 +6,7 @@ import Agreement from './components/Agreement'
 import Questions from './components/Questions'
 import Checklist from './components/Checklist'
 import Vendor from './components/Vendor'
+import Addtheme from './components/Addtheme'
 
 
 document.addEventListener('DOMContentLoaded', function(event) {
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             <Route path="/event/questions" component={Questions} />
             <Route path="/event/checklist" component={Checklist} />
             <Route path="/event/vendor" component={Vendor} />
+            <Route path="/event/theme" component={Addtheme} />
 
         </Router>
         ,document.getElementById('app')

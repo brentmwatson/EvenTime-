@@ -52,7 +52,7 @@ class Vendor extends React.Component {
                           </div>
                         </div>
                         <div className="row">
-                          <div className="col-sm-6 text-right">
+                          <div className="col-sm-6 text-right text-muted">
                             <h5>Contact: </h5>
                           </div>
                           <div className="col-sm-3 text-left">

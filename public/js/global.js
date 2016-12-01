@@ -14,7 +14,7 @@ function fireAjaxPost() {
         password: password.value,
         //add auth_token to send to rails
     }
-    console.log(formData)
+    //console.log(formData)
         fetch(signup_path,{
             body: JSON.stringify({
                 formData
@@ -27,7 +27,7 @@ function fireAjaxPost() {
         .then(response => response.json())
         .then(response => {
         window.location.href= 'index.html.erb'
-        console.log(response)
+        //console.log(response)
     })
     }
 
@@ -49,6 +49,7 @@ function fireAjaxPost() {
 //     body: JSON.stringify({
 //       username: username.value,
 //       password: password.value
+//
 //     }),
 //     method: 'POST',
 //     headers: {
@@ -58,9 +59,8 @@ function fireAjaxPost() {
 //
 //   .then(response => response.json())
 //   .then(response => {
-//
-//     sessionStorage.setItem('api_token', response.user.api_token)
-//     sessionStorage.setItem('user', JSON.stringify(response.user))
-//     window.location.href= './event/home'
+//       sessionStorage.setItem('api_token', response.user.api_token)
+//       sessionStorage.setItem('user', JSON.stringify(response.user))
+//       window.location.href= './event/home'
 //   });
 // });

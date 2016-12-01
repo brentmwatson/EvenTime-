@@ -51,6 +51,17 @@ body, img {
 .addFileBtn {
   margin-top: 10px;
 }
+
+.panel-body {
+    transition: all 0.3s ease;
+}
+
+.panel-body-collapse {
+    height: 0;
+    opacity: 0;
+    padding: 0;
+}
+
 .footer-container{
     background: gray;
     color: white;

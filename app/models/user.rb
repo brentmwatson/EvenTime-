@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable
 
-  # ...
+  ## Token Authenticatable
+  acts_as_token_authenticatable
+  field :authentication_token
 end

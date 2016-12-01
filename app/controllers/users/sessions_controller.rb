@@ -1,7 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
 
   before_action :configure_sign_in_params, only: [:create]
-                :require_no_authentication, :only => [:create ]
+  before_action :require_no_authentication, :only => [:create ]
 
   include Devise::Controllers::InternalHelpers
 

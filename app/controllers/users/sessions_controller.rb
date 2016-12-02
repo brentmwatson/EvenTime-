@@ -32,7 +32,7 @@ skip_before_action :require_no_authentication
   protected
   def ensure_params_exist
     return unless params[:email].blank?
-    render :json=>{:success=>false, :message=>"Missing email parameter"}, :status=>422
+    render :json=>{:success=>false, :message=>"Missing email"}, :status=>422
   end
 
   def invalid_login_attempt

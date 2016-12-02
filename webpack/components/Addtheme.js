@@ -33,9 +33,8 @@ class Addtheme extends React.Component {
                                 <div className="panel-body">
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            <h1>Let's create a theme!</h1>
+                                            <h1>Let's create your event!!!</h1>
                                             <hr />
-                                            <h4>How to use the feature blurb......</h4>
                                             <label htmlFor="theme">Pick a theme</label>
                                             <select className="form-control" name="theme" id="theme">
                                               <option>Reception</option>
@@ -51,6 +50,9 @@ class Addtheme extends React.Component {
                                             </div>
                                             <h4>Let's get started</h4>
                                             <h4><div className="form-group"><Link to="/event/questions"> <button className="btn btn-default">+ create your event</button></Link>
+                                        </div></h4>
+                                            <h4>link to questions</h4>
+                                            <h4><div className="form-group"><Link to="/event/questions"> <button className="btn btn-default">link to questions</button></Link>
                                         </div></h4>
                                     </div>
                                 </div>

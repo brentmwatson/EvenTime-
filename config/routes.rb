@@ -1,24 +1,25 @@
 Rails.application.routes.draw do
-  resources :milestones
-  resources :vendors
-  resources :events
-  resources :contacts
-  resources :addresses
-  resources :agreements
-  resources :addendums
-
+#for AJAX request
+scope 'api' do
+    resources :milestones
+    resources :vendors
+    resources :events
+    resources :contacts
+    resources :addresses
+    resources :agreements
+    resources :addendums
+end
 
   devise_for :users, controllers: {
       sessions: 'users/sessions',
       registrations: 'users/registrations'
   }
 
-
-  # root to: "home#index"
-  # devise_for :users
   # static routes for React
   get 'static/index'
   root 'static#index'
+  get '/:whatever/(:id)' => 'static#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get '/:react' => 'welcome/index'
 

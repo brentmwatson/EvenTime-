@@ -4,7 +4,7 @@ var email = document.querySelector('#suEmail')
 var password = document.querySelector('#suPassword')
 var password_confirmation = document.querySelector('#suConfirmPassword')
 var api_token = sessionStorage.getItem('api_token');
-var signup_path = '';
+var signup_path = 'localhost5000:/users/sign_in';
 var uploadSignup = document.querySelector('#suButton')
 
 uploadSignup.addEventListener('click', fireAjaxPost)

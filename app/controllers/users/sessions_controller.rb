@@ -1,9 +1,9 @@
 class Users::SessionsController < Devise::SessionsController
 
-  before_action :configure_sign_in_params, only: [:create]
-  before_action :require_no_authentication, :only => [:create ]
-
-  include Devise::Controllers::InternalHelpers
+#  before_action :configure_sign_in_params, only: [:create]
+#  before_action :require_no_authentication, :only => [:create ]
+skip_before_action :require_no_authentication
+#  include Devise::Controllers::InternalHelpers
 
   before_filter :ensure_params_exist
   respond_to :json
@@ -13,13 +13,13 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def create
-    build_resource
-    resource = User.find_for_database_authentication(:login=>params[:email][:password][:authentication_token])
+    # build_resource
+    resource = User.find_for_database_authentication(:email=>params[:email])
     return invalid_login_attempt unless resource
 
-    if resource.valid_password?(params[:email][:password][:authentication_token])
+    if resource.valid_password?(params[:password])
       sign_in("user", resource)
-      render :json=> {:success=>true, :auth_token=>resource.authentication_token, :login=>resource.login, :email=>resource.email}
+      render :json=> {:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email}
       return
     end
     invalid_login_attempt

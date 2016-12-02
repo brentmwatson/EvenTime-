@@ -1,10 +1,9 @@
-console.log("hello")
+console.log("hello! sign up here")
 //signup
 var email = document.querySelector('#suEmail')
 var password = document.querySelector('#suPassword')
 var password_confirmation = document.querySelector('#suConfirmPassword')
-var api_token = sessionStorage.getItem('api_token');
-var signup_path = 'localhost5000:/users/sign_in';
+var signup_path = '/users';
 var uploadSignup = document.querySelector('#suButton')
 
 uploadSignup.addEventListener('click', fireAjaxPost)
@@ -17,9 +16,7 @@ function fireAjaxPost() {
     }
     console.log(formData)
         fetch(signup_path,{
-            body: JSON.stringify({
-                formData
-            }),
+            body: JSON.stringify({user: formData}),
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -27,41 +24,9 @@ function fireAjaxPost() {
         })
         .then(response => response.json())
         .then(response => {
-        window.location.href= 'index.html.erb'
-        //console.log(response)
-    })
+            console.log(response)
+            sessionStorage.setItem('email',response.email)
+            sessionStorage.setItem('authentication_token',response.authentication_token)
+            window.location.href= '/'
+        })
     }
-
-//sign in
-//
-// var login = document.querySelector('#siButton'); //May need to remove and just use Upload
-// var suEmail = document.querySelector('#siEmail');
-// var password = document.querySelector('#sIPsw');
-//
-// //Step 3 - Create function to handle signin event
-// login.addEventListener('click', ()=> {
-//   console.log('Press Enter to login')
-//   // var formData = {
-//   //   username: email.value,
-//   //   password: password.value,
-//   // };
-//   // console.log(formData)
-//   fetch('', {
-//     body: JSON.stringify({
-//       username: username.value,
-//       password: password.value
-//
-//     }),
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }
-//   })
-//
-//   .then(response => response.json())
-//   .then(response => {
-//       sessionStorage.setItem('api_token', response.user.api_token)
-//       sessionStorage.setItem('user', JSON.stringify(response.user))
-//       window.location.href= './event/home'
-//   });
-// });

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import moment from 'moment'
+var DatePicker = require('react-datepicker');
 
 class Leftbar extends React.Component {
   constructor(props){

@@ -1,6 +1,9 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "variables";
+@import "mixins";
+@import "datepicker";
 
 *{
     box-sizing: border-box;
@@ -11,16 +14,12 @@ body, img {
 }
 
 .indexNavBar {
-    //list-style-type: none;
     padding: 0;
     overflow: hidden;
     background-color: #333;
     margin-bottom: 20px;
     li {
-      //  float: right;
-      //  display: block;
         color: white;
-        //text-align: center;
         padding: 14px 16px;
     }
 }
@@ -61,6 +60,8 @@ body, img {
     opacity: 0;
     padding: 0;
 }
+
+
 
 .footer-container{
     background: gray;

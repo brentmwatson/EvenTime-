@@ -5,7 +5,7 @@ class Users::SessionsController < Devise::SessionsController
 skip_before_action :require_no_authentication
 #  include Devise::Controllers::InternalHelpers
 
-  before_filter :ensure_params_exist
+#  before_filter :ensure_params_exist
   respond_to :json
 
   # GET /resource/sign_in

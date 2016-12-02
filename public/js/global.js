@@ -2,6 +2,7 @@ console.log("hello")
 //signup
 var email = document.querySelector('#suEmail')
 var password = document.querySelector('#suPassword')
+var password_confirmation = document.querySelector('#suConfirmPassword')
 var api_token = sessionStorage.getItem('api_token');
 var signup_path = '';
 var uploadSignup = document.querySelector('#suButton')
@@ -12,9 +13,9 @@ function fireAjaxPost() {
     var formData = {
         email: email.value,
         password: password.value,
-        //add auth_token to send to rails
+        password_confirmation: password_confirmation.value,
     }
-    //console.log(formData)
+    console.log(formData)
         fetch(signup_path,{
             body: JSON.stringify({
                 formData

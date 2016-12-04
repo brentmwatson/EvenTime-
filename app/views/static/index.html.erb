@@ -14,23 +14,21 @@
   <div class="container-fluid indexNavBar">
     <div class="row">
       <div class="col-sm-6 text-left">
-        <ul class="list-unstyled list-inline">
-          <li class="navTitle text-left">EvenTime</li>
+        <ul class="list-unstyled list-inline text-left">
+          <li>EvenTime</li>
         </ul>
       </div>
       <div class="col-sm-6 text-right">
         <ul class="list-unstyled list-inline">
           <li>Story</li>
           <li>Inspire</li>
-          <li><div class="form-group"> <button class="btn btn-default" data-toggle="modal" data-target="#logInwithModal">Log In</button>
+          <li><div class="form-group"><button class="btn btn-default" data-toggle="modal" data-target="#logInwithModal">Sign In</button>
           </div></li>
-          <li><div class="form-group"> <button class="btn btn-default" data-toggle="modal" data-target="#signUpwithModal">Sign Up</button></li>
+          <li><div class="form-group"><button class="btn btn-default" data-toggle="modal" data-target="#signUpwithModal">Sign Up</button></div></li>
           </ul>
-        </div>
-      </div><!--header row div-->
-    </div>
-  </div>
-</div>
+      </div> <!-- end div col-sm-6-->
+    </div> <!--header row div-->
+  </div><!--container div end-->
 
 <!-- Modal for log in -->
 <div class="modal fade" id="logInwithModal" role="dialog">
@@ -40,28 +38,27 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 style="color:#9E1F63;"> Login</h4>
+        <h4 style="color:#9E1F63;"> Sign In</h4>
       </div>
       <div class="modal-body">
         <form role="form">
           <div class="form-group">
-            <label for="sIEmail"></span> Email</label>
+            <label for="siEmail">Email</label>
             <input type="text" class="form-control" id="siEmail" placeholder="Enter email">
           </div>
           <div class="form-group">
-            <label for="sIPsw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+            <label for="sIPsw">Password</label>
             <input type="password" class="form-control" id="sIPsw" placeholder="Enter password">
           </div>
           <button type="button" id="siButton" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Sign In</button>
         </form>
-      </div>
+      </div> <!-- end div for modal-body  -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+        <button type="button" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+      </div> <!-- end div for modal-footer -->
+    </div> <!-- end div for modal content -->
+  </div> <!-- end div for modal-header -->
+</div> <!-- end div for modal-fade -->
 <!-- end of modal for log in -->
 
 <!-- Modal for Sign Up -->
@@ -76,25 +73,10 @@
       </div>
       <div class="modal-body">
         <form role="form">
-          <!-- <div class="row">
-          <div class="col-md-6">
-          <div class="form-group">
-          <label for="firstname"> First Name</label>
-          <input type="text" class="form-control" id="firstname" placeholder="Enter First Name" required>
-        </div>
-      </div>
-      <div class="col-md-6">
-
-      <div class="form-group">
-      <label for="lastname"> Last Name</label>
-      <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" required>
-    </div>
-  </div>
-</div> -->
 <div class="row">
   <div class="col-md-12">
     <div class="form-group">
-      <label for="username"> Email</label>
+      <label for="email"> Email</label>
       <input type="text" class="form-control" id="suEmail" placeholder="Enter email" required>
     </div>
   </div>
@@ -102,69 +84,27 @@
 <div class="row">
   <div class="col-md-6">
     <div class="form-group">
-      <label for="psw"> Password</label>
-      <input type="password" class="form-control" id="suPassword" placeholder="Enter password" >
+      <label for="password"> Password</label>
+      <input type="password" class="form-control" id="suPassword" placeholder="Enter password" required>
     </div>
   </div>
   <div class="col-md-6">
     <div class="form-group">
-      <label for="psw"> Confirm Password</label>
-      <input type="password" class="form-control" id="suConfirmPassword" placeholder="Enter password">
-    </div>
-  </div>
-</div>
-<!-- <div class="form-group">
-<label for="street"> Street Name</label>
-<input type="text" class="form-control" id="street" placeholder="Enter Street Address" required>
-</div>
-<div class="row">
-<div class="col-md-6">
-<div class="form-group">
-<label for="city"> City</label>
-<input type="text" class="form-control" id="city" placeholder="Enter City" required>
-</div>
-</div>
-<div class="col-md-6">
-<div class="form-group">
-<label for="state"> State</label>
-<input type="text" class="form-control" id="state" placeholder="IN" maxLength="2" required>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-6">
-<div class="form-group">
-<label for="zip"> Zip</label>
-<input type="text" class="form-control" id="zip" placeholder="Enter zip" maxLength="5" required>
-</div>
-</div> -->
-<!-- <div class="col-md-6">
-<div class="form-group">
-<label for="phone">Phone Number </label>
-<input type="text" id="phone" name="phone" class="form-control" placeholder="(xxx)-(xxx)-(xxxx)" maxLength="10" required />
-</div>
-</div>
-</div> -->
-<!-- <div class="form-group">
-<label for="role">Who am I?</label>
-<select class="form-control" name="role" id="role">
-<option>Planning the Event</option>
-<option>Vendor</option>
-<option>Venue</option>
-<option>Other</option>
-</select>
-</div> -->
+      <label for="conPassword"> Confirm Password</label>
+      <input type="password" class="form-control" id="suConfirmPassword" placeholder="Enter password" required>
+    </div> <!-- end of forom-group -->
+  </div> <!-- end div col-md-6 -->
+</div> <!-- end div of row -->
 
 <button type="button" id="suButton" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Sign Up!</button>
 </form>
-</div>
+</div> <!-- end of modal-body -->
 <div class="modal-footer">
   <button type="button" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div> <!-- end div for modal-footer -->
+</div> <!-- end div for modal-content -->
+</div><!-- end div for modal-dialog -->
+</div> <!-- end div for sign up with modal -->
 <!-- end of modal for Sign uo -->
 
 <!-- Start of carousel -->
@@ -236,6 +176,7 @@
     </div>
   </div>
 </div>
+
 <footer>
   <div class="container-fluid footer-container">
     <div class="row">
@@ -249,15 +190,15 @@
       </div>
       <div class="col-sm-2">
         <h4>About</h4>
-        <Link to="/About"><h6>About</h6></Link>
+        <h6>About</h6>
       </div>
       <div class="col-sm-2">
         <h4>Contact</h4>
-        <Link to="/Contact"><h6>Contact</h6></Link>
+        <h6>Contact</h6>
       </div>
       <div class="col-sm-2">
         <h4>Legal</h4>
-        <Link to="/Legal"><h6>Privacy & Security</h6></Link>
+        <h6>Privacy & Security</h6>
       </div>
     </div>
   </div>

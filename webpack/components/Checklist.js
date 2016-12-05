@@ -24,9 +24,7 @@ class Checklist extends React.Component {
                                     <div className="col-sm-12">
                                         <h1>Master CheckList</h1>
                                         <hr />
-                                        {/* <!-- Begin ChecklistItem component... -> */}
                                        <ChecklistItem />
-                                        {/* <!-- End ChecklistItem component... -> */}
                                         <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                             <div className="panel panel-default">
                                                 <div className="panel-heading" role="tab" id="headingOne">

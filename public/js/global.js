@@ -1,6 +1,5 @@
 console.log("hello! sign up here")
 //signup
-
 var signup_path = '/users';
 var uploadSignup = document.querySelector('#suButton')
 
@@ -28,6 +27,6 @@ function fireAjaxPost() {
             console.log(response)
             sessionStorage.setItem('email',response.email)
             sessionStorage.setItem('authentication_token',response.authentication_token)
-             window.location.href= '/home'
+            window.location.href= '/home'
         })
     }

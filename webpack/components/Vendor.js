@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import Nav from './Nav'
 import Footer from './Footer'
 import Leftbar from './Leftbar'
+import VendorSingle from './VendorSingle'
 
 class Vendor extends React.Component {
     constructor(props){
@@ -18,52 +19,10 @@ class Vendor extends React.Component {
                     <Leftbar />
                   </div>
                   <div className="col-sm-9">
+
                     <div className="panel panel-default">
                       <div className="panel-body">
-                        <div className="row">
-                          <div className="col-sm-12 text-center">
-                            <h1>Vendor List</h1>
-                          </div>
-                        </div>
-                        <hr />
-                        <div className="row">
-                          <div className="col-sm-6 text-right">
-                            <h3>Spring Hall</h3>
-                          </div>
-                          <div className="col-sm-6 text-left">
-                            <h3>Venue</h3>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-sm-6 text-right">
-                            <h5>678-313-7098</h5>
-                          </div>
-                          <div className="col-sm-2 text-left">
-                            <h5>Atlanta </h5>
-                          </div>
-                          <div className="col-sm-1 text-left">
-                            <h5>GA </h5>
-                          </div>
-
-                        </div>
-                        <div className="row">
-                          <div className="col-sm-12 text-center">
-                            <h5>springhallgf@gmail.com</h5>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="col-sm-6 text-right text-muted">
-                            <h5>Contact: </h5>
-                          </div>
-                          <div className="col-sm-3 text-left">
-                            <h5>Jack Barber</h5>
-                          </div>
-                          <div className="col-sm-3">
-                            <div className="form-group"> <button className="btn btn-default pull-right">delete</button>
-                            </div>
-                          </div>
-
-                        </div>
+                        <VendorSingle />
                         <hr />
 
                         <div className="row">

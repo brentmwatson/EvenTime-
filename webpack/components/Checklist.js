@@ -4,12 +4,16 @@ import Nav from './Nav'
 import Footer from './Footer'
 import Leftbar from './Leftbar'
 import ChecklistItem from './ChecklistItem'
+import moment from 'moment'
+var DatePicker = require('react-datepicker');
 
 class Checklist extends React.Component {
     constructor(props){
         super(props)
     }
     render(){
+
+
         return (<div>
             <Nav />
             <div className="container">

@@ -1,13 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router'
-
+import moment from 'moment'
+var DatePicker = require('react-datepicker');
 
 class ChecklistItem extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            cakeOrdered: false
+            cakeOrdered: false,
+            startDate: moment()
         }
+    }
+    handleChange(date) {
+    this.setState({
+      startDate: date
+    });
     }
     render(){
         return (<div>
@@ -24,6 +31,7 @@ class ChecklistItem extends React.Component {
                             <div className="col-sm-11">
                                 <h4>Order Cake</h4>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -37,39 +45,34 @@ class ChecklistItem extends React.Component {
                         </div>
                         <div className="col-sm-3">
                             <div className="form-group">
-                                <label htmlFor="checklistCat">Category</label>
+                                <label htmlFor="checklistCat">Vendor</label>
                                 <select className="form-control" name="checklistCat" id="checklistCat">
-                                    <option>Venue</option>
-                                    <option>Ceremony</option>
-                                    <option>Caterer</option>
-                                    <option>Cake</option>
-                                    <option>DJ</option>
-                                    <option>Band</option>
-                                    <option>Decorator</option>
-                                    <option>Florist</option>
-                                    <option>Event Planner</option>
-                                    <option>Photographer</option>
-                                    <option>Videographer</option>
-                                    <option>Other</option>
+                                    <option>Spring Hall</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-sm-6">
+                        <div className="col-sm-3">
                             <button className="btn btn-default">Submit</button>
-                            <div className="col-sm-3">
+                        </div>
+                        <div className="col-sm-3">
+                            <DatePicker
+                                    selected={this.state.startDate}
+                                    onChange={this.handleChange.bind(this)} />
+                        </div>
+                        <div className="col-sm-1 pull-right">
+                            <i className="fa fa-trash fa-2x" aria-hidden="true"></i>
+                        </div>
+                            <div className="col-sm-1 pull-right">
                                 <i className="fa fa-pencil fa-2x" aria-hidden="true"></i>
                             </div>
-                            <div className="col-sm-3">
-                                <i className="fa fa-trash fa-2x" aria-hidden="true"></i>
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <!-- End ChecklistItem component... -> */}
-        </div>
+
     )
 }
 }

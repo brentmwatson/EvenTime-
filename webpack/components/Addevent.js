@@ -3,8 +3,10 @@ import { Link } from 'react-router'
 var DatePicker = require('react-datepicker');
 import moment from 'moment'
 import Nav from './Nav'
+import NavNewuser from './NavNewuser'
 import Footer from './Footer'
 import Leftbar from './Leftbar'
+import AddeventLeftbar from './AddeventLeftbar'
 
 class Addevent extends React.Component {
     constructor(props){
@@ -20,13 +22,14 @@ class Addevent extends React.Component {
     }
 
     render(){
+
         return (<div>
-            <Nav />
+            <NavNewuser />
             <main>
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-3">
-                            <Leftbar />
+                            <AddeventLeftbar />
                         </div>
                         <div className="col-sm-9">
                             <div className="panel panel-default">
@@ -44,16 +47,12 @@ class Addevent extends React.Component {
                                                     <h4>When is the date of the event?</h4>
                                                     <DatePicker
                                                             selected={this.state.startDate}
-                                                            onChange={this.handleChange.bind(this)}
-                                                          />
+                                                            onChange={this.handleChange.bind(this)} />
                                                 </div>
                                             </div>
-                                            <h4>Let's get started</h4>
-                                            <div className="form-group"><Link to="/event/questions"> <button className="btn btn-default">+ create your event</button></Link>
+                                            <h4>Almost there!</h4>
+                                            <div className="form-group"><Link to="/event/questions"> <button className="btn btn-default">Submit</button></Link>
                                         </div>
-                                            <h4>link to questions</h4>
-                                            <h4><div className="form-group"><Link to="/event/questions"> <button className="btn btn-default">link to questions</button></Link>
-                                        </div></h4>
                                     </div>
                                 </div>
                             </div>

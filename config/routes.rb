@@ -16,9 +16,9 @@ end
   }
 
   # static routes for React
-  get 'static/index'
-  root 'static#index'
-  get '/:whatever/(:id)' => 'static#index'
+  # get 'static/index'
+  root 'static#home'
+  get '/:catchall/(:id)' => 'static#catchall'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get '/:react' => 'welcome/index'

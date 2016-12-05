@@ -1,4 +1,9 @@
 class StaticController < ApplicationController
-    def index
+    def home
+        render layout: false, template: 'static/index.html'
+    end
+
+    def catchall
+        render template: 'static/static.html'
     end
 end

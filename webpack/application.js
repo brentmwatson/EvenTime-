@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
             <Route path="/event/checklist" component={Checklist} />
             <Route path="/event/vendor" component={Vendor} />
             <Route path="/event/addevent" component={Addevent} />
-
         </Router>
         ,document.getElementById('app')
     )

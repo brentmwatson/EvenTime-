@@ -1,4 +1,4 @@
-console.log("hello! sign in here test12")
+console.log("hello! sign in: test12@gmail.com, pw: theironyard")
 var login = document.querySelector('#siButton');
 var email = document.querySelector('#siEmail');
 var password = document.querySelector('#sIPsw');

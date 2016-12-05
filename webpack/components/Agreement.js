@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import Nav from './Nav'
 import Footer from './Footer'
+import AgreementLeftbar from './AgreementLeftbar'
 
 class Agreement extends React.Component {
     constructor(props){
@@ -16,15 +17,7 @@ class Agreement extends React.Component {
                   <div className="col-sm-3">
                     <div className="panel panel-default">
                       <div className="panel-body">
-                        <div className="leftAgreeFiles">
-                          <div className="row">
-                            <div className="col-sm-12">
-                              <h1>Files</h1>
-                              <hr />
-                              <h4>Venue</h4>
-                            </div>
-                          </div>
-                        </div>
+                        <AgreementLeftbar />
                       </div>
                     </div>
                   </div>

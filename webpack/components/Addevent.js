@@ -6,7 +6,7 @@ import Nav from './Nav'
 import Footer from './Footer'
 import Leftbar from './Leftbar'
 
-class Addtheme extends React.Component {
+class Addevent extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -68,4 +68,4 @@ class Addtheme extends React.Component {
 }
 }
 
-export default Addtheme
+export default Addevent

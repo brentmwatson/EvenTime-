@@ -28,22 +28,22 @@ class Questions extends React.Component {
                                     <hr />
                                     <div className="panel panel-default">
                                         <div className="panel-heading">
-                                            <div class="row">
-                                                <div class="col-sm-2">
+                                            <div className="row">
+                                                <div className="col-sm-2">
                                                     <h4>#1</h4>
                                                 </div>
-                                                <div class="col-sm-8">
+                                                <div className="col-sm-8">
                                                     <h4>the question</h4>
                                                 </div>
-                                                <div class="col-sm-1">
-                                                    <div class="checkbox">
+                                                <div className="col-sm-1">
+                                                    <div className="checkbox">
                                                         <label>
                                                             <input type="checkbox" value=""/>
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-1">
-                                                    <div class="checkbox">
+                                                <div className="col-sm-1">
+                                                    <div className="checkbox">
                                                         <label>
                                                             <input type="checkbox" value=""/>
                                                         </label>

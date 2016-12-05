@@ -49,8 +49,8 @@ class Addevent extends React.Component {
                                                 </div>
                                             </div>
                                             <h4>Let's get started</h4>
-                                            <h4><div className="form-group"><Link to="/event/questions"> <button className="btn btn-default">+ create your event</button></Link>
-                                        </div></h4>
+                                            <div className="form-group"><Link to="/event/questions"> <button className="btn btn-default">+ create your event</button></Link>
+                                        </div>
                                             <h4>link to questions</h4>
                                             <h4><div className="form-group"><Link to="/event/questions"> <button className="btn btn-default">link to questions</button></Link>
                                         </div></h4>

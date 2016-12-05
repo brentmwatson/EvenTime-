@@ -5,6 +5,14 @@ import { Link } from 'react-router'
 class Nav extends React.Component {
     constructor(props){
         super(props)
+        this.signout=this.signout.bind(this)
+
+    }
+    signout(){
+        fetch('/users/sign_out',{
+            method:"delete"
+        })
+        .then(response => window.location.href='/')
     }
 
     render(){
@@ -22,7 +30,7 @@ class Nav extends React.Component {
                         </div>
                         <div className="col-sm-6 text-right">
                             <ul className="list-unstyled list-inline pull-right">
-                                <li><div className="form-group"> <button className="btn btn-default">Log Out</button>
+                                <li><div className="form-group"> <button className="btn btn-default" onClick={this.signout}>Log Out</button>
                             </div></li>
                         </ul>
                     </div>

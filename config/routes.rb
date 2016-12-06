@@ -23,7 +23,7 @@ end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get '/:react' => 'welcome/index'
 
-#   Prefix Verb   URI Pattern                        Controller#Action
+#          Prefix Verb   URI Pattern                        Controller#Action
 #      milestones GET    /api/milestones(.:format)          milestones#index
 #                 POST   /api/milestones(.:format)          milestones#create
 #   new_milestone GET    /api/milestones/new(.:format)      milestones#new
@@ -39,8 +39,8 @@ end
 #     edit_vendor GET    /api/vendors/:id/edit(.:format)    vendors#edit
 #          vendor GET    /api/vendors/:id(.:format)         vendors#show
 #                 PATCH  /api/vendors/:id(.:format)         vendors#update
-#                PUT    /api/vendors/:id(.:format)         vendors#update
-#                DELETE /api/vendors/:id(.:format)         vendors#destroy
+#                 PUT    /api/vendors/:id(.:format)         vendors#update
+#                 DELETE /api/vendors/:id(.:format)         vendors#destroy
 #
 #         events GET    /api/events(.:format)              events#index
 #                POST   /api/events(.:format)              events#create

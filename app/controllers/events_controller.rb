@@ -17,29 +17,14 @@ class EventsController < ApplicationController
 
     def create
         # Saves new record changes
-        @event = Event.new() # assign :listname to object @list
-        @list.user = current_user # assign :user_id to object @list
-        # @list now is [:listname :user_id]
-        if @list.save # if save occures
-            render :json=> {:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email}
-
+        # SAVES and RENDERS
+        @event = Event.new(event_params)
+        @event.user = user.as_json(:auth_token=>user.authentication_token, :email=>user.email)
+        # @event now is [:theme :date, :auth_token, :email]
+        if @event.save
+            render :json=> {:theme=>event.theme, :date=>event.date}, :status=>201
         else
-            flash[:notice] = 'Please fill in the feilds.' # flash for user
-            render :new
-        end
-    end
-
-    def create
-        # Saves new record changes
-        @list = List.new(list_params) # assign :listname to object @list
-        @list.user = current_user # assign :user_id to object @list
-        # @list now is [:listname :user_id]
-        if @list.save # if save occures
-            render :json=> {:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email}
-
-        else
-            flash[:notice] = 'Please fill in the feilds.' # flash for user
-            render :new
+            render :json=> message, :status=>422
         end
     end
 
@@ -47,13 +32,12 @@ class EventsController < ApplicationController
     #   #SAVES AND REDIRECTS
     # end
 
-    def destroy # DESTROYS and REDIRECTS
-
-    end
+    # def destroy # DESTROYS and REDIRECTS
+    # end
 
     private
 
     def event_params
-        :
+        params.require(:event).permit(:theme, :date)
     end
 end

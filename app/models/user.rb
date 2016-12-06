@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   ## Token Authenticatable
-  acts_as_token_authenticatable
-  :authentication_token
+  acts_as_token_authenticatable :authentication_token
 
   has_many :events
   # has_one :contact

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    acts_as_token_authentication_handler_for User, only: [:create, :update, :destroy]
+    before_action :require_user
 
     # def index
     #     # HAS TEMPLATE reders ALL list
@@ -18,13 +18,13 @@ class EventsController < ApplicationController
     def create
         # Saves new record changes
         # SAVES and RENDERS
-        @event = Event.new(event_params)
-        @event.user = user.as_json(:auth_token=>user.authentication_token, :email=>user.email)
+        #add_event event/addevent.... POST/api/event
+        @event = current_user.events.new(event_params)
         # @event now is [:theme :date, :auth_token, :email]
         if @event.save
             render :json=> {:theme=>event.theme, :date=>event.date}, :status=>201
         else
-            render :json=> message, :status=>422
+            render :json=> @event.errors, :status=>422
         end
     end
 

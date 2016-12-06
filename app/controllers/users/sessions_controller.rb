@@ -12,8 +12,19 @@ skip_before_action :require_no_authentication
   # def new
   # end
 
+def show
+  #to get current user
+  #give back the current users
+end
+
   def create
     # build_resource
+    #add user f_name and :l_name current :user_id
+    #serializer to eager load event for user
+    #user has null event so feturn api (young mi handels logic)
+    # should not aver to use session
+    #retune user and event key 
+
     resource = User.find_for_database_authentication(:email=>params[:user][:email])
     return invalid_login_attempt unless resource
 

@@ -100,8 +100,8 @@ end
 
 #cancel_user_registration GET /users/cancel(.:format) users/registrations#cancel
 # user_registration POST   /users(.:format)           users/registrations#create
-# new_user_registration GET    /users/sign_up(.:format) users/registrations#new
-#   edit_user_registration GET    /users/edit(.:format) users/registrations#edit
+# new_user_registration GET /users/sign_up(.:format) users/registrations#new
+#   edit_user_registration GET /users/edit(.:format) users/registrations#edit
 #                PATCH  /users(.:format)              users/registrations#update
 #                PUT    /users(.:format)              users/registrations#update
 #                DELETE /users(.:format)             users/registrations#destroy

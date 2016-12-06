@@ -17,6 +17,20 @@ class EventsController < ApplicationController
 
     def create
         # Saves new record changes
+        @event = Event.new() # assign :listname to object @list
+        @list.user = current_user # assign :user_id to object @list
+        # @list now is [:listname :user_id]
+        if @list.save # if save occures
+            render :json=> {:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email}
+
+        else
+            flash[:notice] = 'Please fill in the feilds.' # flash for user
+            render :new
+        end
+    end
+
+    def create
+        # Saves new record changes
         @list = List.new(list_params) # assign :listname to object @list
         @list.user = current_user # assign :user_id to object @list
         # @list now is [:listname :user_id]
@@ -35,5 +49,11 @@ class EventsController < ApplicationController
 
     def destroy # DESTROYS and REDIRECTS
 
+    end
+
+    private
+
+    def event_params
+        :
     end
 end

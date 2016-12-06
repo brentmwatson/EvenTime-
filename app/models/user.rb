@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
   ## Token Authenticatable
   acts_as_token_authenticatable
   :authentication_token
+
+  has_many :events
+  # has_one :contact
 end

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router'
 import moment from 'moment'
+import LeftbarDays from './LeftbarDays'
+import LeftbarTasks from './LeftbarTasks'
 var DatePicker = require('react-datepicker');
 
 class Leftbar extends React.Component {
@@ -18,9 +20,8 @@ class Leftbar extends React.Component {
                 <h1>Summary</h1>
                 <hr />
                 <h5>{date}</h5>
-                <h5>180 days left</h5>
-                <h5> progress bar....</h5>
-                <h5>3 out of 100 tasks done</h5>
+                <LeftbarDays />
+                <LeftbarTasks />
               </div>
             </div>
           </div>

@@ -1,9 +1,8 @@
-console.log("hello! sign in here test12")
+console.log("hello! sign in: test12@gmail.com, pw: theironyard")
 var login = document.querySelector('#siButton');
 var email = document.querySelector('#siEmail');
 var password = document.querySelector('#sIPsw');
-var api_auth = sessionStorage.getItem('authentication_token');
-var storedEmail = sessionStorage.getItem('email');
+
 
 login.addEventListener('click', ()=> {
   var data = {
@@ -22,7 +21,6 @@ console.log(data)
   .then(response => {
       sessionStorage.setItem('email', response.email)
       sessionStorage.setItem('authentication_token', response.authentication_token)
-      sessionStorage.setItem('user', JSON.stringify(response.user))
-      window.location.href= '/'
+       window.location.href= '/home'
   });
 });

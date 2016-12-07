@@ -30,7 +30,7 @@ end
 
     if resource.valid_password?(params[:user][:password])
       sign_in("user", resource)
-      render :json=> resource
+      render :json=> resource, :include => ['events.milestones']
       return
     end
     invalid_login_attempt

@@ -14,7 +14,7 @@ before_action :configure_sign_up_params, only: [:create]
  def create
    user = User.new(params[:user])
    if user.save
-     render :json =>  user, :status=>201
+     render :json =>  user,:include => ['events.milestones'] , :status=>201
      return
    else
      warden.custom_failure!

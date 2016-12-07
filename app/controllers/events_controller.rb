@@ -23,7 +23,7 @@ class EventsController < ApplicationController
             # @event.milestone << Milestone.create(name: milestone)
             # i think i need to add a name to the milesone or ask FEE
             # end
-            render :json => {:theme=>@event.theme, :date=>@event.date}, :status => 201
+            render :json => @event, :status => 201
         else
             render :json => "Unable to create event", :status=>422
         end

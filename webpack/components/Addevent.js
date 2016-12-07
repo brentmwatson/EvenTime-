@@ -21,12 +21,13 @@ class Addevent extends React.Component {
     }
 
     handleChange(e) {
+        //console.log(e)
         this.setState({
             date: e
         });
     }
     handleChangeTheme(event) {
-      this.setState({theme: event.target.value});
+        this.setState({theme: event.target.value});
     }
 
     addevent() {
@@ -36,7 +37,7 @@ class Addevent extends React.Component {
         }
         console.log(eventData)
         fetch('api/events' + sessionStorage.getItem('authentication_token') + sessionStorage.getItem('email'), {
-            body:JSON.stringify({addevent: eventData}//need to get with brent with this
+            body:JSON.stringify({event: eventData}//need to get with brent with this
             ),
             method: 'POST',
             })
@@ -68,7 +69,6 @@ class Addevent extends React.Component {
                                             <div className="row">
                                                 <div className="col-sm-12">
                                                     <h4>When is the date of the event?</h4>
-
                                                     <DatePicker
                                                             selected={this.state.date}
                                                             onChange={this.handleChange} />

@@ -23,14 +23,14 @@ end
     #serializer to eager load event for user
     #user has null event so feturn api (young mi handels logic)
     # should not aver to use session
-    #retune user and event key 
+    #retune user and event key
 
     resource = User.find_for_database_authentication(:email=>params[:user][:email])
     return invalid_login_attempt unless resource
 
     if resource.valid_password?(params[:user][:password])
       sign_in("user", resource)
-      render :json=> {:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email}
+      render :json=> resource
       return
     end
     invalid_login_attempt

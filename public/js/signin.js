@@ -20,7 +20,8 @@ console.log(data)
   .then(response => response.json())
   .then(response => {
       sessionStorage.setItem('email', response.email)
-      sessionStorage.setItem('authentication_token', response.authentication_token)
+      sessionStorage.setItem('auth_token', response.auth_token)
+      //console.log(response)
        window.location.href= '/home'
   });
 });

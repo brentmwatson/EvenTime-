@@ -11,29 +11,32 @@ class Questions extends React.Component {
     constructor(props){
         super(props)
         this.fireOffQuestions = this.fireOffQuestions.bind(this)
-        this.updateState = this.updateState.bind(this)
+        this.updateQuestion = this.updateQuestion.bind(this)
         this.state= {
-            id:''
-
+            questions: []
         }
     }
-    updateState(event){
-        var updatedState={}
-        updatedState[event.target.id] = event.target.value
-        this.setState(updatedState)
+    updateQuestion(event){
+        var updatedQuestions = this.state.questions
+        updatedQuestions[Number(event.target.id)] = (event.target.value === 'yes')
+        this.setState({questions: updatedQuestions})
     }
     fireOffQuestions(){
-        var questionData = {
-            id:this.state.value
-          }
-          console.log(questionData)
-        //   fetch('api/milestones/starter' + sessionStorage.getItem('authentication_token') + sessionStorage.getItem('email'), {
-        //         body:JSON.stringify({questions: questionData}//need to get with brent with this
-        //         ),
-        //         method: 'POST',
-        //         })
-        //             //console.log(response)
-        //         .then(response => response.json())
+        var questions = this.state.questions
+        console.log(questions)
+        fetch('/api/milestones/starter?user_token=' + sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
+                body: JSON.stringify({questions: questions}),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            window.location.href = '/home'
+        })
     }
 
     render(){
@@ -57,13 +60,14 @@ class Questions extends React.Component {
                                     <hr />
                                     <div className="panel panel-default">
                                         <div className="panel-heading">
-                                            <QuestionsItem id="1" label="Do you have a venue?" value="yes" onChange={this.updateState}/>
-                                            <QuestionsItem id="2" label="Do you have a caterer?" value="" onChange={this.updateState}/>
-                                            <QuestionsItem id="3" label="Are you having a ceremony?" value="" onChange={this.updateState}/>
+                                            <QuestionsItem id="1" label="Do you have a venue?" onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="2" label="Do you have a caterer?" value="" onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="3" label="Are you having a ceremony?" value="" onChange={this.updateQuestion}/>
                                         </div>
                                     </div>
-                                    <h4><div className="form-group"><Link to="/home"> <button className="btn btn-default" onClick={this.fireOffQuestions}>Submit</button></Link>
-                                </div></h4>
+                                    <div className="form-group">
+                                        <button type="button" className="btn btn-default" onClick={this.fireOffQuestions}>Submit</button>
+                                    </div>
                                 {/* <h4><div className="form-group"><Link to="/event/checklist"> <button className="btn btn-default">to master checklist</button></Link>
                             </div></h4> */}
                             </div>

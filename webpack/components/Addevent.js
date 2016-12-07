@@ -36,7 +36,7 @@ class Addevent extends React.Component {
         date: this.state.date.format('L')
         }
         console.log(eventData)
-        fetch('api/events' + sessionStorage.getItem('authentication_token') + sessionStorage.getItem('email'), {
+        fetch('/api/events?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
             body:JSON.stringify({event: eventData}//need to get with brent with this
             ),
             method: 'POST',

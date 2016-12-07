@@ -1,4 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :authentication_token, :email, :events
-  has_many :events
+  attributes :id, :authentication_token, :email
+  has_many :events # arrays the events
 end

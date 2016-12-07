@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   #   @user=User.new
   # end
     def show
-      render json: current_user
+      render :json=> current_user
     end
 
   #
@@ -25,11 +25,8 @@ class UsersController < ApplicationController
   #
   private
   #being passed to @user
-  def user_params
-    params.require(:user).permit(:login=>params[:email][:password])
-  end
-
-  # def default_serializer_options
-  #   {root: true}
+  # def user_params
+  #   params.require(:user).permit(:login=>params[:email][:password])
   # end
+
 end

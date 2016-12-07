@@ -18,7 +18,8 @@ end
   # static routes for React
   # get 'static/index'
   root 'static#home'
-  get '/user' => 'users#show'
+  get  '/user' => 'users#show'
+  post '/milestones/starter' => 'milestones#starter'
   get '/:catchall/(:id)' => 'static#catchall'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

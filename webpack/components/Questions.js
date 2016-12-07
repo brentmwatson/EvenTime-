@@ -11,24 +11,32 @@ class Questions extends React.Component {
     constructor(props){
         super(props)
         this.fireOffQuestions = this.fireOffQuestions.bind(this)
+        this.updateState = this.updateState.bind(this)
+        this.state= {
+            id:''
+
+        }
+    }
+    updateState(event){
+        var updatedState={}
+        updatedState[event.target.id] = event.target.value
+        this.setState(updatedState)
     }
     fireOffQuestions(){
-        //send brent array of answers of true/false
         var questionData = {
-
+            id:this.state.value
           }
-          console.log(eventData)
-          fetch('api/milestones/starter' + sessionStorage.getItem('authentication_token') + sessionStorage.getItem('email'), {
-                body:JSON.stringify({addquestions: questionData}//need to get with brent with this
-                ),
-                method: 'POST',
-                })
-                    //console.log(response)
-                .then(response => response.json())
+          console.log(questionData)
+        //   fetch('api/milestones/starter' + sessionStorage.getItem('authentication_token') + sessionStorage.getItem('email'), {
+        //         body:JSON.stringify({questions: questionData}//need to get with brent with this
+        //         ),
+        //         method: 'POST',
+        //         })
+        //             //console.log(response)
+        //         .then(response => response.json())
     }
 
     render(){
-//loop goes here for my questionitem
 
         return (<div>
             <NavNewuser />
@@ -49,13 +57,15 @@ class Questions extends React.Component {
                                     <hr />
                                     <div className="panel panel-default">
                                         <div className="panel-heading">
-                                            <QuestionsItem label="Do you have a venue?" />
+                                            <QuestionsItem id="1" label="Do you have a venue?" value="yes" onChange={this.updateState}/>
+                                            <QuestionsItem id="2" label="Do you have a caterer?" value="" onChange={this.updateState}/>
+                                            <QuestionsItem id="3" label="Are you having a ceremony?" value="" onChange={this.updateState}/>
                                         </div>
                                     </div>
                                     <h4><div className="form-group"><Link to="/home"> <button className="btn btn-default" onClick={this.fireOffQuestions}>Submit</button></Link>
                                 </div></h4>
-                                <h4><div className="form-group"><Link to="/event/checklist"> <button className="btn btn-default">to master checklist</button></Link>
-                            </div></h4>
+                                {/* <h4><div className="form-group"><Link to="/event/checklist"> <button className="btn btn-default">to master checklist</button></Link>
+                            </div></h4> */}
                             </div>
                         </div>
                     </div>

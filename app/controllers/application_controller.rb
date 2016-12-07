@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base # or ActionController::API
   private
   def require_user
     unless current_user
-      render {:json => "User must be present", :status => 403}
+      render :json => "User must exisist to access this part of the site", :status => 403
     end
 
   end
@@ -37,6 +37,4 @@ class ApplicationController < ActionController::Base # or ActionController::API
   #
   # When defined, aliases are used to define both the params and the header names to watch.
   # E.g. facilitator_token, X-Facilitator-Token
-
-  # ...
 end

@@ -46,6 +46,7 @@ gem 'simple_token_authentication', '~> 1.0' # see semver.org
 # for launch to Heroku STILL STEP DOWN RAILS
 gem 'rails_12factor', group: :production
 #gem 'rack-cors', :require => 'rack/cors'
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

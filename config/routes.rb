@@ -18,6 +18,7 @@ end
   # static routes for React
   # get 'static/index'
   root 'static#home'
+  get '/user' => 'users#show'
   get '/:catchall/(:id)' => 'static#catchall'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

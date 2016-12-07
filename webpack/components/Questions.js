@@ -63,6 +63,10 @@ class Questions extends React.Component {
                                             <QuestionsItem id="1" label="Do you have a venue?" onChange={this.updateQuestion}/>
                                             <QuestionsItem id="2" label="Do you have a caterer?" value="" onChange={this.updateQuestion}/>
                                             <QuestionsItem id="3" label="Are you having a ceremony?" value="" onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="3" label="" value="" onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="3" label="" value="" onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="3" label="" value="" onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="3" label="" value="" onChange={this.updateQuestion}/>
                                         </div>
                                     </div>
                                     <div className="form-group">

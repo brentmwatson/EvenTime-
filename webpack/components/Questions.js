@@ -5,13 +5,30 @@ import NavNewuser from './NavNewuser'
 import Footer from './Footer'
 import Leftbar from './Leftbar'
 import QuestionsLeftbar from './QuestionsLeftbar'
+import QuestionsItem from './QuestionsItem'
 
 class Questions extends React.Component {
     constructor(props){
         super(props)
+        this.fireOffQuestions = this.fireOffQuestions.bind(this)
     }
-    render(){
+    fireOffQuestions(){
+        //send brent array of answers of true/false
+        var questionData = {
 
+          }
+          console.log(eventData)
+          fetch('api/milestones/starter' + sessionStorage.getItem('authentication_token') + sessionStorage.getItem('email'), {
+                body:JSON.stringify({addquestions: questionData}//need to get with brent with this
+                ),
+                method: 'POST',
+                })
+                    //console.log(response)
+                .then(response => response.json())
+    }
+
+    render(){
+//loop goes here for my questionitem
 
         return (<div>
             <NavNewuser />
@@ -32,39 +49,20 @@ class Questions extends React.Component {
                                     <hr />
                                     <div className="panel panel-default">
                                         <div className="panel-heading">
-                                            <div className="row">
-                                                <div className="col-sm-12">
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-sm-1">
-                                                    <h4>#1</h4>
-                                                </div>
-                                                <div className="col-sm-9">
-                                                    <h4>the question</h4>
-                                                </div>
-                                                <div className="col-sm-1">
-                                                    <div className="radio">
-                                                        <label><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />Yes</label>
-                                                    </div>
-                                                </div>
-                                                <div className="col-sm-1">
-                                                    <div className="radio">
-                                                        <label><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/> No</label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <QuestionsItem label="Do you have a venue?" />
                                         </div>
                                     </div>
-                                    <h4><div className="form-group"><Link to="/event/checklist"> <button className="btn btn-default">Submit</button></Link>
+                                    <h4><div className="form-group"><Link to="/home"> <button className="btn btn-default" onClick={this.fireOffQuestions}>Submit</button></Link>
                                 </div></h4>
+                                <h4><div className="form-group"><Link to="/event/checklist"> <button className="btn btn-default">to master checklist</button></Link>
+                            </div></h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-        <Footer />
+    <Footer />
     </div>
 )
 }

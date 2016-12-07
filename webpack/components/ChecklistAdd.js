@@ -20,12 +20,26 @@ class ChecklistAdd extends React.Component {
                         <div className="panel-heading" role="tab" id="headingOne">
                             <h4 className="panel-title">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Add a Todo
+                                    Add a New Todo
                                 </a>
                             </h4>
                         </div>
                         <div id="collapseOne" className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div className="panel-body">
+                                <div className="row">
+                                    <div className="col-sm-9">
+                                        <div className="form-group">
+                                            <label htmlFor="addTodo">Add Todo</label>
+                                            <input type="text" className="form-control" id="add"/>
+                                        </div>
+                                    </div>
+                                    <div className="col-sm-3">
+                                        <div className="form-group">
+                                            <label htmlFor="addBusinessName"> Business Name</label>
+                                            <input type="text" className="form-control" id="addBusinessName" placeholder="Enter Name" />
+                                        </div>
+                                    </div>
+                                    </div>
                                 <div className="row">
                                     <div className="col-sm-9">
                                         <div className="form-group">
@@ -35,17 +49,10 @@ class ChecklistAdd extends React.Component {
                                     </div>
                                     <div className="col-sm-3">
                                         <div className="form-group">
-                                            <label htmlFor="addBusinessName"> Business Name</label>
-                                            <input type="text" className="form-control" id="addBusinessName" placeholder="Enter Name" />
+                                            <button className="btn btn-default">Add Todo</button>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div className="form-group"> <button className="btn btn-default">Add Todo</button>
-                                        </div>
-                                        </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,9 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
-# before_action :sign_up_params, only: [:create]
-skip_before_action :require_no_authentication
+before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
-  respond_to :json
+
 
   # GET /resource/sign_up
   # def new
@@ -11,11 +10,11 @@ skip_before_action :require_no_authentication
 
   # POST /resource
   # end
-
+  respond_to :json
  def create
-   user = User.new(sign_up_params)
+   user = User.new(params[:user])
    if user.save
-     render :json=> user.as_json(:auth_token=>user.authentication_token, :email=>user.email), :status=>201
+     render :json =>  user.as_json(:auth_token=>user.authentication_token, :email => user.email), :status=>201
      return
    else
      warden.custom_failure!
@@ -48,10 +47,10 @@ skip_before_action :require_no_authentication
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:user, :password, :password_confirmation])
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:user, ])
   # end
 
-  # # If you have extra params to permit, append them to the sanitizer.
+  # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:user, ])
   # end

@@ -18,12 +18,14 @@ end
   # static routes for React
   # get 'static/index'
   root 'static#home'
+  get  '/user' => 'users#show'
+  post '/milestones/starter' => 'milestones#starter'
   get '/:catchall/(:id)' => 'static#catchall'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get '/:react' => 'welcome/index'
 
-#   Prefix Verb   URI Pattern                        Controller#Action
+#          Prefix Verb   URI Pattern                        Controller#Action
 #      milestones GET    /api/milestones(.:format)          milestones#index
 #                 POST   /api/milestones(.:format)          milestones#create
 #   new_milestone GET    /api/milestones/new(.:format)      milestones#new
@@ -39,8 +41,8 @@ end
 #     edit_vendor GET    /api/vendors/:id/edit(.:format)    vendors#edit
 #          vendor GET    /api/vendors/:id(.:format)         vendors#show
 #                 PATCH  /api/vendors/:id(.:format)         vendors#update
-#                PUT    /api/vendors/:id(.:format)         vendors#update
-#                DELETE /api/vendors/:id(.:format)         vendors#destroy
+#                 PUT    /api/vendors/:id(.:format)         vendors#update
+#                 DELETE /api/vendors/:id(.:format)         vendors#destroy
 #
 #         events GET    /api/events(.:format)              events#index
 #                POST   /api/events(.:format)              events#create
@@ -100,8 +102,8 @@ end
 
 #cancel_user_registration GET /users/cancel(.:format) users/registrations#cancel
 # user_registration POST   /users(.:format)           users/registrations#create
-# new_user_registration GET    /users/sign_up(.:format) users/registrations#new
-#   edit_user_registration GET    /users/edit(.:format) users/registrations#edit
+# new_user_registration GET /users/sign_up(.:format) users/registrations#new
+#   edit_user_registration GET /users/edit(.:format) users/registrations#edit
 #                PATCH  /users(.:format)              users/registrations#update
 #                PUT    /users(.:format)              users/registrations#update
 #                DELETE /users(.:format)             users/registrations#destroy

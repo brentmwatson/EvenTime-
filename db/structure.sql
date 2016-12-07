@@ -2,12 +2,11 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.1
--- Dumped by pg_dump version 9.6.1
+-- Dumped from database version 9.5.4
+-- Dumped by pg_dump version 9.5.4
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -190,7 +189,9 @@ CREATE TABLE events (
     theme character varying,
     attendance integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    user_id integer,
+    date character varying
 );
 
 
@@ -399,77 +400,77 @@ ALTER SEQUENCE venues_id_seq OWNED BY venues.id;
 
 
 --
--- Name: addendums id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY addendums ALTER COLUMN id SET DEFAULT nextval('addendums_id_seq'::regclass);
 
 
 --
--- Name: addresses id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY addresses ALTER COLUMN id SET DEFAULT nextval('addresses_id_seq'::regclass);
 
 
 --
--- Name: agreements id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY agreements ALTER COLUMN id SET DEFAULT nextval('agreements_id_seq'::regclass);
 
 
 --
--- Name: contacts id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq'::regclass);
 
 
 --
--- Name: events id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY events ALTER COLUMN id SET DEFAULT nextval('events_id_seq'::regclass);
 
 
 --
--- Name: milestones id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY milestones ALTER COLUMN id SET DEFAULT nextval('milestones_id_seq'::regclass);
 
 
 --
--- Name: refile_attachments id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY refile_attachments ALTER COLUMN id SET DEFAULT nextval('refile_attachments_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
 --
--- Name: vendors id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY vendors ALTER COLUMN id SET DEFAULT nextval('vendors_id_seq'::regclass);
 
 
 --
--- Name: venues id; Type: DEFAULT; Schema: public; Owner: -
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY venues ALTER COLUMN id SET DEFAULT nextval('venues_id_seq'::regclass);
 
 
 --
--- Name: addendums addendums_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: addendums_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY addendums
@@ -477,7 +478,7 @@ ALTER TABLE ONLY addendums
 
 
 --
--- Name: addresses addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY addresses
@@ -485,7 +486,7 @@ ALTER TABLE ONLY addresses
 
 
 --
--- Name: agreements agreements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: agreements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY agreements
@@ -493,7 +494,7 @@ ALTER TABLE ONLY agreements
 
 
 --
--- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY ar_internal_metadata
@@ -501,7 +502,7 @@ ALTER TABLE ONLY ar_internal_metadata
 
 
 --
--- Name: contacts contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY contacts
@@ -509,7 +510,7 @@ ALTER TABLE ONLY contacts
 
 
 --
--- Name: events events_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: events_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY events
@@ -517,7 +518,7 @@ ALTER TABLE ONLY events
 
 
 --
--- Name: milestones milestones_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: milestones_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY milestones
@@ -525,7 +526,7 @@ ALTER TABLE ONLY milestones
 
 
 --
--- Name: refile_attachments refile_attachments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: refile_attachments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY refile_attachments
@@ -533,7 +534,7 @@ ALTER TABLE ONLY refile_attachments
 
 
 --
--- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY schema_migrations
@@ -541,7 +542,7 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -549,7 +550,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: vendors vendors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: vendors_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY vendors
@@ -557,7 +558,7 @@ ALTER TABLE ONLY vendors
 
 
 --
--- Name: venues venues_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: venues_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY venues
@@ -576,6 +577,13 @@ CREATE INDEX index_addendums_on_agreement_id ON addendums USING btree (agreement
 --
 
 CREATE INDEX index_addresses_on_contact_id ON addresses USING btree (contact_id);
+
+
+--
+-- Name: index_events_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_events_on_user_id ON events USING btree (user_id);
 
 
 --
@@ -691,7 +699,15 @@ CREATE INDEX index_venues_on_vendor_id ON venues USING btree (vendor_id);
 
 
 --
--- Name: users fk_rails_183544a5de; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_0cb5590091; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT fk_rails_0cb5590091 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_183544a5de; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -699,7 +715,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: vendors fk_rails_21da0462b1; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_21da0462b1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY vendors
@@ -707,7 +723,7 @@ ALTER TABLE ONLY vendors
 
 
 --
--- Name: milestones fk_rails_309f980052; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_309f980052; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY milestones
@@ -715,7 +731,7 @@ ALTER TABLE ONLY milestones
 
 
 --
--- Name: milestones fk_rails_51b0896111; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_51b0896111; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY milestones
@@ -723,7 +739,7 @@ ALTER TABLE ONLY milestones
 
 
 --
--- Name: addresses fk_rails_67e9674de3; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_67e9674de3; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY addresses
@@ -731,7 +747,7 @@ ALTER TABLE ONLY addresses
 
 
 --
--- Name: venues fk_rails_ac8a7fe6e8; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_ac8a7fe6e8; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY venues
@@ -739,7 +755,7 @@ ALTER TABLE ONLY venues
 
 
 --
--- Name: vendors fk_rails_b5ec0f31eb; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_b5ec0f31eb; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY vendors
@@ -747,7 +763,7 @@ ALTER TABLE ONLY vendors
 
 
 --
--- Name: vendors fk_rails_bc4c7a340a; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_bc4c7a340a; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY vendors
@@ -755,7 +771,7 @@ ALTER TABLE ONLY vendors
 
 
 --
--- Name: addendums fk_rails_cdd7608198; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_cdd7608198; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY addendums
@@ -763,7 +779,7 @@ ALTER TABLE ONLY addendums
 
 
 --
--- Name: vendors fk_rails_ec5c065c00; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_ec5c065c00; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY vendors
@@ -771,7 +787,7 @@ ALTER TABLE ONLY vendors
 
 
 --
--- Name: milestones fk_rails_f82bbe8cc2; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: fk_rails_f82bbe8cc2; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY milestones
@@ -784,6 +800,6 @@ ALTER TABLE ONLY milestones
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423'), ('20161130202406'), ('20161130213031'), ('20161130222450'), ('20161130224243'), ('20161201155144');
+INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423'), ('20161130202406'), ('20161130213031'), ('20161130222450'), ('20161130224243'), ('20161201155144'), ('20161207185111'), ('20161207205503');
 
 

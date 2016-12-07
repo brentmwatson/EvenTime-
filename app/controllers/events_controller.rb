@@ -1,39 +1,41 @@
 class EventsController < ApplicationController
-    acts_as_token_authentication_handler_for User, only: [:create, :update, :destroy]
+    before_action :require_user
 
-    # def index
-    #     # HAS TEMPLATE reders ALL list
-    #     if session[:user_id] # ruby session checking for user_id
-    #         @lists = current_user.lists.order('created_at') # method called on list
-    #         render :lists # show list
-    #     else
-    #         render :index # go back to the beginning
-    #     end
-    # end
-
-    def show
-
+    def index
+         render :json=> current_user.events.all
     end
 
-    def create
-        # Saves new record changes
-        @list = List.new(list_params) # assign :listname to object @list
-        @list.user = current_user # assign :user_id to object @list
-        # @list now is [:listname :user_id]
-        if @list.save # if save occures
-            render :json=> {:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email}
+    # def show
+    #
+    # end
+    
 
+    def create # SAVES and RENDERS
+        @event = current_user.events.new(event_params)
+        if @event.save
+            # milestones = params[:date, :notes]
+            # #where and how am I getting milestones
+            # milestones.each do |milestone|
+            # @event.milestone << Milestone.create(name: milestone)
+            # i think i need to add a name to the milesone or ask FEE
+            # end
+            render :json=> {:theme=>@event.theme, :date=>@event.date}, :status=>201
         else
-            flash[:notice] = 'Please fill in the feilds.' # flash for user
-            render :new
+            render :json=> "Unable to create event", :status=>422
         end
     end
 
-    # def update #saves changes to EXISTING record
-    #   #SAVES AND REDIRECTS
+    def update #saves changes to EXISTING record
+        #SAVES AND REDIRECTS
+        #add_event event/addevent.... POST/api/event
+    end
+
+    # def destroy # DESTROYS and REDIRECTS
     # end
 
-    def destroy # DESTROYS and REDIRECTS
+    private
 
+    def event_params
+        params.require(:event).permit(:theme, :date)
     end
 end

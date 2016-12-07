@@ -9,10 +9,7 @@ class EventsController < ApplicationController
     #
     # end
 
-    def starter
-        # render :json =>
 
-    end
 
     def create # SAVES and RENDERS
         @event = current_user.events.new(event_params)
@@ -23,7 +20,7 @@ class EventsController < ApplicationController
             # @event.milestone << Milestone.create(name: milestone)
             # i think i need to add a name to the milesone or ask FEE
             # end
-            render :json => @event, :status => 201
+            render :json => @event, @event => current_user, :status => 201
         else
             render :json => "Unable to create event", :status=>422
         end

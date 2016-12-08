@@ -1,6 +1,4 @@
 console.log("hello! sign up here")
-//signup
-var signup_path = '/users';
 var uploadSignup = document.querySelector('#suButton')
 
 uploadSignup.addEventListener('click', fireAjaxPost)
@@ -15,7 +13,7 @@ function fireAjaxPost() {
         password_confirmation: password_confirmation.value,
     }
     console.log(formData)
-        fetch(signup_path,{
+        fetch('/users',{
             body: JSON.stringify({user: formData}),
             method: 'POST',
             headers: {
@@ -27,6 +25,7 @@ function fireAjaxPost() {
             console.log(response)
             sessionStorage.setItem('email',response.user.email)
             sessionStorage.setItem('auth_token',response.user.authentication_token)
+
             window.location.href= '/home'
         })
     }

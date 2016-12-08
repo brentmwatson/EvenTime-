@@ -40,10 +40,17 @@ class Addevent extends React.Component {
             body:JSON.stringify({event: eventData}
             ),
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
             })
-                //console.log(response)
             .then(response => response.json())
-            //.then(response => sessionStorage.setItem('saveEvent',response.saveEvent))// don't know response yet.
+            .then(response => {
+                console.log(response)
+
+            })
+
+
     }
     render(){
 

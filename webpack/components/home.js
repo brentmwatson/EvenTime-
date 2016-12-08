@@ -20,6 +20,7 @@ class Home extends React.Component {
         window.auth_token = sessionStorage.getItem('auth_token')
         window.email = sessionStorage.getItem('email')
         console.log(auth_token)
+        console.log(email)
 
         return (<div>
             {currentEvent?<Nav />:<NavNewuser />}

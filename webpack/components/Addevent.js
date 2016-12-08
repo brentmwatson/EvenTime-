@@ -47,7 +47,7 @@ class Addevent extends React.Component {
             .then(response => response.json())
             .then(response => {
                 console.log(response)
-
+                window.location.href = '/event/question'
             })
 
 
@@ -82,7 +82,7 @@ class Addevent extends React.Component {
                                                 </div>
                                             </div>
                                             <h4>Almost there!</h4>
-                                            <div className="form-group"><Link to="/event/questions"> <button className="btn btn-default" onClick={this.addevent}>Submit</button></Link>
+                                            <div className="form-group"><button className="btn btn-default" onClick={this.addevent}>Submit</button>
                                         </div>
                                     </div>
                                 </div>

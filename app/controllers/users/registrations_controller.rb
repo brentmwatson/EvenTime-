@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   respond_to :json
  def create
-   user = User.new(params[:user])
+   user = User.new(sign_up_params)
    if user.save
      render :json =>  user,:include => ['events.milestones'] , :status=>201
      return

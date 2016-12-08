@@ -20,7 +20,9 @@ end
   root 'static#home'
 
   get  '/user' => 'users#show'
-  post '/milestones/starter' => 'milestones#starter'
+  # get   '/event/[:id]' => 'event#starter'
+  # get  '/events/questions' ids[]=1&ids[]=2&ids[]=3
+  post '/event/questions' => 'milestones#create'
   get  '/:catchall/(:id)' => 'static#catchall'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

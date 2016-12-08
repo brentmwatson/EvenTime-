@@ -1,8 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router'
-import Nav from './Nav'
-import Footer from './Footer'
-import Leftbar from './Leftbar'
 import ChecklistItem from './ChecklistItem'
 import moment from 'moment'
 var DatePicker = require('react-datepicker');

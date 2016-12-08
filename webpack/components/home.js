@@ -17,6 +17,11 @@ class Home extends React.Component {
         // Need to rewrite this when we know how to get the current user's event
         var currentEvent = undefined
 
+        window.auth_token = sessionStorage.getItem('auth_token')
+        window.email = sessionStorage.getItem('email')
+        console.log(auth_token)
+        console.log(email)
+
         return (<div>
             {currentEvent?<Nav />:<NavNewuser />}
             <main>

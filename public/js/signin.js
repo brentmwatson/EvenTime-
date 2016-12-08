@@ -21,8 +21,7 @@ console.log(data)
   .then(response => {
       sessionStorage.setItem('email', response.email)
       sessionStorage.setItem('auth_token', response.auth_token)
-      //sessionStorage.setItem('user', response.)
-    //  console.log(response)
+      //console.log(response)
       window.location.href= '/home'
   });
 });

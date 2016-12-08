@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
     before_action :require_user
 
-    def index
+    def index # shows events for user '/home' OR '/user'
          render :json=> current_user.events.all
     end
 
@@ -9,9 +9,7 @@ class EventsController < ApplicationController
     #
     # end
 
-
-
-    def create # SAVES and RENDERS
+    def create # takes theme and date for event from '/event/addevent'
         @event = current_user.events.new(event_params)
         if @event.save
             render :json => @event, :status => 201
@@ -20,10 +18,9 @@ class EventsController < ApplicationController
         end
     end
 
-    def update #saves changes to EXISTING record
-        #SAVES AND REDIRECTS
-        #add_event event/addevent.... POST/api/event
-    end
+    # def update #saves changes to EXISTING record
+    #         #SAVES AND REDIRECTS add_event event/addevent.... POST/api/event
+    # end
 
     # def destroy # DESTROYS and REDIRECTS
     # end

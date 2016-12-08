@@ -1,7 +1,8 @@
 class MilestonesController < ApplicationController
 
+
   def starter #20 questions
-    @questions =
+    
   end
 
   def create

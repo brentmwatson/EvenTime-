@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   #   @user=User.new
   # end
     def show
-      render :json=> current_user, :include => ['events.milestones']
+      render :json => current_user, :include => ['events.milestones']
     end
 
   #

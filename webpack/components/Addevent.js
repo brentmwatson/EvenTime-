@@ -47,10 +47,8 @@ class Addevent extends React.Component {
             .then(response => response.json())
             .then(response => {
                 console.log(response)
-                window.location.href = '/event/question'
+                window.location.href = '/event/questions'
             })
-
-
     }
     render(){
 

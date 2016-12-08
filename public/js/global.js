@@ -25,7 +25,6 @@ function fireAjaxPost() {
             console.log(response)
             sessionStorage.setItem('email',response.user.email)
             sessionStorage.setItem('auth_token',response.user.authentication_token)
-
             window.location.href= '/home'
         })
     }

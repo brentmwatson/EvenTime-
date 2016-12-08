@@ -5,8 +5,8 @@ import NavNewuser from './NavNewuser'
 import Footer from './Footer'
 import Leftbar from './Leftbar'
 import HomeLeftbar from './HomeLeftbar'
-import HomeFeatureBlurb from './HomeFeatureBlurb'
-import HomeCreateEvent from './HomeCreateEvent'
+import HomeGetstarted from './HomeGetstarted'
+import Checklist from './Checklist'
 
 
 class Home extends React.Component {
@@ -35,8 +35,7 @@ class Home extends React.Component {
                                 <div className="panel-body">
                                     <div className="row">
                                         <div className="col-sm-12">
-                                        <HomeFeatureBlurb />
-                                        <HomeCreateEvent />
+                                            {currentEvent?<Checklist />:<HomeGetstarted/>}
                                     </div>
                                 </div>
                             </div>

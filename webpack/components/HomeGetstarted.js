@@ -4,7 +4,7 @@ import Nav from './Nav'
 import Footer from './Footer'
 import Leftbar from './Leftbar'
 
-class HomeFeatureBlurb extends React.Component {
+class HomeGetstarted extends React.Component {
     constructor(props){
         super(props)
     }
@@ -20,11 +20,13 @@ class HomeFeatureBlurb extends React.Component {
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-
+            <h4>Let's get started</h4>
+            <h4><div className="form-group"><Link to="/event/addevent"> <button className="btn btn-default">+ create your event</button></Link>
+            </div></h4>
     </div>
 
 )
 }
 }
 
-export default HomeFeatureBlurb
+export default HomeGetstarted

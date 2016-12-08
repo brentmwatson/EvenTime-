@@ -24,7 +24,7 @@ class Questions extends React.Component {
     fireOffQuestions(){
         var questions = this.state.questions
         console.log(questions)
-        fetch('/api/milestones/starter?user_token=' + sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
+        fetch('/api/milestones/starter?' + 'user_token=' + sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
                 body: JSON.stringify({questions: questions}),
                 method: 'POST',
                 headers: {
@@ -79,8 +79,8 @@ class Questions extends React.Component {
                                     <div className="form-group">
                                         <button type="button" className="btn btn-default" onClick={this.fireOffQuestions}>Submit</button>
                                     </div>
-                                {/* <h4><div className="form-group"><Link to="/event/checklist"> <button className="btn btn-default">to master checklist</button></Link>
-                            </div></h4> */}
+                                <h4><div className="form-group"><Link to="/event/checklist"> <button className="btn btn-default">to master checklist</button></Link>
+                            </div></h4>
                             </div>
                         </div>
                     </div>

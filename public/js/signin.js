@@ -19,8 +19,8 @@ console.log(data)
   })
   .then(response => response.json())
   .then(response => {
-      sessionStorage.setItem('email', response.email)
-      sessionStorage.setItem('auth_token', response.auth_token)
+      sessionStorage.setItem('email', response.user.email)
+      sessionStorage.setItem('auth_token', response.user.authentication_token)
       //sessionStorage.setItem('user', response.)
     //  console.log(response)
       window.location.href= '/home'

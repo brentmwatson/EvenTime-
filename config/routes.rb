@@ -19,7 +19,6 @@ end
   # get 'static/index'
   root 'static#home'
 
-  get  '/home' => 'users#show'
   get  '/user' => 'users#show'
   post '/milestones/starter' => 'milestones#starter'
   get  '/:catchall/(:id)' => 'static#catchall'

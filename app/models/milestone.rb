@@ -42,7 +42,7 @@ class Milestone < ApplicationRecord
 
             if ans && index == 3
                 output = [{title: "research restaurants", date: 2.weeks.ago},
-                        {title: "book restaurants", date: 2.weeks.ago]
+                        {title: "book restaurants", date: 2.weeks.ago}]
             elsif index == 3
                 output = []
             end
@@ -115,7 +115,7 @@ class Milestone < ApplicationRecord
             elsif index == 12
                 output = []
             end
-            
+
             #
             # if ans && index == 3
             #     output = [{title: "research ceremony site", date: 2.weeks.ago},

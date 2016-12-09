@@ -22,7 +22,6 @@ class Nav extends React.Component {
                         <div className="col-sm-6 text-left">
                             <ul className="list-unstyled list-inline">
                                 <Link to="/home"><li>Eventime</li></Link>
-                                <Link to="/event/checklist"><li>Checklist</li></Link>
                                 <Link to="/event/vendor"><li>Vendor Info</li></Link>
                                 <Link to="/event/agreement"><li>Agreement</li></Link>
                             </ul>

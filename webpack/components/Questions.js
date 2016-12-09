@@ -18,7 +18,6 @@ class Questions extends React.Component {
     }
     updateQuestion(event){
         var updatedQuestions = this.state.questions
-        //var iddd = sessionStorage.getItem('userid')
         updatedQuestions[Number(event.target.id)] = (event.target.value === 'yes')
         this.setState({questions: updatedQuestions})
     }
@@ -66,19 +65,19 @@ class Questions extends React.Component {
                                     <div className="panel panel-default">
                                         <div className="panel-heading">
                                             <QuestionsItem id="1" label="Do you have a venue?" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="2" label="Do you have a caterer?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="3" label="Are you having a ceremony?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="4" label="Are you having a rehearsal dinner?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="5" label="Are you having a cocktail hour?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="6" label="Are you having a bar?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="7" label="Do you have a florist?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="8" label="Do you have a Photographer?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="9" label="Do you have a Videographer?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="10" label="Do you have a wedding cake?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="11" label="Are you having a Dj?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="12" label="Are you having a Band?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="13" label="Do you need hotels for your guests?" value="" onChange={this.updateQuestion}/>
-                                            <QuestionsItem id="14" label="Are you planning to have a dessert or candy bar?" value="" onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="2" label="Do you have a caterer?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="3" label="Are you having a ceremony?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="4" label="Are you having a rehearsal dinner?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="5" label="Are you having a cocktail hour?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="6" label="Are you having a bar?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="7" label="Do you have a florist?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="8" label="Do you have a Photographer?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="9" label="Do you have a Videographer?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="10" label="Do you have a wedding cake?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="11" label="Are you having a Dj?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="12" label="Are you having a Band?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="13" label="Do you need hotels for your guests?"  onChange={this.updateQuestion}/>
+                                            <QuestionsItem id="14" label="Are you planning to have a dessert or candy bar?" onChange={this.updateQuestion}/>
                                         </div>
                                     </div>
                                     <div className="form-group">

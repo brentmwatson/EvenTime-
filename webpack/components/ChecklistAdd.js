@@ -7,7 +7,33 @@ var DatePicker = require('react-datepicker');
 class ChecklistAdd extends React.Component {
     constructor(props){
         super(props)
+        this.addTodo = this.addTodo.bind(this)
+        this.handleChangeTextera = this.handleChangeTextera.bind(this)
+        this.state={
+
+        }
     }
+    handleChangeTextera(event) {
+      this.setState({value: event.target.value});
+    }
+    addTodo() {
+        var questions = this.state.questions
+        console.log(questions)
+        fetch('/api/milestones' + 'user_token=' + sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
+                body: JSON.stringify({questions: questions}),
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            window.location.reload()
+        })
+    }
+
     render(){
 
         return (<div>
@@ -26,8 +52,8 @@ class ChecklistAdd extends React.Component {
                                 <div className="row">
                                     <div className="col-sm-9">
                                         <div className="form-group">
-                                            <label htmlFor="addTodo">Add Todo</label>
-                                            <input type="text" className="form-control" id="add"/>
+
+                                            <input type="text" placeholder="add a new todo" className="form-control" id="add"/>
                                         </div>
                                     </div>
                                     <div className="col-sm-3">
@@ -41,15 +67,15 @@ class ChecklistAdd extends React.Component {
                                     <div className="col-sm-9">
                                         <div className="form-group">
                                             <label htmlFor="addNotes">Notes:</label>
-                                            <textarea className="form-control" rows="3" id="addNotes"></textarea>
+                                            <textarea className="form-control" rows="3" id="addNotes" value={this.state.textera} onChange={(e) => this.setState({addnote:e.target.value})}></textarea>
                                         </div>
                                     </div>
                                     <div className="col-sm-3">
                                         <div className="form-group">
-                                            <button className="btn btn-default">Add Todo</button>
+                                            <button className="btn btn-default" onClick={this.addTodo}>Add Todo</button>
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

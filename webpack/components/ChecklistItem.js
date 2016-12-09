@@ -6,19 +6,29 @@ var DatePicker = require('react-datepicker');
 class ChecklistItem extends React.Component {
     constructor(props){
         super(props)
+        this.handleDate = this.handleDate.bind(this)
+        //this.handleChangeTextarea = this.handleChangeTextarea.bind(this)
+        this.singleItem = this.singleItem.bind(this)
         this.state = {
             cakeOrdered: false,
-            startDate: moment()
+            note: '',
+            date: moment()
         }
     }
-    handleChange(date) {
-    this.setState({
-      startDate: date
+    // handleChangeTextarea(event) {
+    //   this.setState({value: event.target.value});
+    // }
+    handleDate(e) {
+      console.log(e)
+      this.setState({
+      date: e
     });
+    }
+    singleItem() {
+      //update this item block
     }
     render(){
         return (<div>
-            {/* <!-- Begin ChecklistItem component... -> */}
             <div className="panel panel-default">
                 <div className="panel-heading"  >
                     <div className="panel-title">
@@ -29,9 +39,8 @@ class ChecklistItem extends React.Component {
                                 </div>
                             </div>
                             <div className="col-sm-11">
-                                <h4>Order Cake</h4>
+                                <h4>{this.props.milestone.title}</h4>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -40,7 +49,7 @@ class ChecklistItem extends React.Component {
                         <div className="col-sm-9">
                             <div className="form-group">
                                 <label htmlFor="notes">Notes:</label>
-                                <textarea className="form-control" rows="3" id="notes"></textarea>
+                                <textarea className="form-control" rows="3" value={this.state.textarea} id="notes" onChange={(e) => this.setState({note:e.target.value})}></textarea>
                             </div>
                         </div>
                         <div className="col-sm-3">
@@ -54,12 +63,12 @@ class ChecklistItem extends React.Component {
                     </div>
                     <div className="row">
                         <div className="col-sm-3">
-                            <button className="btn btn-default">Submit</button>
+                            <button className="btn btn-default" onClick={this.singleItem}>Submit</button>
                         </div>
                         <div className="col-sm-3">
                             <DatePicker
-                                    selected={this.state.startDate}
-                                    onChange={this.handleChange.bind(this)} />
+                                    selected={this.state.date}
+                                    onChange={this.handleDate} />
                         </div>
                         <div className="col-sm-1 pull-right">
                             <i className="fa fa-trash fa-2x" aria-hidden="true"></i>

@@ -18,14 +18,19 @@ class Questions extends React.Component {
     }
     updateQuestion(event){
         var updatedQuestions = this.state.questions
+        //var iddd = sessionStorage.getItem('userid')
         updatedQuestions[Number(event.target.id)] = (event.target.value === 'yes')
         this.setState({questions: updatedQuestions})
     }
     fireOffQuestions(){
         var questions = this.state.questions
+        var event_id = sessionStorage.getItem('event_id')
         console.log(questions)
         fetch('/event/questions?' + 'user_token=' + sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
-                body: JSON.stringify({questions: questions}),
+                body: JSON.stringify({
+                    questions: questions,
+                    event_id: event_id
+                }),
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -35,7 +40,7 @@ class Questions extends React.Component {
         .then(response => response.json())
         .then(response => {
             console.log(response)
-            window.location.href = '/home'
+            //window.location.href = '/home'
         })
     }
 

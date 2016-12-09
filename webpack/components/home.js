@@ -24,9 +24,9 @@ class Home extends React.Component {
         // Need to rewrite this when we know how to get the current user's event
         var hasEvent = (typeof user.events[0] != 'undefined')
         //window.id = sessionStorage.getItem('id')
-        console.log(auth_token)
+        //console.log(auth_token)
         console.log(email)
-        console.log(user)
+        //console.log(user)
         //console.log(id)
 
         return (<div>
@@ -43,7 +43,6 @@ class Home extends React.Component {
                                     <div className="row">
                                         <div className="col-sm-12">
                                             {hasEvent?<Checklist />:<HomeGetstarted/>}
-
                                     </div>
                                 </div>
                             </div>

@@ -13,29 +13,37 @@ class Home extends React.Component {
     constructor(props){
         super(props)
     }
-    render(){
-        // Need to rewrite this when we know how to get the current user's event
-        var currentEvent = undefined
 
+    componentWillMount() {
         window.auth_token = sessionStorage.getItem('auth_token')
         window.email = sessionStorage.getItem('email')
+        window.user = JSON.parse(sessionStorage.getItem('user'))
+    }
+
+    render(){
+        // Need to rewrite this when we know how to get the current user's event
+        var hasEvent = (typeof user.events[0] != 'undefined')
+        //window.id = sessionStorage.getItem('id')
         console.log(auth_token)
         console.log(email)
+        console.log(user)
+        //console.log(id)
 
         return (<div>
-            {currentEvent?<Nav />:<NavNewuser />}
+            {hasEvent?<Nav />:<NavNewuser />}
             <main>
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-3">
-                            {currentEvent?<Leftbar />:<HomeLeftbar />}
+                            {hasEvent?<Leftbar />:<HomeLeftbar />}
                         </div>
                         <div className="col-sm-9">
                             <div className="panel panel-default">
                                 <div className="panel-body">
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            {currentEvent?<Checklist />:<HomeGetstarted/>}
+                                            {hasEvent?<Checklist />:<HomeGetstarted/>}
+
                                     </div>
                                 </div>
                             </div>

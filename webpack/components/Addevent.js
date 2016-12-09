@@ -36,8 +36,7 @@ class Addevent extends React.Component {
         theme: this.state.theme,
         date: this.state.date.format('L')
         }
-        console.log(eventData)
-        console.log('data i am sending')
+        //console.log(eventData)
         fetch('/api/events?' + 'user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
             body:JSON.stringify({event: eventData}
             ),
@@ -48,11 +47,11 @@ class Addevent extends React.Component {
             })
             .then(response => response.json())
             .then(response => {
-                console.log(response)
-                console.log('response from back-end')
+                //console.log(response)
+                //console.log('response from back-end')
                 // this.setState({event: response.event.id})
-                console.log(response.event.id)
-                console.log('suppose to be... response.event.id')
+                //console.log(response.event.id)
+                //console.log('suppose to be... response.event.id')
                 sessionStorage.setItem('event_id', response.event.id)
                 browserHistory.push('/event/questions')
             })

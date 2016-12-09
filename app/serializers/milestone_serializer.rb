@@ -1,3 +1,3 @@
 class MilestoneSerializer < ActiveModel::Serializer
-  attributes :id, :date, :note
+  attributes :id, :date, :title, :note
 end

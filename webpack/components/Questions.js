@@ -41,7 +41,6 @@ class Questions extends React.Component {
         .then(response => {
             console.log(response)
             browserHistory.push('/home')
-
         })
     }
 

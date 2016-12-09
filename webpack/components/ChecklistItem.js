@@ -12,7 +12,8 @@ class ChecklistItem extends React.Component {
         this.state = {
             cakeOrdered: false,
             note: '',
-            date: moment()
+            date: moment(),
+            textarea: '',
         }
     }
     // handleChangeTextarea(event) {
@@ -39,7 +40,7 @@ class ChecklistItem extends React.Component {
                                 </div>
                             </div>
                             <div className="col-sm-11">
-                                <h4>{this.props.milestone.title}</h4>
+                                {/* <h4>{this.props.milestone.}</h4> */}
                             </div>
                         </div>
                     </div>

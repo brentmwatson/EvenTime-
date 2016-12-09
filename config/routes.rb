@@ -16,9 +16,7 @@ end
   }
 
   # static routes for React
-  # get 'static/index'
   root 'static#home'
-
   get  '/user' => 'users#show'
   # get   '/event/[:id]' => 'event#starter'
   # get  '/events/questions' ids[]=1&ids[]=2&ids[]=3

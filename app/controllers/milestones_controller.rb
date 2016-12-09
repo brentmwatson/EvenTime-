@@ -13,12 +13,14 @@ class MilestonesController < ApplicationController
   # end
 
   def create #POST
-    # @questions = question
+    @milestone = Milestone.question(params[:answer])
     @event = current_user.events.find(params[:event_id])
-    # milestones.new(milestones_params)
+    # if statement for each milestone (title, date, note) for event
+      if 
+
     Rails.logger.info(@event)
     if @milestones.save
-      render :json => @milestone, :status => 201
+      render :json => @event, :status => 201
     else
       render :json => "Unable to create event items", :status => 422
     end

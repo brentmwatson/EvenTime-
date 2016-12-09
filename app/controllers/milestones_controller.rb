@@ -14,16 +14,23 @@ class MilestonesController < ApplicationController
 
   def create #POST
     @milestone = Milestone.question(params[:answer])
+    # intance var is now array of hash {[],[],[],[]}
     @event = current_user.events.find(params[:event_id])
-    # if statement for each milestone (title, date, note) for event
-      if 
+    #instance var is not tied to event_id one event for milestones
 
+    # if statement for each milestone (title, date, note) for event
+      if @event.save
+        @milestone.each do |milestone|
+          @event.milstones << Milestone.create(title:milestone.title, date:milestone.date)
+        end
+          render :json => @event, :status => 201
+      else
+          render :json => "Unable to create event items", :status => 422
+        # seperate arrays of hash
+        # assign array values to table/model values
+        # save values to table
+      end
     Rails.logger.info(@event)
-    if @milestones.save
-      render :json => @event, :status => 201
-    else
-      render :json => "Unable to create event items", :status => 422
-    end
   end
 
   # def something

@@ -55,7 +55,6 @@ class Addevent extends React.Component {
                 console.log('suppose to be... response.event.id')
                 sessionStorage.setItem('event_id', response.event.id)
                 browserHistory.push('/event/questions')
-                //window.location.href = '/event/questions'
             })
     }
     render(){

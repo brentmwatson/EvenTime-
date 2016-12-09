@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import Nav from './Nav'
 import NavNewuser from './NavNewuser'
 import Footer from './Footer'
@@ -40,7 +40,8 @@ class Questions extends React.Component {
         .then(response => response.json())
         .then(response => {
             console.log(response)
-            //window.location.href = '/home'
+            browserHistory.push('/home')
+
         })
     }
 

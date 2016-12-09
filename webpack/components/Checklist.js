@@ -11,9 +11,9 @@ class Checklist extends React.Component {
         this.state = {
             milestones: [
                 {
-                    title:
-                    id:
-                    notes:
+                    title: '',
+                    id: '',
+                    notes: '',
 
 
                 }

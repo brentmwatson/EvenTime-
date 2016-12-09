@@ -21,6 +21,7 @@ console.log(data)
   .then(response => {
       sessionStorage.setItem('email', response.user.email)
       sessionStorage.setItem('auth_token', response.user.authentication_token)
+      sessionStorage.setItem('user', JSON.stringify(response.user))
 
       console.log(response)
 

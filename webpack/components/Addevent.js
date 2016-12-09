@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 var DatePicker = require('react-datepicker');
 import moment from 'moment'
 import Nav from './Nav'
@@ -17,6 +17,7 @@ class Addevent extends React.Component {
         this.state = {
             theme: 'Wedding',
             date: moment(),
+            event: []
         }
     }
 
@@ -36,6 +37,7 @@ class Addevent extends React.Component {
         date: this.state.date.format('L')
         }
         console.log(eventData)
+        console.log('data i am sending')
         fetch('/api/events?' + 'user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
             body:JSON.stringify({event: eventData}
             ),
@@ -47,7 +49,12 @@ class Addevent extends React.Component {
             .then(response => response.json())
             .then(response => {
                 console.log(response)
-                window.location.href = '/event/questions'
+                console.log('response from back-end')
+                // this.setState({event: response.event.id})
+                console.log(response.event.id)
+                console.log('suppose to be... response.event.id')
+                sessionStorage.setItem('event_id', response.event.id)
+                browserHistory.push('/event/questions')
             })
     }
     render(){

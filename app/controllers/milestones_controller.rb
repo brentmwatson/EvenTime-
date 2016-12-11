@@ -16,8 +16,18 @@ class MilestonesController < ApplicationController
       else
           render :json => "Unable to create event items", :status => 422
       end
-    # Rails.logger.info(@event)
   end
+
+  def update
+    # DateTime.parse('March 3rd 2013 04:05:06 AM').to_time.class # => Time
+    #
+    # # Convert Time to Date
+    # 1.day.ago.to_date.class # => Date
+    #
+    # # Convert to DateTime
+    # Time.now.to_datetime
+  end
+
 
   private
   def milestone_params

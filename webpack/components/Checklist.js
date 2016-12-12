@@ -26,6 +26,7 @@ class Checklist extends React.Component {
             // .then(response => console.log(response))
             .then(response => this.setState({milestones: response.event.milestones}))
     }
+    //
     render(){
         var checklistItemList = this.state.milestones.map((milestone, i) =>{
             return <ChecklistItem milestone={milestone} key={i}/>})

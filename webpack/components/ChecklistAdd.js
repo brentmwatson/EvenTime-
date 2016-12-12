@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import ChecklistItem from './ChecklistItem'
 import moment from 'moment'
 var DatePicker = require('react-datepicker');
-
+//saying state error
 class ChecklistAdd extends React.Component {
     constructor(props){
         super(props)
@@ -13,6 +13,7 @@ class ChecklistAdd extends React.Component {
             title: '',
             note: '',
             date: moment(),
+            //completed: 
         }
     }
     // handleChangeTextera(event) {

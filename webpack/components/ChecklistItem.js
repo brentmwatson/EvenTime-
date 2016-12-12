@@ -76,6 +76,7 @@ class ChecklistItem extends React.Component {
                         <div className="col-sm-9">
                             <div className="form-group">
                                 <label htmlFor="notes">Notes:</label>
+
                                 <textarea className="form-control" rows="3"  id="notes" onChange={this.note} value={this.state.milestone.note||''}></textarea>
                             </div>
                         </div>

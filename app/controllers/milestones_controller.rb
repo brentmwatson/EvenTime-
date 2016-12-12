@@ -15,6 +15,10 @@ class MilestonesController < ApplicationController
   # before_filter only: :create do
   #     @project = Project.find_by_name(@json['project']['name'])
   #   end
+  def show # GET    /api/milestones/:id(.:format)
+      @milestone = current_user.milestones.find(params[:id])
+      render :json => @milestone
+  end
 
   def create #POST
     # puts params[:questions]
@@ -45,6 +49,7 @@ class MilestonesController < ApplicationController
   end
 
   def destroy
+    @milestone = current_user.milestones.find(params[:id])
 
   end
 

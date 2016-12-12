@@ -9,21 +9,21 @@ class ChecklistItem extends React.Component {
         //this.handleDate = this.handleDate.bind(this)
         //this.handleChangeTextarea = this.handleChangeTextarea.bind(this)
         //this.singleItem = this.singleItem.bind(this)
-        // this.state = {
-        //     completed: '',
-        //     note: '',
-        //     title: '',
-        //     date: '',
-        //     id: ''
-        // }
+        this.state = {
+            completed: '',
+            note: '',
+            title: '',
+            date: '',
+            id: ''
+        }
     }
     // handleChangeTextarea(event) {
     //   this.setState({value: event.target.value});
     // }
 
-    singleItem() {
-        //update this item block
-    }
+    // singleItem() {
+    //     //update this item block
+    // }
     render(){
         return (<div>
             <div className="panel panel-default">
@@ -49,13 +49,13 @@ class ChecklistItem extends React.Component {
                         <div className="col-sm-9">
                             <div className="form-group">
                                 <label htmlFor="notes">Notes:</label>
-                                <textarea className="form-control" rows="3"  id="notes" onChange={(e) => this.setState({note:e.target.value})}></textarea>
+                                <textarea className="form-control" rows="3"  id="notes" value={this.props.milestone.note} onChange={(e) => this.setState({note:e.target.value})}></textarea>
                             </div>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-sm-3">
-                            <button className="btn btn-default" onClick={this.singleItem}>Save</button>
+                            <button className="btn btn-default" >Save</button>
                         </div>
                     </div>
                 </div>

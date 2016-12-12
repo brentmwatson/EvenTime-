@@ -38,9 +38,14 @@ respond_to :json
   # def update
   # end
 
-  # DELETE /resource
-  # def destroy
-  # end
+  def destroy
+    # resource.soft_delete
+    # Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+    # set_flash_message :notice, :destroyed if is_flashing_format?
+    # user = User.find_by(:id)
+    # user = destroy
+    #   render :json=> "You have successfully, deleted your account", :status=>201
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

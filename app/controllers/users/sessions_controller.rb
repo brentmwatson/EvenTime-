@@ -4,7 +4,7 @@ class Users::SessionsController < Devise::SessionsController
   #  before_action :require_no_authentication, :only => [:create]
   #  include Devise::Controllers::InternalHelpers
   #  before_filter :ensure_params_exist
-  skip_before_action :require_no_authentication, :only => [:create]
+  skip_before_action :require_no_authentication
   respond_to :json
 
   # # GET /resource/sign_in
@@ -13,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def create
     #find user for session using resource variable
-    #receiving user [email [user [email, password, auth_token]]]
+    #receiving user [email [user[email,password,auth_token]]]
     resource = User.find_for_database_authentication(:email=>params[:user][:email])
       #User(class).find_for(method)...(email(hash)=>[key][value])
     return invalid_login_attempt unless resource

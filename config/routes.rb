@@ -19,7 +19,7 @@ end
   # static routes for React
   root 'static#home'
   post '/event/questions' => 'milestones#create'
-  post 'api/milesone/new' =>   'milestones#create_one'
+  post '/api/milestone/new' =>   'milestones#create_one'
   # playground for all routes front end
   get  '/:catchall/(:id)' => 'static#catchall'
 
@@ -32,9 +32,6 @@ end
   #                   POST  /api/milestones(.:format)     milestones#create_one
   #       milestone   GET    /api/milestones/:id(.:format)  milestones#show
   #                   PATCH  /api/milestones/:id(.:format)  milestones#update
-
-  # get   '/event/[:id]' => 'event#starter'
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get '/:react' => 'welcome/index'
@@ -71,7 +68,7 @@ end
 #          Prefix Verb   URI Pattern                        Controller#Action
 #      milestones GET    /api/milestones(.:format)          milestones#index
 #                 POST   /api/milestones(.:format)          milestones#create
-#   new_milestone GET    /api/milestones/new(.:format)      milestones#new
+#   new_milestone POST   /api/milestones/new(.:format)      milestones#new
 #  edit_milestone GET    /api/milestones/:id/edit(.:format) milestones#edit
 #       milestone GET    /api/milestones/:id(.:format)      milestones#show
 #                 PATCH  /api/milestones/:id(.:format)      milestones#update

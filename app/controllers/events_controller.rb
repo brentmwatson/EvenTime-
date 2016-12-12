@@ -7,8 +7,8 @@ class EventsController < ApplicationController
     end
 
     def show # GET    /api/events/:id(.:format)
-      @event = Event.find_by(token: params[:id])
-      render :json => @event, :include =>  ['milstones'], :status => 422
+      @event = current_user.events.find(params[:id])
+      render :json => @event
     end
 
     def create # POST   /api/events(.:format)

@@ -22,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
       sign_in("user", resource)
         # Send back the root 'user' with the resourse (devise is silly)
         # {user [email [:user [:email, password, authentication_token]]]}
-      render :json => resource, :include => ['events.milestones']
+      render :json => resource, :include => ['events.milestones'], :status=>201
       return
     end
     invalid_login_attempt

@@ -68,7 +68,7 @@ end
 #          Prefix Verb   URI Pattern                        Controller#Action
 #      milestones GET    /api/milestones(.:format)          milestones#index
 #                 POST   /api/milestones(.:format)          milestones#create
-#   new_milestone GET    /api/milestones/new(.:format)      milestones#new
+#   new_milestone POST   /api/milestones/new(.:format)      milestones#new
 #  edit_milestone GET    /api/milestones/:id/edit(.:format) milestones#edit
 #       milestone GET    /api/milestones/:id(.:format)      milestones#show
 #                 PATCH  /api/milestones/:id(.:format)      milestones#update

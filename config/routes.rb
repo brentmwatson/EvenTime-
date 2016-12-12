@@ -19,7 +19,7 @@ end
   # static routes for React
   root 'static#home'
   post '/event/questions' => 'milestones#create'
-  post 'api/milesone/new' =>   'milestones#create_one'
+  post '/api/milestone/new' =>   'milestones#create_one'
   # playground for all routes front end
   get  '/:catchall/(:id)' => 'static#catchall'
 

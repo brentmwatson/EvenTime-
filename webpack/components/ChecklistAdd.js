@@ -8,6 +8,7 @@ class ChecklistAdd extends React.Component {
     constructor(props){
         super(props)
         this.handleChange = this.handleChange.bind(this)
+        this.addTodo = this.addTodo.bind(this)
         this.state = {
             title: '',
             note: '',
@@ -24,14 +25,21 @@ class ChecklistAdd extends React.Component {
         });
     }
     addTodo() {
-        var adding_todo = {
-            title: this.state.title,
-            note: this.state.note,
-            date: this.state.date.format('L')
+        let user = JSON.parse(sessionStorage.getItem('user'))
+
+        var milestone = {
+            milestone: {
+                title: this.state.title,
+                note: this.state.note,
+                date: this.state.date.format('L'),
+            },
+            event_id: user.events[0].id,
+            user_token: sessionStorage.getItem('auth_token'),
+            user_email: sessionStorage.getItem('email')
         }
-        console.log(adding_todo)
-        fetch('/api/milestones/new' + 'user_token=' + sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
-                body: JSON.stringify({milestone: adding_todo}),
+        console.log(milestone)
+        fetch('/api/milestone/new', {
+                body: JSON.stringify(milestone),
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

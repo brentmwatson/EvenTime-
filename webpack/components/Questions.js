@@ -39,6 +39,9 @@ class Questions extends React.Component {
         .then(response => response.json())
         .then(response => {
             console.log(response)
+            let user = JSON.parse(sessionStorage.getItem('user'))
+            user.events[0] = response.event
+            sessionStorage.setItem('user', JSON.stringify(user))
             browserHistory.push('/home')
         })
     }

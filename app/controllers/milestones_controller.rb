@@ -39,7 +39,7 @@ class MilestonesController < ApplicationController
   end
 
 
-  def create_one # POST 'api/milesone/new'
+  def create_one # POST '/  api/milesone/new'
     @milestone = Milestone.new(milestone_params)
     @event = current_user.events.find(params[:event_id])
     # if statement for each milestone (title, date, note) for event

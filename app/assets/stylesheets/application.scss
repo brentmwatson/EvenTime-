@@ -1,6 +1,6 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
 @import "variables";
 @import "mixins";
 @import "datepicker";
@@ -151,6 +151,10 @@ body, img {
   margin-top: 10px;
 }
 
+.panel-title {
+  cursor: pointer;
+}
+
 .panel-body {
     transition: all 0.3s ease;
 }
@@ -159,4 +163,5 @@ body, img {
     height: 0;
     opacity: 0;
     padding: 0;
+    overflow: hidden;
 }

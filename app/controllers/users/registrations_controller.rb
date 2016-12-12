@@ -10,11 +10,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # end
-  respond_to :json
+
+respond_to :json
+#creates registration and user in one shot
+#add user f_name and :l_name current :user_id
+#serializer to eager load event for user
+#user has null event so feturn api (young mi handels logic)
+# should not aver to use session
+#retune user and event key
+
  def create
    user = User.new(sign_up_params)
    if user.save
-     render :json =>  user,:include => ['events.milestones'] , :status=>201
+     render :json =>  user, :include => ['events.milestones'] , :status=>201
      return
    else
      warden.custom_failure!
@@ -30,9 +38,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def update
   # end
 
-  # DELETE /resource
-  # def destroy
-  # end
+  def destroy
+    # resource.soft_delete
+    # Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+    # set_flash_message :notice, :destroyed if is_flashing_format?
+    # user = User.find_by(:id)
+    # user = destroy
+    #   render :json=> "You have successfully, deleted your account", :status=>201
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

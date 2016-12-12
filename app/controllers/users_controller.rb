@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   # def new
   #   @user=User.new
   # end
+
     def show
       render :json => current_user, :include => ['events.milestones']
     end

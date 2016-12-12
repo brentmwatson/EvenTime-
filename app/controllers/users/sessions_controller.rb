@@ -1,36 +1,28 @@
 class Users::SessionsController < Devise::SessionsController
 
-#  before_action :configure_sign_in_params, only: [:create]
-#  before_action :require_no_authentication, :only => [:create ]
-skip_before_action :require_no_authentication
-#  include Devise::Controllers::InternalHelpers
-
-#  before_filter :ensure_params_exist
+  #  before_action :configure_sign_in_params, only: [:create]
+  #  before_action :require_no_authentication, :only => [:create]
+  #  include Devise::Controllers::InternalHelpers
+  #  before_filter :ensure_params_exist
+  skip_before_action :require_no_authentication
   respond_to :json
 
-  # GET /resource/sign_in
+  # # GET /resource/sign_in
   # def new
   # end
 
-def show
-  #to get current user
-  #give back the current users
-end
-
   def create
-    # build_resource
-    #add user f_name and :l_name current :user_id
-    #serializer to eager load event for user
-    #user has null event so feturn api (young mi handels logic)
-    # should not aver to use session
-    #retune user and event key
-
+    #find user for session using resource variable
+    #receiving user [email [user[email,password,auth_token]]]
     resource = User.find_for_database_authentication(:email=>params[:user][:email])
+      #User(class).find_for(method)...(email(hash)=>[key][value])
     return invalid_login_attempt unless resource
-
+      # if not exsistant return this unless(method) resource is good
     if resource.valid_password?(params[:user][:password])
       sign_in("user", resource)
-      render :json=> resource, :include => ['events.milestones']
+        # Send back the root 'user' with the resourse (devise is silly)
+        # {user [email [:user [:email, password, authentication_token]]]}
+      render :json => resource, :include => ['events.milestones']
       return
     end
     invalid_login_attempt
@@ -39,6 +31,7 @@ end
   def destroy
     sign_out(resource_name)
   end
+
 
   protected
   def ensure_params_exist
@@ -55,4 +48,5 @@ end
  # def configure_sign_in_params
  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
  # end
+
 end

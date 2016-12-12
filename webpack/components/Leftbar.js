@@ -19,7 +19,6 @@ class Leftbar extends React.Component {
               <div className="col-sm-12">
                 <h1>Summary</h1>
                 <hr />
-                <h5>{date}</h5>
                 <LeftbarDays />
                 <LeftbarTasks />
               </div>

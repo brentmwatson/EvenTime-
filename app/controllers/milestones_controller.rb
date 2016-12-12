@@ -15,10 +15,12 @@ class MilestonesController < ApplicationController
   # before_filter only: :create do
   #     @project = Project.find_by_name(@json['project']['name'])
   #   end
+
   def show # GET    /api/milestones/:id(.:format)
       @milestone = current_user.milestones.find(params[:id])
       render :json => @milestone
   end
+
 
   def create #POST
     # puts params[:questions]
@@ -37,6 +39,18 @@ class MilestonesController < ApplicationController
   end
 
 
+  def create_one # POST 'api/milesone/new'
+    @milestone = Milestone.new(milestone_params)
+    @event = current_user.events.find(params[:event_id])
+    # if statement for each milestone (title, date, note) for event
+      if @event.milestones << @milestone
+          render :json => @event, :status => 201
+      else
+          render :json => "Unable to create event items", :status => 422
+      end
+  end
+
+
   def update
     @milestone = current_user.milestones.find(params[:id])
     # @event= current_user.events.milestone.find(params[:event_id])
@@ -47,6 +61,7 @@ class MilestonesController < ApplicationController
       render :json => "Unable to update checklist item", :status => 422
     end
   end
+
 
   def destroy
     @milestone = current_user.milestones.find(params[:id])

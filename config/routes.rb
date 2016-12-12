@@ -19,14 +19,19 @@ end
   # static routes for React
   root 'static#home'
   post '/event/questions' => 'milestones#create'
+  post 'api/milesone/new' =>   'milestones#create_one'
   # playground for all routes front end
   get  '/:catchall/(:id)' => 'static#catchall'
 
   # routes being called for by react
   # user_registration POST  /users(.:format)          users/registrations#create
-  # new_user_session  GET   /users/sign_in(.:format)       users/sessions#new
-  # user_session      POST  /users/sign_in(.:format)       users/sessions#create
-  #                   PATCH /api/milestones/:id(.:format)  milestones#update
+  # new_user_session  GET   /users/sign_in(.:format)      users/sessions#new
+  # user_session      POST  /users/sign_in(.:format)      users/sessions#create
+  #                   PATCH /api/milestones/:id(.:format) milestones#update
+  #                   POST  /api/milestones(.:format)     milestones#create
+  #                   POST  /api/milestones(.:format)     milestones#create_one
+  #       milestone   GET    /api/milestones/:id(.:format)  milestones#show
+  #                   PATCH  /api/milestones/:id(.:format)  milestones#update
 
   # get   '/event/[:id]' => 'event#starter'
 

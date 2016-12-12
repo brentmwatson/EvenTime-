@@ -14,9 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 respond_to :json
 #creates registration and user in one shot
 #add user f_name and :l_name current :user_id
-#serializer to eager load event for user
-#user has null event so feturn api (young mi handels logic)
-# should not aver to use session
 #retune user and event key
 
  def create

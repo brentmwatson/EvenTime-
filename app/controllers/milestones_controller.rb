@@ -1,23 +1,10 @@
 class MilestonesController < ApplicationController
   before_action :require_user
-  # before_filter only: :create do
-  #   unless @json.has_key?('project') && @json['project'].responds_to?(:[]) && @json['project']['name']
-  #   render nothing: true, status: :bad_request
-  #   end
-  # end
-  #
-  # before_filter only: :update do
-  #   unless @json.has_key?('project')
-  #     render nothing: true, status: :bad_request
-  #   end
-  # end
-  #
-  # before_filter only: :create do
-  #     @project = Project.find_by_name(@json['project']['name'])
-  #   end
+  before_action :find_milestone, only: [:show, :update, :destroy]
+  before_action :find_event, only: [:create, :create_one]
+
 
   def show # GET    /api/milestones/:id
-      @milestone = find_milestone
       render :json => @milestone
   end
 
@@ -25,7 +12,7 @@ class MilestonesController < ApplicationController
   def create # POST   /api/milestones
     @milestone = Milestone.question(params[:questions])
     # intance var is now array of hash {[],[],[],[]}
-    @event = find_event #instance var is now has event_id
+    #instance var is now has event_id
     # if statement for each milestone (title, date, note) for event
       if @event.save
         @milestone.each do |milestone| # puts milestone.inspect
@@ -40,7 +27,6 @@ class MilestonesController < ApplicationController
 
   def create_one # POST  /api/milestones/new
     @milestone = Milestone.new(milestone_params)
-    @event = find_event
     # if statement for each milestone (title, date, note) for event
       if @event.milestones << @milestone
           render :json => @event, :status => 201
@@ -51,8 +37,6 @@ class MilestonesController < ApplicationController
 
 
   def update # PATCH/PUT  /api/milestones/:id
-    @milestone = find_milestone
-    puts @milestone.inspect
     if @milestone.update(milestone_params)
       render :json => @milestone, :status => 201
     else
@@ -62,8 +46,7 @@ class MilestonesController < ApplicationController
 
 
   def destroy # DELETE /api/milestones/:id
-    @milestone = find_milestone
-    @milstone.Milestones.delete(1)
+    @milestone.destroy
     render :json => "Deleted checklist item", :status => 200
   end
 
@@ -81,9 +64,10 @@ class MilestonesController < ApplicationController
     end
 
     def find_event
-      current_user.events.find(params[:event_id])
+        @event = current_user.events.find(params[:event_id])
     end
+
     def find_milestone
-      current_user.milestones.find(params[:id])
+        @milestone = current_user.milestones.find(params[:id])
     end
 end

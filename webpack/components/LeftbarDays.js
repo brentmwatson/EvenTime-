@@ -7,11 +7,14 @@ class LeftbarDays extends React.Component {
   constructor(props){
     super(props)
   }
-  
+  // var a = moment([2007, 0, 29]);
+  // var b = moment([2007, 0, 28]);
+  // a.diff(b, 'days') // 1
   render(){
-    var date = moment().format('LL')
+    var date = moment().format('L')
+
     return (<div>
-        <h5>180 days left</h5>
+        <h5></h5>
     </div>
     )
   }

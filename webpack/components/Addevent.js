@@ -47,7 +47,7 @@ class Addevent extends React.Component {
             })
             .then(response => response.json())
             .then(response => {
-                //console.log(response)
+                console.log(response)
                 //console.log('response from back-end')
                 // this.setState({event: response.event.id})
                 //console.log(response.event.id)

@@ -7,20 +7,31 @@ var DatePicker = require('react-datepicker');
 class ChecklistAdd extends React.Component {
     constructor(props){
         super(props)
-        this.addTodo = this.addTodo.bind(this)
-        this.handleChangeTextera = this.handleChangeTextera.bind(this)
-        this.state={
-
+        this.handleChange = this.handleChange.bind(this)
+        this.state = {
+            title: '',
+            note: '',
+            date: moment(),
         }
     }
-    handleChangeTextera(event) {
-      this.setState({value: event.target.value});
+    // handleChangeTextera(event) {
+    //   this.setState({value: event.target.value});
+    // }
+    handleChange(e) {
+        //console.log(e)
+        this.setState({
+            date: e
+        });
     }
     addTodo() {
-        var questions = this.state.questions
-        console.log(questions)
-        fetch('/api/milestones' + 'user_token=' + sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
-                body: JSON.stringify({questions: questions}),
+        var adding_todo = {
+            title: this.state.title,
+            note: this.state.note,
+            date: this.state.date.format('L')
+        }
+        console.log(adding_todo)
+        fetch('/api/milestones/new' + 'user_token=' + sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'), {
+                body: JSON.stringify({milestone: adding_todo}),
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -52,22 +63,24 @@ class ChecklistAdd extends React.Component {
                                 <div className="row">
                                     <div className="col-sm-9">
                                         <div className="form-group">
-
-                                            <input type="text" placeholder="add a new todo" className="form-control" id="add"/>
+                                            <label htmlFor="addTodo"> Todo</label>
+                                            <input type="text" placeholder="add a new todo" value={this.state.title} onChange={(e) => this.setState({title:e.target.value})} className="form-control" id="add"/>
                                         </div>
                                     </div>
-                                    <div className="col-sm-3">
-                                        <div className="form-group">
-                                            <label htmlFor="addBusinessName"> Business Name</label>
-                                            <input type="text" className="form-control" id="addBusinessName" placeholder="Enter Name" />
-                                        </div>
                                     </div>
+                                    <div className="row">
+                                        <div className="col-sm-6">
+                                            <h4>Due date of event</h4>
+                                            <DatePicker
+                                                    selected={this.state.date}
+                                                    onChange={this.handleChange} />
+                                        </div>
                                     </div>
                                 <div className="row">
                                     <div className="col-sm-9">
                                         <div className="form-group">
                                             <label htmlFor="addNotes">Notes:</label>
-                                            <textarea className="form-control" rows="3" id="addNotes" value={this.state.textera} onChange={(e) => this.setState({addnote:e.target.value})}></textarea>
+                                            <textarea className="form-control" rows="3" id="addNotes" value={this.state.note} onChange={(e) => this.setState({note:e.target.value})}></textarea>
                                         </div>
                                     </div>
                                     <div className="col-sm-3">

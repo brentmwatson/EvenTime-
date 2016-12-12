@@ -16,14 +16,13 @@ class MilestonesController < ApplicationController
   #     @project = Project.find_by_name(@json['project']['name'])
   #   end
 
-  def show # GET    /api/milestones/:id(.:format)
-      @milestone = current_user.milestones.find(params[:id])
+  def show # GET    /api/milestones/:id
+      @milestone = find_milestone
       render :json => @milestone
   end
 
 
-  def create #POST
-    # puts params[:questions]
+  def create # POST   /api/milestones
     @milestone = Milestone.question(params[:questions])
     # intance var is now array of hash {[],[],[],[]}
     @event = find_event #instance var is now has event_id
@@ -39,21 +38,20 @@ class MilestonesController < ApplicationController
   end
 
 
-  def create_one # POST 'api/milesone/new'
+  def create_one # POST  /api/milestones/new
     @milestone = Milestone.new(milestone_params)
     @event = find_event
     # if statement for each milestone (title, date, note) for event
       if @event.milestones << @milestone
           render :json => @event, :status => 201
       else
-          render :json => "Unable to create event items", :status => 422
+          render :json => "Unable to create checklist item", :status => 422
       end
   end
 
 
-  def update
-    @milestone = current_user.milestones.find(params[:id])
-    # @event= current_user.events.milestone.find(params[:event_id])
+  def update # PATCH/PUT  /api/milestones/:id
+    @milestone = find_milestone
     puts @milestone.inspect
     if @milestone.update(milestone_params)
       render :json => @milestone, :status => 201
@@ -63,9 +61,10 @@ class MilestonesController < ApplicationController
   end
 
 
-  def destroy
-    @milestone = current_user.milestones.find(params[:id])
-
+  def destroy # DELETE /api/milestones/:id
+    @milestone = find_milestone
+    @milstone.Milestones.delete(1)
+    render :json => "Deleted checklist item", :status => 200
   end
 
     # DateTime.parse('March 3rd 2013 04:05:06 AM').to_time.class # => Time
@@ -82,6 +81,9 @@ class MilestonesController < ApplicationController
     end
 
     def find_event
-       @event = current_user.events.find(params[:event_id])
+      current_user.events.find(params[:event_id])
+    end
+    def find_milestone
+      current_user.milestones.find(params[:id])
     end
 end

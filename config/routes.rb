@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 #for AJAX request
 scope 'api' do
+    resources :events
     resources :milestones
     resources :vendors
-    resources :events
+
     resources :contacts
     resources :addresses
     resources :agreements
@@ -17,24 +18,51 @@ end
 
   # static routes for React
   root 'static#home'
-  # user_registration POST  /users(.:format)        users/registrations#create
-  # new_user_session  GET   /users/sign_in(.:format)        users/sessions#new
-  # user_session      POST  /users/sign_in(.:format)     users/sessions#create
+  post '/event/questions' => 'milestones#create'
+  # playground for all routes front end
+  get  '/:catchall/(:id)' => 'static#catchall'
 
-
-
-  get   '/sock_detail/[:id]' => 'socks#show'
-  post  '/add_cart_item' => 'line_item#create'
-  get  '/cart' => 'carts#show'
-  get   '/update_cart_item' => 'line_items#update'
+  # routes being called for by react
+  # user_registration POST  /users(.:format)          users/registrations#create
+  # new_user_session  GET   /users/sign_in(.:format)       users/sessions#new
+  # user_session      POST  /users/sign_in(.:format)       users/sessions#create
+  #                   PATCH /api/milestones/:id(.:format)  milestones#update
 
   # get   '/event/[:id]' => 'event#starter'
-  post '/event/questions' => 'milestones#create'
-  get  '/:catchall/(:id)' => 'static#catchall'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # get '/:react' => 'welcome/index'
 
+# DEVISE MESS*************
+# new_user_session GET   /users/sign_in(.:format)        users/sessions#new
+#     user_session POST  /users/sign_in(.:format)        users/sessions#create
+# destroy_user_session DELETE /users/sign_out(.:format) users/sessions#destroy
+#
+#    user_password   POST /users/password(.:format)      devise/passwords#create
+# new_user_password  GET   /users/password/new(.:format) devise/passwords#new
+# edit_user_password GET  /users/password/edit(.:format) devise/passwords#edit
+#                   PATCH /users/password(.:format)      devise/passwords#update
+#                    PUT   /users/password(.:format)     devise/passwords#update
+#
+#cancel_user_registration GET /users/cancel(.:format) users/registrations#cancel
+# user_registration POST   /users(.:format)          users/registrations#create
+# new_user_registration GET /users/sign_up(.:format) users/registrations#new
+#   edit_user_registration GET /users/edit(.:format) users/registrations#edit
+#                   PATCH  /users(.:format)          users/registrations#update
+#                   PUT    /users(.:format)          users/registrations#update
+#                   DELETE /users(.:format)          users/registrations#destroy
+# ************************
+#
+#         events GET    /api/events(.:format)              events#index
+#                POST   /api/events(.:format)              events#create
+#      new_event GET    /api/events/new(.:format)          events#new
+#     edit_event GET    /api/events/:id/edit(.:format)     events#edit
+#          event GET    /api/events/:id(.:format)          events#show
+#                PATCH  /api/events/:id(.:format)          events#update
+#                PUT    /api/events/:id(.:format)          events#update
+#                DELETE /api/events/:id(.:format)          events#destroy
+#
 #          Prefix Verb   URI Pattern                        Controller#Action
 #      milestones GET    /api/milestones(.:format)          milestones#index
 #                 POST   /api/milestones(.:format)          milestones#create
@@ -53,15 +81,6 @@ end
 #                 PATCH  /api/vendors/:id(.:format)         vendors#update
 #                 PUT    /api/vendors/:id(.:format)         vendors#update
 #                 DELETE /api/vendors/:id(.:format)         vendors#destroy
-#
-#         events GET    /api/events(.:format)              events#index
-#                POST   /api/events(.:format)              events#create
-#      new_event GET    /api/events/new(.:format)          events#new
-#     edit_event GET    /api/events/:id/edit(.:format)     events#edit
-#          event GET    /api/events/:id(.:format)          events#show
-#                PATCH  /api/events/:id(.:format)          events#update
-#                PUT    /api/events/:id(.:format)          events#update
-#                DELETE /api/events/:id(.:format)          events#destroy
 #
 #       contacts GET    /api/contacts(.:format)            contacts#index
 #                POST   /api/contacts(.:format)            contacts#create
@@ -99,25 +118,7 @@ end
 #                PUT    /api/addendums/:id(.:format)       addendums#update
 #                DELETE /api/addendums/:id(.:format)       addendums#destroy
 #
-# DEVISE MESS*************
-# new_user_session GET   /users/sign_in(.:format)        users/sessions#new
-#     user_session POST  /users/sign_in(.:format)        users/sessions#create
-# destroy_user_session DELETE /users/sign_out(.:format) users/sessions#destroy
 
-#    user_password   POST /users/password(.:format)      devise/passwords#create
-# new_user_password  GET   /users/password/new(.:format) devise/passwords#new
-# edit_user_password GET  /users/password/edit(.:format) devise/passwords#edit
-#                   PATCH /users/password(.:format)      devise/passwords#update
-#                    PUT   /users/password(.:format)     devise/passwords#update
-
-#cancel_user_registration GET /users/cancel(.:format) users/registrations#cancel
-# user_registration POST   /users(.:format)          users/registrations#create
-# new_user_registration GET /users/sign_up(.:format) users/registrations#new
-#   edit_user_registration GET /users/edit(.:format) users/registrations#edit
-#                   PATCH  /users(.:format)          users/registrations#update
-#                   PUT    /users(.:format)          users/registrations#update
-#                   DELETE /users(.:format)          users/registrations#destroy
-# ************************
 #
 # FOR REACT ROUTES********
 #   static_index GET    /static/index(.:format)            static#index

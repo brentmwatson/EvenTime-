@@ -1,16 +1,30 @@
 class MilestonesController < ApplicationController
+  before_action :require_user
+  # before_filter only: :create do
+  #   unless @json.has_key?('project') && @json['project'].responds_to?(:[]) && @json['project']['name']
+  #   render nothing: true, status: :bad_request
+  #   end
+  # end
+  #
+  # before_filter only: :update do
+  #   unless @json.has_key?('project')
+  #     render nothing: true, status: :bad_request
+  #   end
+  # end
+  #
+  # before_filter only: :create do
+  #     @project = Project.find_by_name(@json['project']['name'])
+  #   end
 
   def create #POST
     # puts params[:questions]
-    @milestone = Milestone.question(params[:questions])# puts @milestone.inspect
+    @milestone = Milestone.question(params[:questions])
     # intance var is now array of hash {[],[],[],[]}
-    @event = current_user.events.find(params[:event_id])
-    #instance var is now has event_id
-
+    @event = find_event #instance var is now has event_id
     # if statement for each milestone (title, date, note) for event
       if @event.save
         @milestone.each do |milestone| # puts milestone.inspect
-          @event.milestones << Milestone.new(milestone)
+        @event.milestones << Milestone.new(milestone)
         end
           render :json => @event, :status => 201
       else
@@ -18,7 +32,22 @@ class MilestonesController < ApplicationController
       end
   end
 
+
   def update
+    @milestone = current_user.milestones.find(params[:id])
+    # @event= current_user.events.milestone.find(params[:event_id])
+    puts @milestone.inspect
+    if @milestone.update(milestone_params)
+      render :json => @milestone, :status => 201
+    else
+      render :json => "Unable to update checklist item", :status => 422
+    end
+  end
+
+  def destroy
+
+  end
+
     # DateTime.parse('March 3rd 2013 04:05:06 AM').to_time.class # => Time
     #
     # # Convert Time to Date
@@ -26,12 +55,13 @@ class MilestonesController < ApplicationController
     #
     # # Convert to DateTime
     # Time.now.to_datetime
-  end
-
 
   private
-  def milestone_params
-    params.require(:milestone).permit(:date, :notes, :title, :answer)
+    def milestone_params
+      params.require(:milestone).permit(:date, :note, :title, :complete)
+    end
 
-  end
+    def find_event
+       @event = current_user.events.find(params[:event_id])
+    end
 end

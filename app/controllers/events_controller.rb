@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     end
 
     # def update #saves changes to EXISTING record
-    #         #SAVES AND REDIRECTS add_event event/addevent.... POST/api/event
+    # #SAVES AND REDIRECTS add_event event/addevent.... POST/api/event
     # end
 
     # def destroy # DESTROYS and REDIRECTS

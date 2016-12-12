@@ -30,7 +30,7 @@ class Home extends React.Component {
         //console.log(id)
 
         return (<div>
-            {hasEvent?<Nav />:<NavNewuser />}
+            <Nav />
             <main>
                 <div className="container">
                     <div className="row">

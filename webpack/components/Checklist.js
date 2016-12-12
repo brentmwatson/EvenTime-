@@ -30,7 +30,6 @@ class Checklist extends React.Component {
     render(){
         var checklistItemList = this.state.milestones.map((milestone, i) =>{
             return <ChecklistItem milestone={milestone} key={i}/>})
-
         return (<div>
             <h1>Master CheckList</h1>
             <hr />

@@ -21,14 +21,13 @@ class Nav extends React.Component {
                     <div className="row">
                         <div className="col-sm-6 text-left">
                             <ul className="list-unstyled list-inline">
-                                <Link to="/home"><li>Eventime</li></Link>
-                                <Link to="/event/vendor"><li>Vendor Info</li></Link>
-                                <Link to="/event/agreement"><li>Agreement</li></Link>
+                                <li>Eventime</li>
+
                             </ul>
                         </div>
                         <div className="col-sm-6 text-right">
                             <ul className="list-unstyled list-inline pull-right">
-                                <li><div className="form-group"> <button className="btn btn-default" onClick={this.signout}>Log Out</button>
+                                <li><div className="form-group"> <button className="btn btn-default loggingOut" onClick={this.signout}>Log Out</button>
                             </div></li>
                         </ul>
                     </div>

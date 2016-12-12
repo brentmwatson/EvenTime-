@@ -9,13 +9,13 @@ class ChecklistItem extends React.Component {
         //this.handleDate = this.handleDate.bind(this)
         //this.handleChangeTextarea = this.handleChangeTextarea.bind(this)
         //this.singleItem = this.singleItem.bind(this)
-        this.state = {
-            completed: '',
-            note: '',
-            title: '',
-            date: '',
-            id: ''
-        }
+        // this.state = {
+        //     completed: '',
+        //     note: '',
+        //     title: '',
+        //     date: '',
+        //     id: ''
+        // }
     }
     // handleChangeTextarea(event) {
     //   this.setState({value: event.target.value});
@@ -36,10 +36,10 @@ class ChecklistItem extends React.Component {
                                 </div>
                             </div>
                             <div className="col-sm-8">
-                                {/* <h4>{this.props.event.milestone.title}</h4> */}<h4>Title</h4>
+                                 <label htmlFor="title"><h4>{this.props.milestone.title}</h4></label>
                             </div>
                             <div className="col-sm-2">
-                                {/* <h4>{this.props.event.milestone.date}</h4> */}<h4>date</h4>
+                                 <h4>{this.props.milestone.date}</h4>
                             </div>
                         </div>
                     </div>

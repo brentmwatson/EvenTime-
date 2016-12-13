@@ -10,14 +10,13 @@ class Leftbar extends React.Component {
     super(props)
   }
   render(){
-    var date = moment().format('LL')
     return (
       <div className="panel panel-default">
         <div className="panel-body">
           <div className="leftSummary">
             <div className="row">
               <div className="col-sm-12">
-                <h1>Summary</h1>
+                <h1 className="leftbarSum">Summary</h1>
                 <hr />
                 <LeftbarDays />
                 <LeftbarTasks />

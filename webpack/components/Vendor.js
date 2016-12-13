@@ -10,7 +10,13 @@ class Vendor extends React.Component {
     constructor(props){
         super(props)
     }
+
+
     render(){
+        // var vendoradding = this.state.milestones.map((milestone, i) =>{
+        //     return <vendorAdd vendor={milestone} key={i}/>})
+        var hasvendor = undefined
+        //need to toggle if none, display none, if you added a vendor, display vendor
         return (<div>
             <Nav />
             <main>
@@ -22,6 +28,7 @@ class Vendor extends React.Component {
                   <div className="col-sm-9">
                     <div className="panel panel-default">
                       <div className="panel-body">
+                        {hasvendor?<VendorSingle />:''}
                         <VendorSingle />
                         <hr />
                         <div className="row">

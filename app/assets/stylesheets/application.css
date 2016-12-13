@@ -470,6 +470,7 @@ body, img {
 .section3 {
   background-color: white;
   color: #55595C;
+  height: 30px;
 }
 
 .footer-container {
@@ -508,18 +509,18 @@ body, img {
   list-style-type: none;
   padding: 0;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.mainNav li {
+.mainNav .logoTitle {
   float: left;
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   font-family: 'Merriweather', serif;
-  font-size: 30px;
-  margin-top: 10px;
+  font-size: 40px;
+  margin-top: 5px;
 }
 
 .mainNav .loggingOut {
@@ -528,6 +529,7 @@ body, img {
   border-size: 1px;
   margin-bottom: 10px;
   margin-top: 20px;
+  margin-right: 10px;
   font-family: 'Merriweather', serif;
 }
 
@@ -549,9 +551,72 @@ body, img {
   transition: all 0.3s ease;
 }
 
+.panel-title {
+  background-color: white;
+  margin: -10px -15px;
+}
+
+.completedTodo {
+  background-color: whitesmoke;
+}
+
+.checkbox {
+  margin-left: 15px;
+}
+
 .panel-body-collapse {
   height: 0;
   opacity: 0;
   padding: 0;
   overflow: hidden;
+}
+
+.homePageTitlep {
+  font-family: 'Merriweather', serif;
+}
+
+.addTodobutton {
+  background-color: #9D69A3;
+  color: white;
+  margin-top: 30px;
+}
+
+.masterName, .homePageTitle, .leftbarSum, .addEventTitle, .questionTitle {
+  color: #C97B84;
+  font-family: 'Merriweather', serif;
+}
+
+.donedone {
+  margin-left: 8px;
+}
+
+.backgroundPink {
+  background-color: #f6d6de;
+}
+
+.homePageTitleT .homeBtn {
+  color: #C97B84;
+}
+
+.homePageTitleT button:hover {
+  background: #33032F;
+  color: white;
+}
+
+.addEventTitlet .addeventsummitbtn {
+  color: #C97B84;
+}
+
+.addEventTitlet button:hover {
+  background: #33032F;
+  color: white;
+}
+
+.questionPage .questionBtn {
+  color: #C97B84;
+}
+
+.questionPage button:hover {
+  background: #33032F;
+  color: white;
 }

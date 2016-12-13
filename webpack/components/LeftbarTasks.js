@@ -5,14 +5,21 @@ import LeftbarDays from './LeftbarDays'
 import ChecklistItem from './ChecklistItem'
 var DatePicker = require('react-datepicker');
 
-class Leftbar extends React.Component {
+class LeftbarTasks extends React.Component {
   constructor(props){
     super(props)
+    this.fetchMilestones = this.fetchMilestones.bind(this)
     this.state = {
       milestones: []
     }
   }
 componentWillMount(){
+  this.fetchMilestones()
+}
+componentWillReceiveProps() {
+  this.fetchMilestones()
+}
+fetchMilestones() {
   let user = JSON.parse(sessionStorage.getItem('user'))
 
   fetch('/api/events/' + user.events[0].id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
@@ -27,21 +34,17 @@ componentWillMount(){
       .then(response => this.setState({milestones: response.event.milestones}))
 }
   render(){
-    var checklistItemList = this.state.milestones.filter((milestone, i) =>{
-            return <ChecklistItem/>})
-    var totalItems = checklistItemList.length
+    var totalItems = this.state.milestones.length
+    var completedItems = this.state.milestones.filter((milestone, i) => {
+      return milestone.complete
+    })
 
-    var checklistComplete = this.state.milestones.filter((milestone, i) =>{
-            return <ChecklistItem complete={true} key={i}/>})
-
-   var completedItems = checklistComplete.length
     return (
       <div>
-                <h5 className="text-center"> {completedItems} out of {totalItems} tasks done</h5>
-
+        <h5 className="text-center">{completedItems.length} out of {totalItems} tasks done</h5>
       </div>
     )
   }
 }
 
-export default Leftbar
+export default LeftbarTasks

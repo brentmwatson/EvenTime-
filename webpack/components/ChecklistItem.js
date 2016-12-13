@@ -23,7 +23,7 @@ class ChecklistItem extends React.Component {
         milestone.complete = e.target.checked
         this.setState({milestone: milestone})
         setTimeout(() => {
-            this.updateItem()
+            this.updateItem(false)
         }, 0)
     }
     //let scopes outside curly brackets
@@ -33,7 +33,7 @@ class ChecklistItem extends React.Component {
         this.setState({milestone: milestone})
     }
 
-    updateItem() {
+    updateItem(reload) {
         fetch('/api/milestones/' + this.state.milestone.id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
         {
             method: 'put',
@@ -43,7 +43,9 @@ class ChecklistItem extends React.Component {
             }
         })
         .then(response => response.json())
-        .then(response => window.location.reload())
+        .then(response => {
+            reload? window.location.reload() : this.props.updateMilestones()
+        })
     }
 
     deleteItem() {
@@ -51,26 +53,26 @@ class ChecklistItem extends React.Component {
         {
             method: 'delete'
         })
-        .then(response => response.json())
-        .then(response => this.setState({milestones:this.state}))
+        // .then(response => response.json())
+        .then(response => window.location.reload())
     } // need to remove checklist once it's deleted.  gets deleted, but only when refreshed
 
     render(){
         return (<div>
             <div className="panel panel-default">
-                <div className="panel-heading" onClick={() => this.setState({open:!this.state.open})}>
+                <div className="panel-heading">
                     <div className="panel-title">
                         <div className={this.state.milestone.complete?"completedTodo":""}>
                             <div className={this.state.open?"backgroundPink":""}>
                             <div className="row">
                                 <div className="col-xs-2">
-                                    <small className="donedone text-muted"><label htmlFor="checkbox">done</label></small>
+                                    {/* <small className="donedone text-muted"><label htmlFor="checkbox">done</label></small> */}
                                     <div className="checkbox">
                                         <label><input type="checkbox" value="true" onChange={this.completed} checked={this.state.milestone.complete} /></label>
                                     </div>
                                 </div>
                                 <div className={this.state.open?"whiteFont":""}>
-                                <div className="col-xs-10">
+                                <div className="col-xs-10" onClick={() => this.setState({open:!this.state.open})}>
                                     <h4 style={{textDecoration:this.state.milestone.complete?'line-through':''}} >{this.state.milestone.complete}{this.state.milestone.title}</h4>
                                     <small>Due Date: </small>
                                     <small>{moment(this.state.milestone.date).format('L')}</small>

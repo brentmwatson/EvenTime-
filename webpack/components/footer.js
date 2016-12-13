@@ -10,7 +10,6 @@ class Footer extends React.Component {
             <div className="container-fluid footer-container">
               <div className="row">
                 <div className="col-sm-6">
-
             <a href="https://www.facebook.com/EvenTimeGO/"><i className="fa fa-facebook-official fa-2x footerIcons" aria-hidden="true"></i></a>
             <a href="https://twitter.com/EvenTimeGo"><i className="fa fa-twitter-square fa-2x footerIcons" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/beautifulmiem/"><i className="fa fa-instagram fa-2x footerIcons" aria-hidden="true"></i></a>

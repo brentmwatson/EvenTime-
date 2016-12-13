@@ -20,7 +20,7 @@ class LeftbarDays extends React.Component {
       <br />
       <h5 className="text-center">Your event is </h5>
         <h1 className="text-center">{diff}</h1>
-        <h5 className="text-center">days away</h5>
+        <h5 className="text-center">day{diff===1?'':'s'} away</h5>
         <br />
     </div>
     )

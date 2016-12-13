@@ -12,7 +12,7 @@ gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 3.2'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '~> 2.7', '>= 2.7.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -45,10 +45,11 @@ gem 'pry', '~> 0.10.4'
 # For users use devise
 gem 'devise'
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
-# for launch to Heroku STILL STEP DOWN RAILS
+
 gem 'rails_12factor', group: :production
 #gem 'rack-cors', :require => 'rack/cors'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

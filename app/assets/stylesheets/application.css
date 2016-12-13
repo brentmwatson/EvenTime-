@@ -401,7 +401,7 @@ body, img {
 }
 
 .indexNavBar .logotitle {
-  font-family: 'Merriweather', serif;
+  font-family: 'Pacifico', cursive;
   font-size: 40px;
   margin-top: 10px;
 }
@@ -512,15 +512,32 @@ body, img {
   margin-bottom: 20px;
 }
 
+.mainNav a:link {
+  color: white;
+}
+
+.mainNav a:visited {
+  color: white;
+}
+
+.mainNav a:hover {
+  color: #55595C;
+}
+
 .mainNav .logoTitle {
   float: left;
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
-  font-family: 'Merriweather', serif;
+  font-family: 'Pacifico', cursive;
   font-size: 40px;
   margin-top: 5px;
+}
+
+.mainNav .vendorLink {
+  font-size: 18px;
+  margin-top: 35px;
 }
 
 .mainNav .loggingOut {
@@ -591,7 +608,36 @@ body, img {
 }
 
 .backgroundPink {
-  background-color: #f6d6de;
+  background-color: #C97B84;
+}
+
+.whiteFont {
+  color: white;
+}
+
+.saveBtn {
+  background-color: #60993E;
+  color: white;
+}
+
+.checklistSave .saveBtn {
+  background-color: #60993E;
+  color: white;
+}
+
+.checklistSave button:hover {
+  background: transparent;
+  color: #60993E;
+}
+
+.checklistDelete .deleteBtn {
+  background-color: #D36135;
+  color: white;
+}
+
+.checklistDelete button:hover {
+  background: transparent;
+  color: #D36135;
 }
 
 .homePageTitleT .homeBtn {

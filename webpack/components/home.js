@@ -12,6 +12,12 @@ import Checklist from './Checklist'
 class Home extends React.Component {
     constructor(props){
         super(props)
+        this.updateMilestones = this.updateMilestones.bind(this)
+        this.state = {updateMilestones: ''}
+    }
+
+    updateMilestones() {
+        this.setState({updateMilestones: Date.now()})
     }
 
     componentWillMount() {
@@ -35,14 +41,14 @@ class Home extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-3">
-                            {hasEvent?<Leftbar />:<HomeLeftbar />}
+                            {hasEvent?<Leftbar {...this.props} />:<HomeLeftbar />}
                         </div>
                         <div className="col-sm-9">
                             <div className="panel panel-default">
                                 <div className="panel-body">
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            {hasEvent?<Checklist />:<HomeGetstarted/>}
+                                            {hasEvent?<Checklist updateMilestones={this.updateMilestones} />:<HomeGetstarted/>}
                                     </div>
                                 </div>
                             </div>

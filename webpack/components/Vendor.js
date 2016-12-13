@@ -10,11 +10,26 @@ class Vendor extends React.Component {
     constructor(props){
         super(props)
     }
+    // componentWillMount(){
+    //     let user = JSON.parse(sessionStorage.getItem('user'))
+    //
+    //     fetch('/api/vendors/' + user.events[0].id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
+    //         {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         }
+    //         })
+    //         .then(response => response.json())
+    //         .then(response => console.log(response))
+    //         //.then(response => this.setState({milestones: response.event.milestones}))
+    // }
 
 
     render(){
-        // var vendoradding = this.state.milestones.map((milestone, i) =>{
-        //     return <vendorAdd vendor={milestone} key={i}/>})
+        // var vendoradding = this.state.vendors.map((vendors, i) =>{
+        //     return <vendorAdd vendor={vendors} key={i}/>})
+
         var hasvendor = undefined
         //need to toggle if none, display none, if you added a vendor, display vendor
         return (<div>
@@ -29,7 +44,7 @@ class Vendor extends React.Component {
                     <div className="panel panel-default">
                       <div className="panel-body">
                         {hasvendor?<VendorSingle />:''}
-                        <VendorSingle />
+
                         <hr />
                         <div className="row">
                           <VendorAdd />

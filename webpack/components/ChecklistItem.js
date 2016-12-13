@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import moment from 'moment'
 var DatePicker = require('react-datepicker');
 
-//summary is half finished..
+//got half of summary.
 //faster way to remove checkbox when deleted
 class ChecklistItem extends React.Component {
     constructor(props){
@@ -64,16 +64,18 @@ class ChecklistItem extends React.Component {
                             <div className={this.state.open?"backgroundPink":""}>
                             <div className="row">
                                 <div className="col-xs-2">
-                                    <small className="donedone"><label htmlFor="checkbox">done</label></small>
+                                    <small className="donedone text-muted"><label htmlFor="checkbox">done</label></small>
                                     <div className="checkbox">
                                         <label><input type="checkbox" value="true" onChange={this.completed} checked={this.state.milestone.complete} /></label>
                                     </div>
                                 </div>
+                                <div className={this.state.open?"whiteFont":""}>
                                 <div className="col-xs-10">
                                     <h4 style={{textDecoration:this.state.milestone.complete?'line-through':''}} >{this.state.milestone.complete}{this.state.milestone.title}</h4>
                                     <small>Due Date: </small>
                                     <small>{moment(this.state.milestone.date).format('L')}</small>
                                 </div>
+                            </div>
                             </div>
                         </div>
                         </div>
@@ -90,11 +92,11 @@ class ChecklistItem extends React.Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-sm-6">
-                            <button className="btn btn-success" onClick={this.updateItem}>Save</button>
+                        <div className="col-sm-6 checklistSave">
+                            <button className="btn btn-default saveBtn" onClick={this.updateItem}>Save</button>
                         </div>
-                        <div className="col-sm-6 text-right">
-                            <button className="btn btn-danger" onClick={this.deleteItem}>Delete</button>
+                        <div className="col-sm-6 text-right checklistDelete">
+                            <button className="btn btn-default deleteBtn" onClick={this.deleteItem}>Delete</button>
                         </div>
                     </div>
                 </div>

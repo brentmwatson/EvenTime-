@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-//var ques1 = this._inputQ1.value
-//ref={(a) => this._inputQ1 = a}
+
 const QuestionsItem = (props) => (
         <div>
             <div className="row">

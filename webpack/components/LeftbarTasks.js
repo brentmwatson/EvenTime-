@@ -32,7 +32,7 @@ componentWillMount(){
     var totalItems = checklistItemList.length
 
     var checklistComplete = this.state.milestones.filter((milestone, i) =>{
-            return <ChecklistItem complete={milestone} key={i}/>})
+            return <ChecklistItem complete={true} key={i}/>})
 
    var completedItems = checklistComplete.length
     return (

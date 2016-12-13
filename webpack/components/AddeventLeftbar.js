@@ -11,7 +11,7 @@ class AddeventLeftbar extends React.Component {
         return (<div>
             <div className="row">
                 <div className="col-sm-12">
-                    <img src="/images/cake.jpg" alt="picture of a cake"></img>
+                    <img src="/images/Hassan_wedding-286.jpg" alt="picture of a cake"></img>
                 </div>
             </div>
         </div>

@@ -48,8 +48,8 @@ class Questions extends React.Component {
 
     render(){
 
-        return (<div>
-            <NavNewuser />
+        return (<div className="questionPage">
+            <Nav />
             <main>
                 <div className="container">
                     <div className="row">
@@ -61,12 +61,10 @@ class Questions extends React.Component {
                                 <div className="panel-body">
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            <h1>Questions</h1>
+                                            <h1 className="questionTitle">Questions</h1>
                                         </div>
                                     </div>
                                     <hr />
-                                    <div className="panel panel-default">
-                                        <div className="panel-heading">
                                             <QuestionsItem id="1" label="Do you have a venue?" onChange={this.updateQuestion}/>
                                             <QuestionsItem id="2" label="Do you have a caterer?"  onChange={this.updateQuestion}/>
                                             <QuestionsItem id="3" label="Are you having a ceremony?"  onChange={this.updateQuestion}/>
@@ -84,12 +82,10 @@ class Questions extends React.Component {
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <button type="button" className="btn btn-default" onClick={this.fireOffQuestions}>Submit</button>
+                                        <button type="button" className="btn btn-default btn-lg questionBtn" onClick={this.fireOffQuestions}>Submit</button>
                                     </div>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
         </main>
     <Footer />

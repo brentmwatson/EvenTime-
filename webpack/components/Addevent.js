@@ -58,8 +58,8 @@ class Addevent extends React.Component {
     }
     render(){
 
-        return (<div>
-            <NavNewuser />
+        return (<div className="addEventTitlet">
+            <Nav />
             <main>
                 <div className="container">
                     <div className="row">
@@ -71,7 +71,7 @@ class Addevent extends React.Component {
                                 <div className="panel-body">
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            <h1>Let's create your event!!!</h1>
+                                            <h1 className="addEventTitle">Let's create your event!!!</h1>
                                             <hr />
                                             <label htmlFor="theme">Pick a theme</label>
                                             <select className="form-control" name="theme" id="theme"  value={this.state.theme} onChange={this.handleChangeTheme} >
@@ -86,7 +86,7 @@ class Addevent extends React.Component {
                                                 </div>
                                             </div>
                                             <h4>Almost there!</h4>
-                                            <div className="form-group"><button className="btn btn-default" onClick={this.addevent}>Submit</button>
+                                            <div className="form-group"><button className="btn btn-default addeventsummitbtn" onClick={this.addevent}>Submit</button>
                                         </div>
                                     </div>
                                 </div>

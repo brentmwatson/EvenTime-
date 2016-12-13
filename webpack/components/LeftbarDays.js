@@ -7,18 +7,21 @@ class LeftbarDays extends React.Component {
   constructor(props){
     super(props)
   }
-  // var a = moment([2007, 0, 29]);
-  // var b = moment([2007, 0, 28]);
-  // a.diff(b, 'days') // 1
+
   render(){
     var today = moment()
     let user = JSON.parse(sessionStorage.getItem('user'))
     var eventDate = moment(user.events[0].date)
     var diff = moment(eventDate).diff(today, 'days')
+
     return (<div>
-<h4>Your event date!!!!!</h4>
-      <h5>{eventDate.format('L')}</h5>
-        <h5>{diff} days away</h5>
+<h4 className="text-center">Your event date:</h4>
+      <h2 className="text-center">{eventDate.format('l')}</h2>
+      <br />
+      <h5 className="text-center">Your event is </h5>
+        <h1 className="text-center">{diff}</h1>
+        <h5 className="text-center">days away</h5>
+        <br />
     </div>
     )
   }

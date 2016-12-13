@@ -10,18 +10,18 @@ class HomeGetstarted extends React.Component {
     }
     render(){
 
-        return (<div>
-            <h1>Home Page</h1>
+        return (<div className="homePageTitleT">
+            <h1 className="homePageTitle">Home Page</h1>
             <hr />
-            <h4>How to use the feature blurb......</h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <h4>Welcome to Eventime!!!!</h4>
+            <p className="homePageTitlep">
+                We are excited to start this journey with you.
             </p>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p className="homePageTitlep">
+                There is something special about planning an event.  You could be planning and event for yourself or for somebody else.  There is countless hours going into the planning, starting from picking a theme, the colors, and who to invite.  We hope this will be the starting point to plan your event to be awesome.
             </p>
-            <h4>Let's get started</h4>
-            <h4><div className="form-group"><Link to="/event/addevent"> <button className="btn btn-default">+ create your event</button></Link>
+            <h5>Let's get started</h5>
+            <h4><div className="form-group"><Link to="/event/addevent"> <button className="btn btn-default homeBtn">+ create your event</button></Link>
             </div></h4>
     </div>
 

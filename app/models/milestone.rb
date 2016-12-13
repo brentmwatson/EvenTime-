@@ -1,4 +1,7 @@
 class Milestone < ApplicationRecord
+    belongs_to :vendor
+    belongs_to :event
+
     # receive
     # :questions
     # 14 booleans
@@ -115,7 +118,7 @@ class Milestone < ApplicationRecord
             elsif index == 12
                 output = []
             end
-            # 
+            #
             # datetime = Time.now.to_datetime
             # output.date = date.to_datetime
             #

@@ -3,6 +3,8 @@ import { Link } from 'react-router'
 import moment from 'moment'
 var DatePicker = require('react-datepicker');
 
+//summary is half finished..
+//faster way to remove checkbox when deleted
 class ChecklistItem extends React.Component {
     constructor(props){
         super(props)
@@ -24,7 +26,7 @@ class ChecklistItem extends React.Component {
             this.updateItem()
         }, 0)
     }
-
+    //let scopes outside curly brackets
     note(e) {
         let milestone = this.state.milestone
         milestone.note = e.target.value
@@ -33,47 +35,53 @@ class ChecklistItem extends React.Component {
 
     updateItem() {
         fetch('/api/milestones/' + this.state.milestone.id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
-            {
-                method: 'put',
-                body: JSON.stringify(this.state.milestone),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(response => window.location.reload())
+        {
+            method: 'put',
+            body: JSON.stringify(this.state.milestone),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(response => window.location.reload())
     }
 
     deleteItem() {
         fetch('/api/milestones/' + this.state.milestone.id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
-            {
-                method: 'delete'
-            })
-            .then(response => response.json())
-            .then(response => window.location.reload())
-    }
+        {
+            method: 'delete'
+        })
+        .then(response => response.json())
+        .then(response => this.setState({milestones:this.state}))
+    } // need to remove checklist once it's deleted.  gets deleted, but only when refreshed
 
     render(){
         return (<div>
             <div className="panel panel-default">
                 <div className="panel-heading" onClick={() => this.setState({open:!this.state.open})}>
                     <div className="panel-title">
-                        <div className="row">
-                            <div className="col-xs-2">
-                                <div className="checkbox">
-                                    <label><input type="checkbox" value="true" onChange={this.completed} checked={this.state.milestone.complete} /></label>
+                        <div className={this.state.milestone.complete?"completedTodo":""}>
+                            <div className={this.state.open?"backgroundPink":""}>
+                            <div className="row">
+                                <div className="col-xs-2">
+                                    <small className="donedone"><label htmlFor="checkbox">done</label></small>
+                                    <div className="checkbox">
+                                        <label><input type="checkbox" value="true" onChange={this.completed} checked={this.state.milestone.complete} /></label>
+                                    </div>
+                                </div>
+                                <div className="col-xs-10">
+                                    <h4 style={{textDecoration:this.state.milestone.complete?'line-through':''}} >{this.state.milestone.complete}{this.state.milestone.title}</h4>
+                                    <small>Due Date: </small>
+                                    <small>{moment(this.state.milestone.date).format('L')}</small>
                                 </div>
                             </div>
-                            <div className="col-xs-10">
-                                 <h4>{this.state.milestone.title}</h4>
-                                 <small>{moment(this.state.milestone.date).format('L')}</small>
-                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
                 <div className={this.state.open?"panel-body":"panel-body panel-body-collapse"}>
                     <div className="row">
-                        <div className="col-sm-9">
+                        <div className="col-sm-12">
                             <div className="form-group">
                                 <label htmlFor="notes">Notes:</label>
 

@@ -32,7 +32,7 @@ class Vendor extends React.Component {
 
         var hasvendor = undefined
         //need to toggle if none, display none, if you added a vendor, display vendor
-        return (<div>
+        return (<div  className="backgroundImagePic">
             <Nav />
             <main>
               <div className="container">

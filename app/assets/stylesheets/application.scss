@@ -7,23 +7,23 @@
 
 *{
     box-sizing: border-box;
-    // border: 1px dashed gray;
+    //border: 1px dashed red;
 }
 body, img {
     width: 100%;
 }
-
-
 .topstrip {
   background-color: white;
   height: 5px;
 }
-
+.backgroundImagePic{
+    background: url(/images/crossword.png);
+    width: 100%;
+}
 .indexNavBar {
     padding: 0;
     overflow: hidden;
     background-color: #33032F;
-    margin-bottom: -10px;
     li {
         color: white;
         padding: 14px 16px;
@@ -164,15 +164,6 @@ body, img {
     }
 }
 //Home
-#background {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    z-index: -1; /* Ensure div tag stays behind content; -999 might work, too. */
-}
-
 .stretch {
     width:100%;
     height:100%;
@@ -196,6 +187,15 @@ body, img {
   margin-top: 10px;
 }
 //checklist
+.noteN {
+  padding-top: 14px;
+}
+.checklistTT {
+  h4 {
+padding: 1px 0px 0px 0px;
+margin: 1px 0px 0px 0px;
+  }
+}
 .panel-body {
     transition: all 0.3s ease;
 }
@@ -220,10 +220,7 @@ body, img {
 .backgroundPink {
   background-color: #C97B84;
 }
-.moveUp {
-  font-size: 10px;
-  padding-bottom: 20px;
-}
+
 .addTodobutton {
   background-color: #9D69A3;
   color: white;

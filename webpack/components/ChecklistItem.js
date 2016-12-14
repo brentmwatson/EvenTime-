@@ -56,7 +56,7 @@ class ChecklistItem extends React.Component {
     }
 
     render(){
-        return (<div>
+        return (<div className="checklistTT">
             <div className="panel panel-default">
                 <div className="panel-heading">
                     <div className="panel-title">

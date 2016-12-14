@@ -48,7 +48,7 @@ class Questions extends React.Component {
 
     render(){
 
-        return (<div className="questionPage">
+        return (<div className="questionPage backgroundImagePic">
             <Nav />
             <main>
                 <div className="container">

@@ -61,7 +61,7 @@ class Questions extends React.Component {
                                 <div className="panel-body">
                                     <div className="row">
                                         <div className="col-sm-12">
-                                            <h1 className="questionTitle">Questions</h1>
+                                            <span className="questionTitle">Questions</span>
                                         </div>
                                     </div>
                                     <hr />

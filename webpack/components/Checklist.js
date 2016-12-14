@@ -31,7 +31,7 @@ class Checklist extends React.Component {
         var checklistItemList = this.state.milestones.map((milestone, i) =>{
             return <ChecklistItem milestone={milestone} updateMilestones={this.props.updateMilestones} key={i}/>})
         return (<div>
-            <h1 className="masterName">Master CheckList</h1>
+            <div className="text-center masterName">Master CheckList</div>
             <hr />
             {checklistItemList}
             <ChecklistAdd />

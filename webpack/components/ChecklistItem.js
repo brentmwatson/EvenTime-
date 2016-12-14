@@ -3,8 +3,6 @@ import { Link } from 'react-router'
 import moment from 'moment'
 var DatePicker = require('react-datepicker');
 
-//got half of summary.
-//faster way to remove checkbox when deleted
 class ChecklistItem extends React.Component {
     constructor(props){
         super(props)
@@ -55,7 +53,7 @@ class ChecklistItem extends React.Component {
         })
         // .then(response => response.json())
         .then(response => window.location.reload())
-    } // need to remove checklist once it's deleted.  gets deleted, but only when refreshed
+    }
 
     render(){
         return (<div>
@@ -66,7 +64,6 @@ class ChecklistItem extends React.Component {
                             <div className={this.state.open?"backgroundPink":""}>
                             <div className="row">
                                 <div className="col-xs-2">
-                                    {/* <small className="donedone text-muted"><label htmlFor="checkbox">done</label></small> */}
                                     <div className="checkbox">
                                         <label><input type="checkbox" value="true" onChange={this.completed} checked={this.state.milestone.complete} /></label>
                                     </div>
@@ -74,8 +71,8 @@ class ChecklistItem extends React.Component {
                                 <div className={this.state.open?"whiteFont":""}>
                                 <div className="col-xs-10" onClick={() => this.setState({open:!this.state.open})}>
                                     <h4 style={{textDecoration:this.state.milestone.complete?'line-through':''}} >{this.state.milestone.complete}{this.state.milestone.title}</h4>
-                                    <small>Due Date: </small>
-                                    <small>{moment(this.state.milestone.date).format('L')}</small>
+                                    <small className="moveUp">Due Date: </small>
+                                    <small className="moveUp">{moment(this.state.milestone.date).format('L')}</small>
                                 </div>
                             </div>
                             </div>

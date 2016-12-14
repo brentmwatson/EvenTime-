@@ -9,28 +9,33 @@ import VendorAdd from './VendorAdd'
 class Vendor extends React.Component {
     constructor(props){
         super(props)
+        this.state = {
+            address:[],
+            contact: [],
+        }
     }
-    // componentWillMount(){
-    //     let user = JSON.parse(sessionStorage.getItem('user'))
-    //
-    //     fetch('/api/vendors/' + user.events[0].id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
-    //         {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //         })
-    //         .then(response => response.json())
-    //         .then(response => console.log(response))
-    //         //.then(response => this.setState({milestones: response.event.milestones}))
-    // }
+    componentWillMount(){
+        let user = JSON.parse(sessionStorage.getItem('user'))
+
+        fetch('/api/vendors/' + user.events[0].id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
+            {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+            })
+            .then(response => response.json())
+            .then(response => console.log(response))
+            //.then(response => this.setState({vendor: response.event.vendor}))
+    }
 
 
     render(){
-        // var vendoradding = this.state.vendors.map((vendors, i) =>{
-        //     return <vendorAdd vendor={vendors} key={i}/>})
+        // var vendoradding = this.state.vendor.map((vendor, i) =>{
+        //     return <vendorAdd vendor={vendor} key={i}/>})
 
-        var hasvendor = undefined
+        //var hasvendor = undefined
+
         //need to toggle if none, display none, if you added a vendor, display vendor
         return (<div  className="backgroundImagePic">
             <Nav />
@@ -43,8 +48,8 @@ class Vendor extends React.Component {
                   <div className="col-sm-9">
                     <div className="panel panel-default">
                       <div className="panel-body">
-                        {hasvendor?<VendorSingle />:''}
-
+                          {/* {hasEvent? <VendorSingle /> : ''} */}
+                          <VendorSingle />
                         <hr />
                         <div className="row">
                           <VendorAdd />

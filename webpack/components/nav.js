@@ -26,7 +26,7 @@ class Nav extends React.Component {
                         </div>
                         <div className="col-sm-3">
                             <ul className="list-unstyled list-inline">
-                                {/* <Link to="/event/vendor"><li className="vendorLink">Vendor</li></Link> */}
+                                <Link to="/event/vendor"><li className="vendorLink">Vendor</li></Link>
                             </ul>
                         </div>
                         <div className="col-sm-6 text-right">

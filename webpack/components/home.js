@@ -29,9 +29,11 @@ class Home extends React.Component {
     render(){
         var hasEvent = (typeof user.events[0] != 'undefined')
 
+
         console.log(email)
 
         return (<div className="backgroundImagePic">
+
             <Nav />
             <main>
                 <div className="container-fluid backgroundImagePic">

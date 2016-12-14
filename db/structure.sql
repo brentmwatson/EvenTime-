@@ -191,7 +191,8 @@ CREATE TABLE events (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     user_id integer,
-    date character varying
+    date character varying,
+    vendor_id integer
 );
 
 
@@ -589,6 +590,13 @@ CREATE INDEX index_events_on_user_id ON events USING btree (user_id);
 
 
 --
+-- Name: index_events_on_vendor_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_events_on_vendor_id ON events USING btree (vendor_id);
+
+
+--
 -- Name: index_milestones_on_event_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -757,6 +765,14 @@ ALTER TABLE ONLY venues
 
 
 --
+-- Name: fk_rails_aea2356705; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT fk_rails_aea2356705 FOREIGN KEY (vendor_id) REFERENCES vendors(id);
+
+
+--
 -- Name: fk_rails_b5ec0f31eb; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -802,6 +818,6 @@ ALTER TABLE ONLY milestones
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423'), ('20161130202406'), ('20161130213031'), ('20161130222450'), ('20161130224243'), ('20161201155144'), ('20161207185111'), ('20161207205503'), ('20161208203228'), ('20161208203516'), ('20161212151529');
+INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423'), ('20161130202406'), ('20161130213031'), ('20161130222450'), ('20161130224243'), ('20161201155144'), ('20161207185111'), ('20161207205503'), ('20161208203228'), ('20161208203516'), ('20161212151529'), ('20161214203414');
 
 

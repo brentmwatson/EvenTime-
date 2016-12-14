@@ -1,7 +1,7 @@
 class VendorsController < ApplicationController
   before_action :require_user
   before_action :find_vendor, only: [:show, :update, :destroy]
-  before_action :find_milestone, only: [:create]
+  before_action :find_event, only: [:create]
   def index # GET    /api/vendors
       # when user clicks* can see all avaible vendors from db => vendor#index
       @vendor = Vendors.all
@@ -18,18 +18,17 @@ class VendorsController < ApplicationController
     # PATCH user#update???
     # when user clicks* add vendor to event => event#update
     # when user clicks* add vendor it's added to vendors list
-    @vendor = Vendor.create!(vendor_params)
-    @milestone.vendor = @vendor
-    @milestone.save
+    @vendor = Vendor.create(vendor_params)
+    @event.vendors << @vendor
     # when user clicks* add vendor it's added to event => event#update
     @vendor.address = Address.new(address_params)
     @vendor.contact = Contact.new(contact_params)
 
-      if @vendor.save
-          render :json => @vendor, :status => 201
-      else
-          render :json => "Unable to create vendor", :status => 422
-      end
+    if @event.save
+        render :json => @event, :status => 201
+    else
+        render :json => "Unable to create event items", :status => 422
+    end
   end
 
 

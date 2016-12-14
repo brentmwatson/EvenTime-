@@ -16,10 +16,10 @@ class LeftbarDays extends React.Component {
 
     return (<div>
 <h4 className="text-center">Your event date:</h4>
-      <h2 className="text-center">{eventDate.format('l')}</h2>
+      <div className="text-center eventDate">{eventDate.format('l')}</div>
       <br />
       <h5 className="text-center">Your event is </h5>
-        <h1 className="text-center">{diff}</h1>
+        <div className="text-center daysDiff">{diff}</div>
         <h5 className="text-center">day{diff===1?'':'s'} away</h5>
         <br />
     </div>

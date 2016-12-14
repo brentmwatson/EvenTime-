@@ -38,7 +38,7 @@ class VendorSingle extends React.Component {
                 <div className="panel-body">
                     <div className="row">
                         <div className="col-sm-12 text-center">
-                            <h1>Vendor List</h1>
+                            <h1 className="vendorListN">Vendor List</h1>
                         </div>
                     </div>
                     <hr />
@@ -48,7 +48,7 @@ class VendorSingle extends React.Component {
                             <h3>{this.state.name}</h3>
                         </div>
                         <div className="col-sm-4 text-center">
-                            <h3>{this.state.category}</h3>
+                            <h3>{this.state.role}</h3>
                         </div>
                         <div className="col-sm-4 text-center">
                             <h3>{this.state.phone_num}</h3>
@@ -67,7 +67,7 @@ class VendorSingle extends React.Component {
                     </div>
                     <div className="row">
                         <div className="col-sm-4 text-right">
-                            <h5>{this.state.zip}</h5>
+                            <h5>{this.state.email}</h5>
                         </div>
                         <div className="col-sm-3 text-right">
                             <h5>{this.state.f_name}</h5>

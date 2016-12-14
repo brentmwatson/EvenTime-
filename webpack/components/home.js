@@ -34,8 +34,7 @@ class Home extends React.Component {
         console.log(email)
         //console.log(user)
         //console.log(id)
-
-
+        
         return (<div>
             <Nav />
             <main>

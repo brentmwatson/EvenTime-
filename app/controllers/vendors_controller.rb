@@ -19,6 +19,7 @@ class VendorsController < ApplicationController
     # when user clicks* add vendor to event => event#update
     # when user clicks* add vendor it's added to vendors list
     @vendor = Vendor.create!(vendor_params)
+    @milestone =
     @milestone.vendor = @vendor
     @milestone.save
     # when user clicks* add vendor it's added to event => event#update

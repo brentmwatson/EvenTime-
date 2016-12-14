@@ -3,4 +3,5 @@ class VendorSerializer < ActiveModel::Serializer
   has_many :milestones # arrays the events
   has_one :address
   has_one :contact, :through => :addresses
+
 end

@@ -58,10 +58,10 @@ class Addevent extends React.Component {
     }
     render(){
 
-        return (<div className="addEventTitlet">
+        return (<div className="addEventTitlet backgroundImagePic">
             <Nav />
             <main>
-                <div className="container">
+                <div className="container-fluid">
                     <div className="row">
                         <div className="col-sm-3">
                             <AddeventLeftbar />

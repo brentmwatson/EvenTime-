@@ -556,12 +556,40 @@ body, img {
   box-shadow: inset 0 0 0 3px white;
 }
 
-.addFileBtn {
-  margin-top: 10px;
+#background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+  /* Ensure div tag stays behind content; -999 might work, too. */
 }
 
-.panel-title {
-  cursor: pointer;
+.stretch {
+  width: 100%;
+  height: 100%;
+}
+
+.homePageTitlep {
+  font-family: 'Merriweather', serif;
+}
+
+.leftbarSum, .masterName, .questionTitle {
+  font-size: 3vw;
+}
+
+.daysDiff {
+  font-size: 3vw;
+}
+
+.eventDate {
+  font-size: 2vw;
+  text-align: center;
+}
+
+.addFileBtn {
+  margin-top: 10px;
 }
 
 .panel-body {
@@ -569,6 +597,7 @@ body, img {
 }
 
 .panel-title {
+  cursor: pointer;
   background-color: white;
   margin: -10px -15px;
 }
@@ -588,8 +617,13 @@ body, img {
   overflow: hidden;
 }
 
-.homePageTitlep {
-  font-family: 'Merriweather', serif;
+.backgroundPink {
+  background-color: #C97B84;
+}
+
+.moveUp {
+  font-size: 10px;
+  padding-bottom: 20px;
 }
 
 .addTodobutton {
@@ -601,14 +635,6 @@ body, img {
 .masterName, .homePageTitle, .leftbarSum, .addEventTitle, .questionTitle {
   color: #C97B84;
   font-family: 'Merriweather', serif;
-}
-
-.donedone {
-  margin-left: 8px;
-}
-
-.backgroundPink {
-  background-color: #C97B84;
 }
 
 .whiteFont {

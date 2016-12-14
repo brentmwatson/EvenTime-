@@ -16,7 +16,7 @@ class Leftbar extends React.Component {
           <div className="leftSummary">
             <div className="row">
               <div className="col-sm-12">
-                <h1 className="leftbarSum">Summary</h1>
+                <div className="text-center leftbarSum">Summary</div>
                 <hr />
                 <LeftbarDays />
                 <LeftbarTasks {...this.props} />

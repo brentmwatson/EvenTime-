@@ -2,6 +2,7 @@ class VendorsController < ApplicationController
   before_action :require_user
   before_action :find_vendor, only: [:show, :update, :destroy]
   before_action :find_event, only: [:create]
+
   def index # GET    /api/vendors
       # when user clicks* can see all avaible vendors from db => vendor#index
       @vendor = current_user.vendors.all

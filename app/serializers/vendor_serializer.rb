@@ -1,6 +1,6 @@
 class VendorSerializer < ActiveModel::Serializer
   attributes :id, :service
-  belongs_to :address
+  has_one :address
   belongs_to :contact
 
 end

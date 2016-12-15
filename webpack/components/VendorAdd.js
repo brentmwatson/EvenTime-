@@ -55,8 +55,8 @@ class VendorAdd extends React.Component {
     )
     .then(response => response.json())
     .then(response => {
-        //console.log(response)
-        window.location.reload()
+        console.log(response)
+        // window.location.reload()
     })
     }
 

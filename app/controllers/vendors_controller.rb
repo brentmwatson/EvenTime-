@@ -74,7 +74,7 @@ class VendorsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit(:f_name, :l_name, :phone_num, :role)
+      params.require(:contact).permit(:f_name, :l_name, :phone_num, :role, :email, :name)
     end
 
 

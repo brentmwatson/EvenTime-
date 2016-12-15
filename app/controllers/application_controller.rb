@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base # or ActionController::API
   private
   def require_user
     unless current_user
-      render :json => "User must exisist to access this part of the site", :status => 403
+      render :json => "User must exist to access this part of the site", :status => 403
     end
 
   end

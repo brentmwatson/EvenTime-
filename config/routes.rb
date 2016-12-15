@@ -37,15 +37,15 @@ end
   # get '/:react' => 'welcome/index'
 
 # DEVISE MESS*************
-# new_user_session GET   /users/sign_in(.:format)        users/sessions#new
-#     user_session POST  /users/sign_in(.:format)        users/sessions#create
+# new_user_session  GET   /users/sign_in(.:format)      users/sessions#new
+#     user_session  POST  /users/sign_in(.:format)      users/sessions#create
 # destroy_user_session DELETE /users/sign_out(.:format) users/sessions#destroy
 #
-#    user_password   POST /users/password(.:format)      devise/passwords#create
-# new_user_password  GET   /users/password/new(.:format) devise/passwords#new
-# edit_user_password GET  /users/password/edit(.:format) devise/passwords#edit
-#                   PATCH /users/password(.:format)      devise/passwords#update
-#                    PUT   /users/password(.:format)     devise/passwords#update
+#    user_password  POST /users/password(.:format)      devise/passwords#create
+#new_user_password  GET   /users/password/new(.:format) devise/passwords#new
+#edit_user_password GET  /users/password/edit(.:format) devise/passwords#edit
+#                   PATCH /users/password(.:format)     devise/passwords#update
+#                   PUT   /users/password(.:format)     devise/passwords#update
 #
 #cancel_user_registration GET /users/cancel(.:format) users/registrations#cancel
 # user_registration POST   /users(.:format)          users/registrations#create

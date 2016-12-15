@@ -13,5 +13,6 @@ class User < ActiveRecord::Base
 
   has_many :events
   has_many :milestones, :through => :events
+  has_many :vendors, :through => :events
   # has_one :contact
 end

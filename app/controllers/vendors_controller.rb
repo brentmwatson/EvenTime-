@@ -4,7 +4,7 @@ class VendorsController < ApplicationController
   before_action :find_event, only: [:create]
   def index # GET    /api/vendors
       # when user clicks* can see all avaible vendors from db => vendor#index
-      @vendor = Vendor.all
+      @vendor = current_user.vendors.all
       render :json => @vendor
   end
 

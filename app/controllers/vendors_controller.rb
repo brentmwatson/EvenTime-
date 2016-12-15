@@ -53,7 +53,7 @@ class VendorsController < ApplicationController
     end
 
     def find_event_vendors
-      @vendor = current_user.events.vendors.find(params[:id])
+      @vendor = current_user.vendors.find(params[:id])
     end
 
     def find_milestone

@@ -53,6 +53,7 @@ class Addevent extends React.Component {
                 //console.log(response.event.id)
                 //console.log('suppose to be... response.event.id')
                 sessionStorage.setItem('event_id', response.event.id)
+                sessionStorage.setItem('event', response.event.id)
                 browserHistory.push('/event/questions')
             })
     }

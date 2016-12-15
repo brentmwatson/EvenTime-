@@ -1,5 +1,5 @@
 class Vendor < ApplicationRecord
-  # has_many :agreements
+  # has_many :agreement
   has_many :milestones
   has_one :address
   belongs_to :event

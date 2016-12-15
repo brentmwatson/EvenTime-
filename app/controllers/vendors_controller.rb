@@ -27,8 +27,8 @@ class VendorsController < ApplicationController
     @vendor.address = Address.new(address_params)
     @vendor.contact = Contact.new(contact_params)
 
-    if @event.save
-        render :json => @event, :status => 201
+    if @vendor.save
+        render :json => @vendor, :status => 201
     else
         render :json => "Unable to create event items", :status => 422
     end

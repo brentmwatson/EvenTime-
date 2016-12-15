@@ -37,12 +37,6 @@ class VendorSingle extends React.Component {
             <div className="panel panel-default">
                 <div className="panel-body">
                     <div className="row">
-                        <div className="col-sm-12 text-center">
-                            <h1 className="vendorListN">Vendor List</h1>
-                        </div>
-                    </div>
-                    <hr />
-                    <div className="row">
                         <div className="col-sm-4 text-left">
                             <h3>{this.state.vendor.name}</h3>
                         </div>

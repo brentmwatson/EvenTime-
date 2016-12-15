@@ -15,7 +15,7 @@ class Vendor extends React.Component {
     }
     componentWillMount(){
         let user = JSON.parse(sessionStorage.getItem('user'))
-        let event = sessionStorage.getItem('event')
+        // let event = sessionStorage.getItem('event')
 
         fetch('/api/events/' + user.events[0].id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
             {
@@ -25,8 +25,8 @@ class Vendor extends React.Component {
             }
             })
             .then(response => response.json())
-            .then(response => console.log(response))
-            //.then(response => this.setState({vendors: response.event.vendors}))
+            //.then(response => console.log(response))
+            .then(response => this.setState({vendors: response.event.vendors}))
     }
 
 
@@ -48,6 +48,12 @@ class Vendor extends React.Component {
                   <div className="col-sm-9">
                     <div className="panel panel-default">
                       <div className="panel-body">
+                          <div className="row">
+                              <div className="col-sm-12 text-center">
+                                  <h1 className="vendorListN">Vendor List</h1>
+                              </div>
+                          </div>
+                          <hr />
                           {/* {hasVendor?{vendorAdding}:""} */}
                           {vendorAdding}
                         <hr />

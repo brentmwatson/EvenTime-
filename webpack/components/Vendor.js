@@ -17,7 +17,8 @@ class Vendor extends React.Component {
         let user = JSON.parse(sessionStorage.getItem('user'))
         // let event = sessionStorage.getItem('event')
 
-        fetch('/api/events/' + user.events[0].id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
+        // fetch('/api/events/' + user.events[0].id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
+        fetch('/api/vendors?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
             {
             method: 'GET',
             headers: {
@@ -26,14 +27,14 @@ class Vendor extends React.Component {
             })
             .then(response => response.json())
             //.then(response => console.log(response))
-            .then(response => this.setState({vendors: response.event.vendors}))
+            .then(response => this.setState({vendors: response.vendors}))
     }
 
 
     render(){
         var vendorAdding = this.state.vendors.map((vendor, i) =>{
-            return <VendorSingle vendor={vendor} key={i}/>})
-
+            return <VendorSingle vendor={vendor}  key={i}/>})
+//id?
         var hasVendor = undefined
 //need to toggle if none, display none, if you added a vendor, display vendor
 

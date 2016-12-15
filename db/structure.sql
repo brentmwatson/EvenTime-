@@ -230,7 +230,6 @@ CREATE TABLE milestones (
     updated_at timestamp without time zone NOT NULL,
     event_id integer,
     venue_id integer,
-    vendor_id integer,
     title character varying,
     complete boolean DEFAULT false
 );
@@ -614,13 +613,6 @@ CREATE INDEX index_milestones_on_event_id ON milestones USING btree (event_id);
 
 
 --
--- Name: index_milestones_on_vendor_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_milestones_on_vendor_id ON milestones USING btree (vendor_id);
-
-
---
 -- Name: index_milestones_on_venue_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -751,14 +743,6 @@ ALTER TABLE ONLY milestones
 
 
 --
--- Name: fk_rails_51b0896111; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY milestones
-    ADD CONSTRAINT fk_rails_51b0896111 FOREIGN KEY (vendor_id) REFERENCES vendors(id);
-
-
---
 -- Name: fk_rails_67e9674de3; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -836,6 +820,6 @@ ALTER TABLE ONLY addresses
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423'), ('20161130202406'), ('20161130213031'), ('20161130222450'), ('20161130224243'), ('20161201155144'), ('20161207185111'), ('20161207205503'), ('20161208203228'), ('20161208203516'), ('20161212151529'), ('20161214203414'), ('20161215174457'), ('20161215175339');
+INSERT INTO schema_migrations (version) VALUES ('20161128202355'), ('20161129153801'), ('20161129204636'), ('20161130170744'), ('20161130172732'), ('20161130175547'), ('20161130184341'), ('20161130193650'), ('20161130195334'), ('20161130200423'), ('20161130202406'), ('20161130213031'), ('20161130222450'), ('20161130224243'), ('20161201155144'), ('20161207185111'), ('20161207205503'), ('20161208203228'), ('20161208203516'), ('20161212151529'), ('20161214203414'), ('20161215174457'), ('20161215175339'), ('20161215182231');
 
 

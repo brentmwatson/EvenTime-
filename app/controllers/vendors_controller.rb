@@ -1,6 +1,6 @@
 class VendorsController < ApplicationController
   before_action :require_user
-  before_action :find_event_vendors, only: [:show, :update, :destroy]
+  before_action :find_vendor, only: [:show, :update, :destroy]
   before_action :find_event, only: [:create]
   def index # GET    /api/vendors
       # when user clicks* can see all avaible vendors from db => vendor#index
@@ -10,6 +10,7 @@ class VendorsController < ApplicationController
 
   def show # GET    /api/vendor/:id
       # when user clicks* can see one vendor
+      # before_action :find_vendor, only: [:show, :update, :destroy]
       render :json => @vendor
   end
 
@@ -18,6 +19,7 @@ class VendorsController < ApplicationController
     # PATCH user#update???
     # when user clicks* add vendor to event => event#update
     # when user clicks* add vendor it's added to vendors list
+    # before_action :find_event, only: [:create]
     @vendor = Vendor.create(vendor_params)
     @event.vendors << @vendor
     # when user clicks* add vendor it's added to event => event#update
@@ -33,6 +35,7 @@ class VendorsController < ApplicationController
 
 
   def update # PATCH/PUT  /api/vendors/:id
+    # before_action :find_vendor, only: [:show, :update, :destroy]
     if @vendor.update(vendor_params)
       render :json => @vendor, :status => 201
     else
@@ -42,6 +45,7 @@ class VendorsController < ApplicationController
 
 
   def destroy # DELETE /api/vendors/:id
+    # before_action :find_vendor, only: [:show, :update, :destroy]
     @vendor.destroy
     render :json => "Vendor deleted successfully", :status => 200
   end
@@ -49,10 +53,10 @@ class VendorsController < ApplicationController
   private
 
     def find_event
-        @event = current_user.events.find(params[:event_id])
+      @event = current_user.events.find(params[:event_id])
     end
 
-    def find_event_vendors
+    def find_vendor
       @vendor = current_user.vendors.find(params[:id])
     end
 

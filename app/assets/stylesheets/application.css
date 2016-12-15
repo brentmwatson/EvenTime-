@@ -690,3 +690,35 @@ body, img {
   background: #33032F;
   color: white;
 }
+
+.vendorSave .saveVBtn {
+  background-color: #60993E;
+  color: white;
+}
+
+.vendorSave button:hover {
+  background: transparent;
+  color: #60993E;
+}
+
+.vendorDelete .deleteVBtn {
+  background-color: #D36135;
+  color: white;
+}
+
+.vendorDelete button:hover {
+  background: transparent;
+  color: #D36135;
+}
+
+.vendorAddName .addNameBtn {
+  background-color: #C97B84;
+  color: white;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+
+.vendorAddName button:hover {
+  background: transparent;
+  color: #C97B84;
+}

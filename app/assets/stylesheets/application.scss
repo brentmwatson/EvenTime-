@@ -292,3 +292,39 @@ color: white;
     //box-shadow: inset 0 0 0 3px white;
   }
 }
+//vendor
+.vendorSave {
+  .saveVBtn {
+  background-color: #60993E;
+  color: white;
+  }
+  button:hover {
+    background: rgba(0,0,0,0);
+    color: #60993E;
+    //box-shadow: inset 0 0 0 1px black;
+  }
+}
+.vendorDelete {
+  .deleteVBtn {
+  background-color: #D36135;
+  color: white;
+  }
+  button:hover {
+    background: rgba(0,0,0,0);
+    color: #D36135;
+    //box-shadow: inset 0 0 0 1px black;
+  }
+}
+.vendorAddName {
+  .addNameBtn {
+  background-color: #C97B84;
+  color: white;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  }
+  button:hover {
+    background: rgba(0,0,0,0);
+    color: #C97B84;
+    //box-shadow: inset 0 0 0 1px black;
+  }
+}

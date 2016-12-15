@@ -56,7 +56,7 @@ class VendorAdd extends React.Component {
     .then(response => response.json())
     .then(response => {
         console.log(response)
-        //window.location.reload()
+        // window.location.reload()
     })
     }
 
@@ -66,7 +66,7 @@ class VendorAdd extends React.Component {
                 <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div className="panel panel-default">
                         <div className="panel-heading" role="tab" id="headingOne">
-                            <h4 className="panel-title">
+                            <h4 className="panel-title backgroundPink whiteFont ">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Add a Business
                                 </a>
@@ -75,13 +75,13 @@ class VendorAdd extends React.Component {
                         <div id="collapseOne" className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div className="panel-body">
                                 <div className="row">
-                                    <div className="col-sm-6 text-left">
+                                    <div className="col-sm-6">
                                         <div className="form-group">
                                             <label htmlFor="username">Business Name</label>
                                             <input type="text" className="form-control" id="username" placeholder="Enter Business Name" value={this.state.name} onChange={(e) => this.setState({name:e.target.value})}/>
                                         </div>
                                     </div>
-                                    <div className="col-sm-6 text-left">
+                                    <div className="col-sm-6">
                                         <div className="form-group">
                                             <label htmlFor="vendorCat">Category</label>
                                             <input type="text" className="form-control" id="category" placeholder="Enter Category" value={this.state.role} onChange={(e) => this.setState({role:e.target.value})}/>
@@ -90,13 +90,13 @@ class VendorAdd extends React.Component {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-sm-6 text-left">
+                                    <div className="col-sm-6">
                                         <div className="form-group">
                                             <label htmlFor="phonenumber">Phone Number</label>
                                             <input type="text" className="form-control" id="vaPhone" placeholder="(xxx)-(xxx)-(xxxx)" maxLength="10" value={this.state.phone_num} onChange={(e) => this.setState({phone_num:e.target.value})}/>
                                         </div>
                                     </div>
-                                    <div className="col-sm-6 text-left">
+                                    <div className="col-sm-6">
                                         <div className="form-group">
                                             <label htmlFor="email">Email</label>
                                             <input type="email" className="form-control" id="vaEmail" placeholder="enter email" value={this.state.email} onChange={(e) => this.setState({email:e.target.value})}/>
@@ -130,13 +130,13 @@ class VendorAdd extends React.Component {
                                 </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-sm-6 text-left">
+                                    <div className="col-sm-6">
                                         <div className="form-group">
                                             <label htmlFor="firstname"> Contact First Name</label>
                                             <input type="text" className="form-control" id="vaFirst_name" placeholder="Enter Contact First Name" value={this.state.f_name} onChange={(e) => this.setState({f_name:e.target.value})}/>
                                         </div>
                                         </div>
-                                        <div className="col-sm-6 text-left">
+                                        <div className="col-sm-6">
                                             <div className="form-group">
                                                 <label htmlFor="lastname"> Contact Last Name</label>
                                                 <input type="text" className="form-control" id="vaLast_name" placeholder="Enter Contact Last Name" value={this.state.l_name} onChange={(e) => this.setState({l_name:e.target.value})}/>
@@ -145,9 +145,8 @@ class VendorAdd extends React.Component {
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-sm-12">
-                                        <div className="form-group"> <button className="btn btn-default pull-right" onClick={this.addBusiness}>Add Business</button>
-                                    </div>
+                                    <div className="col-sm-12 vendorAddName">
+                                        <button className="btn btn-default addNameBtn pull-right" onClick={this.addBusiness}>Add Business</button>
                                 </div>
                             </div>
                         </div>

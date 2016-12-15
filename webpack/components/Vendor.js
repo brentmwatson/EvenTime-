@@ -10,8 +10,7 @@ class Vendor extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            address:[],
-            contact: [],
+            vendors: [],
         }
     }
     componentWillMount(){
@@ -26,17 +25,17 @@ class Vendor extends React.Component {
             })
             .then(response => response.json())
             .then(response => console.log(response))
-            //.then(response => this.setState({vendor: response.event.vendor}))
+            //.then(response => this.setState({vendors: response.event.vendors}))
     }
 
 
     render(){
-        // var vendoradding = this.state.vendor.map((vendor, i) =>{
-        //     return <vendorAdd vendor={vendor} key={i}/>})
+        var vendorAdding = this.state.vendors.map((vendor, i) =>{
+            return <VendorSingle vendor={vendor} key={i}/>})
 
-        //var hasvendor = undefined
+        var hasVendor = undefined
+//need to toggle if none, display none, if you added a vendor, display vendor
 
-        //need to toggle if none, display none, if you added a vendor, display vendor
         return (<div  className="backgroundImagePic">
             <Nav />
             <main>
@@ -48,8 +47,8 @@ class Vendor extends React.Component {
                   <div className="col-sm-9">
                     <div className="panel panel-default">
                       <div className="panel-body">
-                          {/* {hasEvent? <VendorSingle /> : ''} */}
-                          <VendorSingle />
+                          {/* {hasVendor?{vendorAdding}:""} */}
+                          {vendorAdding}
                         <hr />
                         <div className="row">
                           <VendorAdd />

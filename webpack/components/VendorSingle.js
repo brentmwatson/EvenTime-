@@ -21,7 +21,7 @@ class VendorSingle extends React.Component {
             }
         })
         .then(response => response.json())
-         .then(response => console.log(response))
+         //.then(response => console.log(response))
         .then(response => window.location.reload())
     }
     deleteItem() {
@@ -42,38 +42,37 @@ class VendorSingle extends React.Component {
                         </div>
                     </div>
                     <hr />
-
                     <div className="row">
                         <div className="col-sm-4 text-left">
-                            <h3>{this.state.name}</h3>
+                            <h3>{this.state.vendor.name}</h3>
                         </div>
                         <div className="col-sm-4 text-center">
-                            <h3>{this.state.role}</h3>
+                            <h3>{this.state.vendor.role}</h3>
                         </div>
                         <div className="col-sm-4 text-center">
-                            <h3>{this.state.phone_num}</h3>
+                            <h3>{this.state.vendor.phone_num}</h3>
                         </div>
                     </div>
                      <div className="row">
                         <div className="col-sm-4 text-right">
-                            <h5>{this.state.street}</h5>
+                            <h5>{this.state.vendor.street}</h5>
                         </div>
                         <div className="col-sm-3 text-right">
-                            <h5>{this.state.city}, {this.state.state}</h5>
+                            <h5>{this.state.vendor.city}, {this.state.vendor.state}</h5>
                         </div>
                         <div className="col-sm-3 text-left">
-                            <h5>{this.state.zip}</h5>
+                            <h5>{this.state.vendor.zip}</h5>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-sm-4 text-right">
-                            <h5>{this.state.email}</h5>
+                            <h5>{this.state.vendor.email}</h5>
                         </div>
                         <div className="col-sm-3 text-right">
-                            <h5>{this.state.f_name}</h5>
+                            <h5>{this.state.vendor.f_name}</h5>
                         </div>
                         <div className="col-sm-3 text-left">
-                            <h5>{this.state.l_name}</h5>
+                            <h5>{this.state.vendor.l_name}</h5>
                         </div>
                     </div>
                      <div className="row">

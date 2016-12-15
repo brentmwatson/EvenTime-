@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
     before_action :require_user
     before_action :find_event, only: [:destroy, :show]
+    before_action :find_event, only: [:destroy, :show]
 
     def index       # GET  /api/events
+      
         @event = Event.all
          render :json => current_user.events.all
     end

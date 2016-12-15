@@ -15,8 +15,9 @@ class Vendor extends React.Component {
     }
     componentWillMount(){
         let user = JSON.parse(sessionStorage.getItem('user'))
+        let event = sessionStorage.getItem('event')
 
-        fetch('/api/vendors/' + user.events[0].id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
+        fetch('/api/events/' + user.events[0].id + '?user_token=' +  sessionStorage.getItem('auth_token') + '&user_email=' + sessionStorage.getItem('email'),
             {
             method: 'GET',
             headers: {
